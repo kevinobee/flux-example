@@ -9,7 +9,7 @@ set -o nounset;
 # set -x;
 
 echo
-echo "Install CLI tools using Homebrew on Linux ..."    # ref: https://brew.sh/
+echo "Setup required CLI tools (uses Homebrew on Linux) ..."    # ref: https://brew.sh/
 
 brewTools=( \
   "kind" \
@@ -35,7 +35,7 @@ if [[ ! $(which "flux") ]]; then
 fi
 
 echo
-echo "Install kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
+echo "Setup kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
 
 kubectlPlugins=( \
   "starboard"
@@ -59,7 +59,7 @@ fi
 kubectl cluster-info
 
 echo
-echo "Install Flux ..."
+echo "Install Flux in cluster ..."
 flux check --pre
 
 flux bootstrap github \
@@ -69,9 +69,7 @@ flux bootstrap github \
   --path=./clusters/dev-cluster \
   --personal
 
-echo
 kubectl get gitrepository.source.toolkit.fluxcd.io -A
-echo
 kubectl get kustomizations.kustomize.toolkit.fluxcd.io -A
 
 echo
