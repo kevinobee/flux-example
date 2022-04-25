@@ -8,30 +8,50 @@ set -o nounset;
 # debug commands
 # set -x;
 
-# Homebrew on Linux - ref: https://brew.sh/
+echo
+echo "Install CLI tools using Homebrew on Linux ..."    # ref: https://brew.sh/
+
+brewTools=( \
+  "kind" \
+  "krew" \
+  "octant"
+)
+
 if [ ! $(which brew) ]; then
   (
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
   )
 fi
 
-brewTools=( \
-  "kind" \
-  "octant"
-)
-
 for i in "${brewTools[@]}"
 do
   if [[ ! $(which "${i}") ]]; then
-    echo "Installing ${i} CLI ... "
-    brew install ${i} -q
+    brew install ${i}
   fi
 done
 
 if [[ ! $(which "flux") ]]; then
-  brew install "fluxcd/tap/flux" -q
+  brew install "fluxcd/tap/flux"
 fi
 
+echo
+echo "Install kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
+
+kubectlPlugins=( \
+  "starboard"
+)
+
+kubectl krew update
+
+for i in "${kubectlPlugins[@]}"
+do
+  if [[ ! $(which "${i}") ]]; then
+    kubectl krew install ${i}
+  fi
+done
+
+echo
+echo "Setup Kubernestes cluster ..."
 if [ ! $(kind get clusters --quiet) ]; then
   kind create cluster
   kubectl wait node --all --for condition=ready
@@ -56,12 +76,15 @@ kubectl get kustomizations.kustomize.toolkit.fluxcd.io -A
 
 echo
 echo
-echo "To watch Flux kustomizations run:"
+echo "Next steps:"
+echo "-----------"
+echo
+echo "Watch Flux kustomizations run:"
 echo
 echo "kubectl get kustomizations.kustomize.toolkit.fluxcd.io -A -w"
 echo
 echo
-echo "To view the cluster configuration run:"
+echo "View the cluster configuration dashboard:"
 echo
 echo "octant"
 echo
