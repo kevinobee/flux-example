@@ -28,14 +28,14 @@ jobs:
           kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment source-controller
           kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment notification-controller
 
-      # - name: Setup cluster reconciliation
-      #   run: |
-      #     flux create source git flux-system \
-      #     --url=${{ github.event.repository.html_url }} \
-      #     --branch=${GITHUB_REF#refs/heads/}
-      #     flux create kustomization flux-system \
-      #     --source=flux-system \
-      #     --path=./cluster
+      - name: Setup cluster reconciliation
+        run: |
+          flux create source git flux-system \
+          --url=${{ github.event.repository.html_url }} \
+          --branch=${GITHUB_REF#refs/heads/}
+          flux create kustomization flux-system \
+          --source=flux-system \
+          --path=./cluster
 
       - name: Verify cluster reconciliation
         run: |
