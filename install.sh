@@ -65,11 +65,17 @@ kubectl cluster-info
 echo
 echo "Install Flux in cluster ..."
 flux check --pre
-flux install
 
-echo
-echo "Sync Flux kustomizations to cluster ..."
-kubectl apply -k cluster/flux-system
+flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=flux-example \
+  --branch=main \
+  --path=./cluster \
+  --personal
+
+# echo
+# echo "Sync Flux kustomizations to cluster ..."
+# kubectl apply -k cluster/flux-system
 # TODO add services, apps and tools to sync ...
 
 echo
