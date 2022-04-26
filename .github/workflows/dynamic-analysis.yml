@@ -6,8 +6,7 @@ on:
 
 jobs:
 
-  run-test:
-    name: Cluster Sync
+  kubernetes:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -21,17 +20,18 @@ jobs:
       - name: Setup Kubernetes
         uses: engineerd/setup-kind@v0.5.0
 
-      - name: Install Flux in Kubernetes Kind
-        run: flux install
-
-      - name: Setup cluster reconciliation
+      - name: Install Flux
         run: |
-          flux create source git flux-system \
-          --url=${{ github.event.repository.html_url }} \
-          --branch=${GITHUB_REF#refs/heads/}
-          flux create kustomization flux-system \
-          --source=flux-system \
-          --path=./cluster
+          kubectl apply -k cluster/flux-system
+
+      # - name: Setup cluster reconciliation
+      #   run: |
+      #     flux create source git flux-system \
+      #     --url=${{ github.event.repository.html_url }} \
+      #     --branch=${GITHUB_REF#refs/heads/}
+      #     flux create kustomization flux-system \
+      #     --source=flux-system \
+      #     --path=./cluster
 
       - name: Verify cluster reconciliation
         run: |
