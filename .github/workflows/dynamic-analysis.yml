@@ -16,8 +16,8 @@ jobs:
 
     - name: Run install script
       env:
-        GITHUB_USER: kevinobee
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_USER: ${{ github.actor }}
+        GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
       run: |
         ./install.sh
 
