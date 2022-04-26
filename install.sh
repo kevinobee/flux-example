@@ -10,6 +10,7 @@ set -o nounset;
 
 echo
 echo "Setup required CLI tools (uses Homebrew on Linux) ..."    # ref: https://brew.sh/
+export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 
 brewTools=( \
   "kind" \
@@ -25,8 +26,8 @@ fi
 
 for i in "${brewTools[@]}"
 do
-  if [[ ! $(which "${i}") ]]; then
-    brew install ${i}
+  if [[ ! $(brew list "${i}") ]]; then
+    brew install "${i}"
   fi
 done
 
@@ -36,6 +37,9 @@ fi
 
 echo
 echo "Setup kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
+if [ ! $(echo ${PATH} | grep ".krew/bin") ]; then
+  export PATH="${PATH}:${HOME}/.krew/bin"
+fi
 
 kubectlPlugins=( \
   "starboard"
@@ -45,13 +49,13 @@ kubectl krew update
 
 for i in "${kubectlPlugins[@]}"
 do
-  if [[ ! $(which "${i}") ]]; then
+  if [[ ! $(kubectl "${i}" version) ]]; then
     kubectl krew install ${i}
   fi
 done
 
 echo
-echo "Setup Kubernestes cluster ..."
+echo "Setup Kubernetes cluster ..."
 if [ ! $(kind get clusters --quiet) ]; then
   kind create cluster
   kubectl wait node --all --for condition=ready
