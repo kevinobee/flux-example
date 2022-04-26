@@ -7,31 +7,61 @@ on:
 jobs:
 
   run-test:
-    name: Flux Sync
+    name: Cluster Sync
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
     steps:
-    - uses: actions/checkout@v1
+      - name: Checkout
+        uses: actions/checkout@v1
 
-    - name: Run install script
-      env:
-        GITHUB_USER: ${{ github.actor }}
-        GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
-      run: |
-        ./install.sh
+      - name: Setup Flux
+        uses: fluxcd/flux2/action@main
 
-    - name: Docker network checks
-      run: |
-        docker network inspect -f '{{.IPAM.Config}}' kind
+      - name: Setup Kubernetes
+        uses: engineerd/setup-kind@v0.5.0
 
-    - name: Namespace checks
-      run: |
-        ns=( \
-          "flux-system"
-        )
+      - name: Install Flux in Kubernetes Kind
+        run: flux install
 
-        for i in "${ns[@]}"
-        do
-          kubectl get ns "${i}"
-        done
+      - name: Setup cluster reconciliation
+        run: |
+          flux create source git flux-system \
+          --url=${{ github.event.repository.html_url }} \
+          --branch=${GITHUB_REF#refs/heads/}
+          flux create kustomization flux-system \
+          --source=flux-system \
+          --path=./cluster
+
+      - name: Verify cluster reconciliation
+        run: |
+          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
+          # kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
+          # kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
+
+      # - name: Verify helm reconciliation
+      #   run: |
+      #     kubectl -n nginx wait helmrelease/nginx --for=condition=ready --timeout=1m
+
+      - name: Debug failure
+        if: failure()
+        run: |
+          kubectl -n flux-system get all
+          kubectl -n flux-system logs deploy/source-controller
+          kubectl -n flux-system logs deploy/kustomize-controller
+          kubectl -n flux-system logs deploy/helm-controller
+
+      # - name: Docker network checks
+      #   run: |
+      #     docker network inspect -f '{{.IPAM.Config}}' kind
+
+      # - name: Namespace checks
+      #   run: |
+      #     ns=( \
+      #       "flux-system"
+      #     )
+
+      #     for i in "${ns[@]}"
+      #     do
+      #       kubectl get ns "${i}"
+      #     done

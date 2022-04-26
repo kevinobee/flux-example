@@ -11,7 +11,7 @@ spec:
     branch: main
   secretRef:
     name: flux-system
-  url: ssh://git@github.com/kevinobee/flux-example
+  url: https://github.com/kevinobee/flux-example.git
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/dev-cluster
+  path: ./cluster
   prune: true
   sourceRef:
     kind: GitRepository

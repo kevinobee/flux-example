@@ -65,16 +65,17 @@ kubectl cluster-info
 echo
 echo "Install Flux in cluster ..."
 flux check --pre
+flux install
 
-flux bootstrap github \
-  --owner=$GITHUB_USER \
-  --repository=flux-example \
-  --branch=main \
-  --path=./clusters/dev-cluster \
-  --personal
+echo
+echo "Sync Flux kustomizations to cluster ..."
+kubectl apply -k cluster/flux-system
+# TODO add services, apps and tools to sync ...
 
-kubectl get gitrepository.source.toolkit.fluxcd.io -A
-kubectl get kustomizations.kustomize.toolkit.fluxcd.io -A
+echo
+echo "Wait for Flux sync to complete ..."
+kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
+kubectl get gitrepo,ks -A
 
 echo
 echo
