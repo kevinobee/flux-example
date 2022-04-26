@@ -22,7 +22,11 @@ jobs:
 
       - name: Install Flux
         run: |
-          kubectl apply -k cluster/flux-system
+          kubectl apply -k cluster/flux-system --validate=false
+          kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment helm-controller
+          kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment kustomize-controller
+          kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment source-controller
+          kubectl -n flux-system wait --timeout 1m --for=condition=Available deployment notification-controller
 
       # - name: Setup cluster reconciliation
       #   run: |
