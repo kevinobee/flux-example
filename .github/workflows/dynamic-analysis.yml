@@ -39,7 +39,7 @@ jobs:
 
       - name: Wait for Flux sync
         run: |      
-          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2
+          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2m
           kubectl get gitrepo,ks -A          
           
 #     - name: Setup cluster reconciliation
