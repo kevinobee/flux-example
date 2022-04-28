@@ -31,32 +31,33 @@ jobs:
           flux check --pre
           flux install
           
-      - name: Setup cluster reconciliation
+      - name: Sync Flux kustomizations to cluster
         run: |
-          flux create source git flux-system \
-          --url=${{ github.event.repository.html_url }} \
-          --branch=${GITHUB_REF#refs/heads/}
-          flux create kustomization flux-system \
-          --source=flux-system \
-          --path=./cluster
+          kubectl apply -k cluster/flux-system
 
-      - name: Verify cluster reconciliation
-        run: |
-          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
-          # kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
-          # kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
+      - name: Wait for Flux sync
+        run: |      
+          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2
+          kubectl get gitrepo,ks -A          
+          
+#     - name: Setup cluster reconciliation
+#       run: |
+#         flux create source git flux-system \
+#         --url=${{ github.event.repository.html_url }} \
+#         --branch=${GITHUB_REF#refs/heads/}
+#         flux create kustomization flux-system \
+#         --source=flux-system \
+#         --path=./cluster
+
+#     - name: Verify cluster reconciliation
+#       run: |
+#         kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
+#         # kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
+#         # kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
 
       # - name: Verify helm reconciliation
       #   run: |
       #     kubectl -n nginx wait helmrelease/nginx --for=condition=ready --timeout=1m
-
-      - name: Debug failure
-        if: failure()
-        run: |
-          kubectl -n flux-system get all
-          kubectl -n flux-system logs deploy/source-controller
-          kubectl -n flux-system logs deploy/kustomize-controller
-          kubectl -n flux-system logs deploy/helm-controller
 
       # - name: Docker network checks
       #   run: |
@@ -72,3 +73,11 @@ jobs:
           do
             kubectl get ns "${i}"
           done
+
+      - name: Debug failure
+        if: failure()
+        run: |
+          kubectl -n flux-system get all
+          kubectl -n flux-system logs deploy/source-controller
+          kubectl -n flux-system logs deploy/kustomize-controller
+          kubectl -n flux-system logs deploy/helm-controller
