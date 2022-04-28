@@ -9,7 +9,10 @@ jobs:
   kubernetes:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-  
+    env:
+      GITHUB_USER: kevinobee  # ${{ secrets.GITHUB_USER }}
+      GITHUB_TOKEN: ${{ secrets.FLUX }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v1
@@ -21,27 +24,36 @@ jobs:
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: true
 
-                   
       - name: Setup Kubernetes
         run: |
           kind create cluster
           kubectl wait node --all --for condition=ready
           kubectl cluster-info
-          
-      - name: Install Flux
+
+      - name: Run pre-installation checks
         run: |
           flux check --pre
-          flux install
-          
-      - name: Sync Flux kustomizations to cluster
-        run: |
-          kubectl apply -k cluster/flux-system
 
-      - name: Wait for Flux sync
-        run: |      
-          kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2m
-          kubectl get gitrepo,ks -A          
-          
+      - name: Bootstrap Flux
+        run: |
+          flux bootstrap github \
+            --owner=$GITHUB_USER \
+            --repository=${REPOSITORY} \
+            --branch=${GITHUB_REF#refs/heads/} \
+            --path=./cluster \
+            --personal
+        env:
+          REPOSITORY: ${{ github.event.repository.name }}
+
+      - name: Force Flux sync with cluster
+        run: |
+          flux reconcile kustomization flux-system --with-source
+
+      # - name: Wait for Flux sync
+      #   run: |
+      #     kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2m
+      #     kubectl get gitrepo,ks -A
+
 #     - name: Setup cluster reconciliation
 #       run: |
 #         flux create source git flux-system \
