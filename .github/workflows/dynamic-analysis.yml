@@ -16,9 +16,11 @@ jobs:
 
       - name: Setup CLI tools
         run: |
-          # export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
           brew install kind
           brew install fluxcd/tap/flux
+        env:
+          HOMEBREW_NO_INSTALL_CLEANUP: true
+
                    
       - name: Setup Kubernetes
         run: |
