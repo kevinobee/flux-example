@@ -9,9 +9,6 @@ jobs:
   kubernetes:
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    env:
-      GITHUB_USER: kevinobee  # ${{ secrets.GITHUB_USER }}
-      GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
 
     steps:
       - name: Checkout
@@ -43,16 +40,13 @@ jobs:
             --path=./cluster \
             --personal
         env:
+          GITHUB_USER: kevinobee  # ${{ secrets.GITHUB_USER }}
+          GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
           REPOSITORY: ${{ github.event.repository.name }}
 
-      - name: Force Flux sync with cluster
+      - name: Reconcile flux-system
         run: |
           flux reconcile kustomization flux-system --with-source
-
-      # - name: Wait for Flux sync
-      #   run: |
-      #     kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=2m
-      #     kubectl get gitrepo,ks -A
 
 #     - name: Setup cluster reconciliation
 #       run: |
@@ -92,7 +86,7 @@ jobs:
         if: failure()
         run: |
           kubectl get ns
-          kubectl get gitrepo,ks -A
+          kubectl get crd
           kubectl -n flux-system get all
           kubectl -n flux-system logs deploy/source-controller
           kubectl -n flux-system logs deploy/kustomize-controller
