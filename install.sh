@@ -73,17 +73,16 @@ flux bootstrap github \
   --path=./cluster \
   --personal
 
-# echo
-# echo "Sync Flux kustomizations to cluster ..."
-# kubectl apply -k cluster/flux-system
-# TODO add services, apps and tools to sync ...
-
 echo
-echo "Wait for Flux sync to complete ..."
+echo "Wait for reconcile to complete ..."
 kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
+kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
+kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
+kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=1m
+echo
+flux tree kustomization flux-system
 echo
 flux get all -A
-flux reconcile kustomization tools --with-source
 
 echo
 echo "Next steps:"
@@ -93,5 +92,13 @@ echo "View the cluster configuration dashboard:"
 echo
 echo "octant"
 echo
-
-kubectl apply -k ./tools/starboard --dry-run=client
+echo
+echo "Force Flux reconciliation:"
+echo
+echo "flux reconcile kustomization flux-system --with-source"
+echo
+echo
+echo "View Flux Kustomization tree:"
+echo
+echo "flux tree kustomization flux-system"
+echo
