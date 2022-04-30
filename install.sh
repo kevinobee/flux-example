@@ -75,7 +75,6 @@ flux bootstrap github \
 
 echo
 echo "Wait for reconcile to complete ..."
-kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
 kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
 kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=1m

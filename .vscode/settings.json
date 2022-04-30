@@ -6,6 +6,8 @@
         "helmrelease",
         "IPAM",
         "kevinobee",
+        "kube",
+        "kubehunterreports",
         "Kustomization"
     ]
 }
