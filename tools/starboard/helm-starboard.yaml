@@ -17,9 +17,13 @@ spec:
   chart:
     spec:
       chart: starboard-operator
+      version: 0.10.3
       sourceRef:
         kind: HelmRepository
         name: starboard-operator
         namespace: flux-system
-      version: 0.10.3
-  interval: 1m0s
+      interval: 40m
+  timeout: 3m
+  interval: 10m
+  releaseName: starboard-operator
+  targetNamespace: starboard-system
