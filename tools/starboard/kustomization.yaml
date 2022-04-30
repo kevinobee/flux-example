@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
 - namespace.yaml
 - helm-starboard.yaml
+- https://raw.githubusercontent.com/aquasecurity/starboard/main/deploy/crd/configauditreports.crd.yaml
 - https://raw.githubusercontent.com/aquasecurity/starboard/main/deploy/crd/kubehunterreports.crd.yaml
 
 namespace: starboard-system
