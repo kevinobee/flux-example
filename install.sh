@@ -81,8 +81,6 @@ kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=1m
 echo
 flux tree kustomization flux-system
-echo
-flux get all -A
 
 echo
 echo "Next steps:"
@@ -96,6 +94,7 @@ echo
 echo "Force Flux reconciliation:"
 echo
 echo "flux reconcile kustomization flux-system --with-source"
+echo "flux get all"
 echo
 echo
 echo "View Flux Kustomization tree:"
