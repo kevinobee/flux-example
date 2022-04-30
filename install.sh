@@ -81,9 +81,9 @@ flux bootstrap github \
 echo
 echo "Wait for Flux sync to complete ..."
 kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
-kubectl get gitrepo,ks -A
-
 echo
+flux get all -A
+
 echo
 echo "Next steps:"
 echo "-----------"
