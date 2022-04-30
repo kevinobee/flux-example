@@ -83,17 +83,15 @@ echo "Wait for Flux sync to complete ..."
 kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
 echo
 flux get all -A
+flux reconcile kustomization tools --with-source
 
 echo
 echo "Next steps:"
 echo "-----------"
 echo
-echo "Watch Flux kustomizations run:"
-echo
-echo "kubectl get kustomizations.kustomize.toolkit.fluxcd.io -A -w"
-echo
-echo
 echo "View the cluster configuration dashboard:"
 echo
 echo "octant"
 echo
+
+kubectl apply -k ./tools/starboard --dry-run=client

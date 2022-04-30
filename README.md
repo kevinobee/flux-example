@@ -33,3 +33,8 @@ Then run the installation script:
 └── tools
 ```
 
+### GitOps Operations
+
+`Kustomization` dependency chain:
+
+```tools -> apps -> infrastructure -> cluster```
