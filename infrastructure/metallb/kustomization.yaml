@@ -4,4 +4,4 @@ kind: Kustomization
 resources:
   - github.com/metallb/metallb//manifests?ref=v0.12.1
   - configmap.yaml
-  - metallb-sync.yaml
+  - sync.yaml
