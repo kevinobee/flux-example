@@ -9,7 +9,7 @@ spec:
   path: ./infrastructure/finalizers
   dependsOn:
     - name: metallb
-    - name: ingress-nginx
+    # - name: ingress-nginx ... HelmRelease
   prune: true
   sourceRef:
     kind: GitRepository
