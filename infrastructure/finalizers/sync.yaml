@@ -1,0 +1,17 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
+metadata:
+  name: finalizers
+  namespace: flux-system
+spec:
+  interval: 1m0s
+  path: ./infrastructure/finalizers
+  dependsOn:
+    - name: metallb
+    - name: ingress-nginx
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client

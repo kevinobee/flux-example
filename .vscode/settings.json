@@ -3,6 +3,7 @@
         "configmap",
         "crds",
         "engineerd",
+        "finalizers",
         "fluxcd",
         "gotk",
         "helmrelease",
@@ -11,6 +12,7 @@
         "kube",
         "kubehunterreports",
         "Kustomization",
+        "linkerd",
         "metallb"
     ]
 }
