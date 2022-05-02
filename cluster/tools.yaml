@@ -9,7 +9,6 @@ spec:
   path: ./tools
   dependsOn:
     - name: infrastructure
-    - name: apps
   prune: true
   sourceRef:
     kind: GitRepository
