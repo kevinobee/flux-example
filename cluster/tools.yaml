@@ -8,7 +8,7 @@ spec:
   interval: 10m0s
   path: ./tools
   dependsOn:
-    - name: infrastructure
+    - name: finalizers
   prune: true
   sourceRef:
     kind: GitRepository
