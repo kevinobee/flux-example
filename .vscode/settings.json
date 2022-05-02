@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "configmap",
         "engineerd",
         "fluxcd",
         "gotk",
@@ -8,6 +9,7 @@
         "kevinobee",
         "kube",
         "kubehunterreports",
-        "Kustomization"
+        "Kustomization",
+        "metallb"
     ]
 }
