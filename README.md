@@ -43,6 +43,8 @@ Then run the installation script:
 
 Follow the links below for details of tooling installed in the cluster:
 
+* [Flux dashboards](./infrastructure/monitoring/README.md)
+
 * [Litmus Chaos](./tools/litmus/README.md)
 
 * [Starboard](./tools/starboard/README.md)

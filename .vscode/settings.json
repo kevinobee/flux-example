@@ -7,6 +7,7 @@
         "finalizers",
         "fluxcd",
         "gotk",
+        "grafana",
         "helmrelease",
         "IPAM",
         "kevinobee",
