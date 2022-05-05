@@ -143,6 +143,10 @@ spec:
         name: vote-bot
         resources:
           requests:
+            memory: 64Mi
+            cpu: 10m
+          limits:
+            memory: 64Mi
             cpu: 10m
 ---
 apiVersion: apps/v1
@@ -181,6 +185,10 @@ spec:
           name: prom
         resources:
           requests:
+            memory: 64Mi
+            cpu: 100m
+          limits:
+            memory: 64Mi
             cpu: 100m
       serviceAccountName: voting
 ---
@@ -222,5 +230,9 @@ spec:
           name: http
         resources:
           requests:
+            memory: 64Mi
+            cpu: 100m
+          limits:
+            memory: 64Mi
             cpu: 100m
       serviceAccountName: web
