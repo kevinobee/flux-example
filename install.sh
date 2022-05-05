@@ -79,7 +79,7 @@ kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready -
 kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=1m
 echo
-flux tree kustomization flux-system
+flux tree kustomization flux-system --compact
 
 echo
 echo "Next steps:"
@@ -98,5 +98,5 @@ echo
 echo
 echo "View Flux Kustomization tree:"
 echo
-echo "flux tree kustomization flux-system"
+echo "flux tree kustomization flux-system --compact"
 echo
