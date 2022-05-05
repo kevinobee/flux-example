@@ -5,7 +5,7 @@ metadata:
   namespace: flux-system
 spec:
   timeout: 3m
-  interval: 10m
+  interval: 1h0m0s
   releaseName: ingress-nginx
   targetNamespace: ingress-nginx
   chart:

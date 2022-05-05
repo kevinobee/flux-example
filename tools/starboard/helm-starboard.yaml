@@ -4,7 +4,7 @@ metadata:
   name: starboard-operator
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 1h0m0s
   url: https://aquasecurity.github.io/helm-charts/
 
 ---
@@ -24,6 +24,6 @@ spec:
         namespace: flux-system
       interval: 40m
   timeout: 3m
-  interval: 10m
+  interval: 1h0m0s
   releaseName: starboard-operator
   targetNamespace: starboard-system
