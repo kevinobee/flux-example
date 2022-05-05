@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  path: ./infrastructure/monitoring/monitoring-config
+  path: ./manifests/monitoring/monitoring-config
   dependsOn:
     - name: monitoring-stack
   prune: true
