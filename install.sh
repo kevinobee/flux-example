@@ -100,3 +100,11 @@ echo "View Flux Kustomization tree:"
 echo
 echo "flux tree kustomization flux-system --compact"
 echo
+echo
+echo "View Flux dashboard in Grafana:"
+echo
+echo "kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80 > /dev/null 2>&1 &"
+echo
+echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
+echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
+echo
