@@ -10,6 +10,8 @@ spec:
   dependsOn:
     - name: metallb
     # - name: ingress-nginx ... HelmRelease
+    - name: monitoring-stack
+    - name: monitoring-config
   prune: true
   sourceRef:
     kind: GitRepository
