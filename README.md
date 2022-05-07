@@ -17,27 +17,25 @@ Then run the installation script:
 ./install.sh
 ```
 
-## Working with Code
+## GitOps Operations
 
-### Repository Structure
+To force Flux to run reconcile the manifests held in the Git repository to the cluster run:
 
-```text
-.
-├── apps
-├── cluster
-│   └── flux-system
-├── infrastructure
-│   ├── monitoring
-│   ├── policy
-│   └── service-mesh
-└── tools
+```shell
+flux reconcile kustomization flux-system --with-source
 ```
 
-### GitOps Operations
+To view Flux resources use:
 
-`Kustomization` dependency chain:
+```shell
+flux get all
+```
 
-```tools -> apps -> infrastructure -> cluster```
+View the Flux `Kustomization` dependency tree with:
+
+```shell
+flux tree kustomization flux-system --compact
+```
 
 ## Cluster Tools
 
@@ -48,3 +46,33 @@ Follow the links below for details of tooling installed in the cluster:
 * [Litmus Chaos](./tools/litmus/README.md)
 
 * [Starboard](./tools/starboard/README.md)
+
+## Flux Manifests
+
+Flux manifests are used to deploy and maintain cluster resources.
+
+Manifests within the `./cluster/` folder are used to bootstrap the cluster.
+
+The `./infrastructure/finalizers` folder contains a `finalizers` Kustomization that is used to ensure all infrastructure resources are deployed before synchronizing application or tool manifests.
+
+The repository folder structure is:
+
+```text
+.
+├── apps
+│   └── emojivoto
+├── cluster
+│   └── flux-system
+├── infrastructure
+│   ├── finalizers
+│   ├── ingress-nginx
+│   ├── metallb
+│   ├── monitoring
+│   │   ├── kube-prometheus-stack
+│   │   └── monitoring-config
+│   ├── policy
+│   └── sealed-secrets
+└── tools
+    ├── litmus
+    └── starboard
+```
