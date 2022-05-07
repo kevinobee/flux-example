@@ -77,6 +77,7 @@ flux bootstrap github \
 
 echo
 echo "Wait for cluster infrastructure to be available ..."
+kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=2m
 kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=2m
 echo
 flux tree kustomization flux-system --compact
