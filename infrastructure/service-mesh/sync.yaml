@@ -13,3 +13,18 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: linkerd-viz
+  namespace: flux-system
+spec:
+  interval: 1h0m0s
+  path: ./infrastructure/service-mesh/linkerd-viz
+  dependsOn:
+    - name: linkerd
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
