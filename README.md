@@ -71,7 +71,9 @@ The repository folder structure is:
 │   │   ├── kube-prometheus-stack
 │   │   └── monitoring-config
 │   ├── policy
-│   └── sealed-secrets
+│   ├── sealed-secrets
+│   └── service-mesh
+│       └── linkerd
 └── tools
     ├── litmus
     └── starboard

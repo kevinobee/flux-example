@@ -8,6 +8,7 @@ spec:
   interval: 1m0s
   path: ./infrastructure/finalizers
   dependsOn:
+    - name: linkerd
     - name: metallb
     - name: monitoring-stack
     - name: monitoring-config
