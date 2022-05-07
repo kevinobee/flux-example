@@ -12,6 +12,7 @@ spec:
     # - name: ingress-nginx ... HelmRelease
     - name: monitoring-stack
     - name: monitoring-config
+    - name: gatekeeper-policy-constraints
   prune: true
   sourceRef:
     kind: GitRepository
