@@ -111,6 +111,14 @@ echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stat
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
 echo
 echo
+echo "Run Linkerd UI:"
+echo
+echo "linkerd viz dashboard &"
+echo
+echo "Linkerd dashboard: http://localhost:50750"
+echo "Grafana dashboard: http://localhost:50750/grafana"
+echo
+echo
 echo "Run Kubescape scan:"
 echo
 echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"

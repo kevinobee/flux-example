@@ -9,6 +9,7 @@ spec:
   path: ./infrastructure/finalizers
   dependsOn:
     - name: linkerd
+    - name: linkerd-viz
     - name: metallb
     - name: monitoring-stack
     - name: monitoring-config
