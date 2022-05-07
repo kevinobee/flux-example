@@ -15,6 +15,7 @@ export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 brewTools=( \
   "kind" \
   "krew" \
+  "kubescape" \
   "octant"
 )
 
@@ -107,4 +108,9 @@ echo "kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:
 echo
 echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
+echo
+echo
+echo "Run Kubescape scan:"
+echo
+echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"
 echo
