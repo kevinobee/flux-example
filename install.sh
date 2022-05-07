@@ -90,7 +90,7 @@ echo "-----------"
 echo
 echo "Watch status of all Flux resources:"
 echo
-echo "flux get all --watch"
+echo "watch flux get all"
 echo
 echo
 echo "Force Flux reconciliation:"
