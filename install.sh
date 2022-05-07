@@ -76,10 +76,8 @@ flux bootstrap github \
   --personal
 
 echo
-echo "Wait for reconcile to complete ..."
-kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=2m
-kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=2m
-kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=2m
+echo "Wait for cluster infrastructure to be available ..."
+kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=2m
 echo
 flux tree kustomization flux-system --compact
 
