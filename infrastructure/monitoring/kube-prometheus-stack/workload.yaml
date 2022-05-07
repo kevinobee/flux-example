@@ -12,6 +12,10 @@ spec:
   - kind: Deployment
     name: kube-prometheus-stack-grafana
     namespace: monitoring
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: kube-prometheus-stack
+    namespace: monitoring
   interval: 1h0m0s
   path: ./manifests/monitoring/kube-prometheus-stack
   prune: true
