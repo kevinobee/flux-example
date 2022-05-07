@@ -13,3 +13,13 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
+  validation: client
+  healthChecks:
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: litmuschaos
+      namespace: flux-system
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: starboard-operator
+      namespace: flux-system
