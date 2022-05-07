@@ -80,20 +80,21 @@ echo "Wait for cluster infrastructure to be available ..."
 kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=2m
 echo
 flux tree kustomization flux-system --compact
+echo
+flux get all
 
 echo
 echo "Next steps:"
 echo "-----------"
 echo
-echo "View the cluster configuration dashboard:"
+echo "Watch status of all Flux resources:"
 echo
-echo "octant"
+echo "flux get all --watch"
 echo
 echo
 echo "Force Flux reconciliation:"
 echo
 echo "flux reconcile kustomization flux-system --with-source"
-echo "flux get all"
 echo
 echo
 echo "View Flux Kustomization tree:"
@@ -107,6 +108,11 @@ echo "kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:
 echo
 echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
+echo
+echo
+echo "View the cluster configuration dashboard:"
+echo
+echo "octant"
 echo
 echo
 echo "Run Linkerd UI:"
