@@ -9,10 +9,10 @@ spec:
   path: ./infrastructure/finalizers
   dependsOn:
     - name: metallb
-    # - name: ingress-nginx ... HelmRelease
     - name: monitoring-stack
     - name: monitoring-config
     - name: gatekeeper-policy-constraints
+    - name: sealed-secrets
   prune: true
   sourceRef:
     kind: GitRepository
