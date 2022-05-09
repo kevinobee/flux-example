@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
+        "aquasecurity",
         "Bitnami",
         "configmap",
         "crds",
@@ -7,6 +8,7 @@
         "engineerd",
         "finalizers",
         "fluxcd",
+        "giantswarm",
         "gotk",
         "grafana",
         "helmrelease",

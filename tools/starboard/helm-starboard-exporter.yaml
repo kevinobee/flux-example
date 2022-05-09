@@ -1,29 +1,31 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
-  name: starboard-operator
+  name: giantswarm
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  url: https://aquasecurity.github.io/helm-charts/
+  url: https://giantswarm.github.io/giantswarm-catalog
 
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: starboard-operator
+  name: starboard-exporter
   namespace: flux-system
 spec:
   chart:
     spec:
-      chart: starboard-operator
-      version: 0.10.4
+      chart: starboard-exporter
+      version: 0.4.1
       sourceRef:
         kind: HelmRepository
-        name: starboard-operator
+        name: giantswarm
         namespace: flux-system
       interval: 40m
   timeout: 3m
   interval: 1h0m0s
-  releaseName: starboard-operator
+  releaseName: starboard-exporter
   targetNamespace: starboard-system
+  dependsOn:
+    - name: starboard-operator
