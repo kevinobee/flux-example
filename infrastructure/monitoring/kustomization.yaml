@@ -5,8 +5,5 @@ bases:
   - kube-prometheus-stack
   - monitoring-config
 
-commonAnnotations:
-  linkerd.io/inject: enabled
-
 resources:
   - namespace.yaml
