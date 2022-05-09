@@ -3,5 +3,4 @@ kind: Kustomization
 resources:
 - linkerd
 - linkerd-viz
-- linkerd-jaeger
 - sync.yaml
