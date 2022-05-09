@@ -21,6 +21,7 @@
         "kubedns",
         "kubehunterreports",
         "Kustomization",
+        "kyverno",
         "linkerd",
         "litmuschaos",
         "litmusportal",

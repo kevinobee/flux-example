@@ -6,4 +6,5 @@ resources:
 - metallb
 - ingress-nginx
 - monitoring
+- policy
 - finalizers
