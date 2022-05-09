@@ -76,10 +76,6 @@ flux bootstrap github \
   --personal
 
 echo
-echo "Wait for cluster infrastructure to be available ..."
-kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=2m
-kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=2m
-echo
 flux tree kustomization flux-system --compact
 echo
 flux get all
@@ -91,6 +87,12 @@ echo
 echo "Watch status of all Flux resources:"
 echo
 echo "watch flux get all"
+echo
+echo
+echo "Wait for all cluster infrastructure to be available:"
+echo
+echo "kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready"
+echo "kubectl -n flux-system wait kustomization/finalizers --for=condition=ready"
 echo
 echo
 echo "Force Flux reconciliation:"
