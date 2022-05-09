@@ -1,0 +1,36 @@
+# Default values ref: https://github.com/giantswarm/starboard-exporter/blob/main/helm/starboard-exporter/values.yaml
+
+pod:
+  user:
+    id: 1000
+  group:
+    id: 1000
+
+securityContext:
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  privileged: false
+  readOnlyRootFilesystem: true
+
+resources:
+  requests:
+    cpu: 100m
+    memory: 220Mi
+  limits:
+    cpu: 100m
+    memory: 220Mi
+
+monitoring:
+  serviceMonitor:
+    enabled: true
+
+  grafanaDashboard:
+    enabled: true
+
+psp:
+  enabled: true
+
+networkpolicy:
+  enabled: true

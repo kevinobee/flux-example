@@ -1,9 +1,12 @@
 {
     "cSpell.words": [
+        "apiserver",
         "aquasecurity",
         "Bitnami",
         "configmap",
+        "conftest",
         "crds",
+        "dnsmasq",
         "emojivoto",
         "engineerd",
         "finalizers",
@@ -15,11 +18,14 @@
         "IPAM",
         "kevinobee",
         "kube",
+        "kubedns",
         "kubehunterreports",
         "Kustomization",
         "linkerd",
         "litmuschaos",
         "litmusportal",
-        "metallb"
+        "metallb",
+        "tolerations",
+        "trivy"
     ]
 }

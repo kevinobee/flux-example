@@ -1,0 +1,83 @@
+# Default values ref: https://raw.githubusercontent.com/aquasecurity/starboard/main/deploy/helm/values.yaml.
+
+operator:
+
+  vulnerabilityScannerEnabled: true
+  configAuditScannerEnabled: true
+  configAuditScannerBuiltIn: true
+  kubernetesBenchmarkEnabled: true
+  clusterComplianceEnabled: true
+
+  vulnerabilityScannerScanOnlyCurrentRevisions: true
+  configAuditScannerScanOnlyCurrentRevisions: true
+
+
+starboard:
+  # scanJobTolerations tolerations to be applied to the scanner pods so that they can run on nodes with matching taints
+  scanJobTolerations: []
+  # If you do want to specify tolerations, uncomment the following lines, adjust them as necessary, and remove the
+  # square brackets after 'scanJobTolerations:'.
+  # - key: "key1"
+  #   operator: "Equal"
+  #   value: "value1"
+  #   effect: "NoSchedule"
+
+trivy:
+
+  severity: UNKNOWN,LOW,MEDIUM,HIGH,CRITICAL
+
+  # ignoreUnfixed is the flag to show only fixed vulnerabilities in
+  # vulnerabilities reported by Trivy. Set to "true" to enable it.
+  #
+  ignoreUnfixed: "false"
+
+  # ignoreFile can be used to tell Trivy to ignore vulnerabilities by ID (one per line)
+  #
+  # ignoreFile: |
+  #   CVE-1970-0001
+  #   CVE-1970-0002
+
+  resources:
+    requests:
+      cpu: 100m
+      memory: 100M
+    limits:
+      cpu: 500m
+      memory: 500M
+
+polaris:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 50M
+    limits:
+      cpu: 300m
+      memory: 300M
+
+conftest:
+  resources:
+    requests:
+      cpu: 50m
+      memory: 50M
+    limits:
+      cpu: 300m
+      memory: 300M
+
+podSecurityContext:
+  fsGroup: 2000
+
+securityContext:
+  privileged: false
+  allowPrivilegeEscalation: false
+  readOnlyRootFilesystem: true
+  capabilities:
+    drop:
+      - ALL
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
