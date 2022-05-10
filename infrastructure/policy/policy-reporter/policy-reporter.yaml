@@ -14,6 +14,7 @@ metadata:
   name: policy-reporter
   namespace: flux-system
 spec:
+  interval: 1h0m0s
   chart:
     spec:
       chart: policy-reporter
@@ -23,7 +24,10 @@ spec:
         name: policy-reporter
         namespace: flux-system
       interval: 40m
-  timeout: 3m
-  interval: 1h0m0s
-  releaseName: policy-reporter
-  targetNamespace: policy-reporter
+  values:
+    kyvernoPlugin:
+      enabled: true
+    ui:
+      enabled: true
+      plugins:
+        kyverno: true
