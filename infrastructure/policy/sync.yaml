@@ -24,5 +24,9 @@ spec:
       kind: HelmRelease
       name: kyverno-policies
       namespace: flux-system
+    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+      kind: HelmRelease
+      name: policy-reporter
+      namespace: flux-system
   dependsOn:
     - name: flux-system
