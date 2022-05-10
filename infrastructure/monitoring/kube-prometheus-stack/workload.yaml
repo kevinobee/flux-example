@@ -24,4 +24,4 @@ spec:
     name: monitoring
   timeout: 2m0s
   dependsOn:
-    - name: flux-system
+    - name: policy

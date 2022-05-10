@@ -8,7 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/service-mesh/linkerd
   dependsOn:
-    - name: flux-system
+    - name: policy
   prune: true
   sourceRef:
     kind: GitRepository
@@ -23,6 +23,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/service-mesh/linkerd-viz
   dependsOn:
+    - name: policy
     - name: linkerd
   prune: true
   sourceRef:

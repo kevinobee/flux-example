@@ -8,7 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/metallb
   dependsOn:
-    - name: flux-system
+    - name: policy
   prune: true
   sourceRef:
     kind: GitRepository

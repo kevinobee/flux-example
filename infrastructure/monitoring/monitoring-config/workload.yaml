@@ -8,6 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./manifests/monitoring/monitoring-config
   dependsOn:
+    - name: policy
     - name: monitoring-stack
   prune: true
   sourceRef:

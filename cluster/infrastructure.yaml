@@ -7,8 +7,6 @@ metadata:
 spec:
   interval: 1m0s
   path: ./infrastructure
-  dependsOn:
-    - name: flux-system
   prune: true
   sourceRef:
     kind: GitRepository

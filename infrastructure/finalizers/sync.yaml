@@ -10,7 +10,6 @@ spec:
   dependsOn:
     - name: policy
     - name: linkerd
-    - name: linkerd-viz
     - name: metallb
     - name: monitoring-stack
     - name: monitoring-config
