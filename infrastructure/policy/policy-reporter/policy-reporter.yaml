@@ -24,6 +24,7 @@ spec:
         name: policy-reporter
         namespace: flux-system
       interval: 40m
+  targetNamespace: policy-reporter
   values:
     kyvernoPlugin:
       enabled: true
