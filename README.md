@@ -47,6 +47,8 @@ Follow the links below for details of tooling installed in the cluster:
 
 * [Litmus Chaos](./tools/litmus/README.md)
 
+* [Policy Reporter UI](./infrastructure/policy/policy-reporter/README.md)
+
 * [Starboard](./tools/starboard/README.md)
 
 ## Flux Manifests
