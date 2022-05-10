@@ -8,7 +8,7 @@ spec:
   interval: 1m0s
   path: ./apps
   dependsOn:
-    - name: infrastructure
+    - name: finalizers
   prune: true
   sourceRef:
     kind: GitRepository
