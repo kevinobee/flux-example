@@ -18,10 +18,6 @@ spec:
       namespace: kyverno
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease
-      name: kyverno
-      namespace: flux-system
-    - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-      kind: HelmRelease
       name: kyverno-policies
       namespace: flux-system
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
