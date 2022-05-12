@@ -9,6 +9,7 @@ spec:
   path: ./infrastructure/finalizers
   dependsOn:
     - name: policy
+    - name: kyverno-policies
     - name: linkerd
     - name: metallb
     - name: monitoring-stack
