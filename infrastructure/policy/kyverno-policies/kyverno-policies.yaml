@@ -15,5 +15,4 @@ spec:
         namespace: flux-system
       interval: 40m
   targetNamespace: kyverno
-  dependsOn:
-    - name: kyverno
+
