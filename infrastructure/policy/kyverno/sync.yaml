@@ -7,8 +7,6 @@ metadata:
 spec:
   interval: 10m0s
   path: ./infrastructure/policy/kyverno
-  # dependsOn:
-  #   - name: flux-system
   prune: true
   sourceRef:
     kind: GitRepository
