@@ -5,7 +5,7 @@ metadata:
   name: monitoring-config
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 10m0s
   path: ./manifests/monitoring/monitoring-config
   dependsOn:
     - name: policy

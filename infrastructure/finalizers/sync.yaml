@@ -5,7 +5,7 @@ metadata:
   name: finalizers
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 10m0s
   path: ./infrastructure/finalizers
   dependsOn:
     - name: policy

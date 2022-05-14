@@ -16,7 +16,7 @@ spec:
     kind: HelmRelease
     name: kube-prometheus-stack
     namespace: monitoring
-  interval: 1h0m0s
+  interval: 10m0s
   path: ./manifests/monitoring/kube-prometheus-stack
   prune: true
   sourceRef:

@@ -5,7 +5,7 @@ metadata:
   name: linkerd
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 10m0s
   path: ./infrastructure/service-mesh/linkerd
   dependsOn:
     - name: policy
@@ -20,7 +20,7 @@ metadata:
   name: linkerd-viz
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 10m0s
   path: ./infrastructure/service-mesh/linkerd-viz
   dependsOn:
     - name: policy
