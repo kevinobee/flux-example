@@ -4,7 +4,7 @@ metadata:
   name: policy-reporter
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 10m
   url: https://kyverno.github.io/policy-reporter/
 
 ---
@@ -23,7 +23,6 @@ spec:
         kind: HelmRepository
         name: policy-reporter
         namespace: flux-system
-      interval: 40m
   targetNamespace: policy-reporter
   values:
     kyvernoPlugin:
