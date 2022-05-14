@@ -22,8 +22,5 @@ spec:
         kind: HelmRepository
         name: litmuschaos
         namespace: flux-system
-      interval: 40m
-  timeout: 3m
-  interval: 1h0m0s
-  releaseName: chaos
+  interval: 10m0s
   targetNamespace: litmus

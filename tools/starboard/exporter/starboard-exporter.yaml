@@ -22,12 +22,9 @@ spec:
         kind: HelmRepository
         name: giantswarm
         namespace: flux-system
-      interval: 40m
       valuesFiles:
         - values.yaml
-  timeout: 3m
-  interval: 1h0m0s
-  releaseName: starboard-exporter
+  interval: 10m0s
   targetNamespace: starboard-system
   dependsOn:
     - name: starboard-operator

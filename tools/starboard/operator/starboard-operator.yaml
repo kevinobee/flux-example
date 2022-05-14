@@ -22,10 +22,7 @@ spec:
         kind: HelmRepository
         name: aquasecurity
         namespace: flux-system
-      interval: 40m
       valuesFiles:
         - values.yaml
-  timeout: 3m
-  interval: 1h0m0s
-  releaseName: starboard-operator
+  interval: 10m0s
   targetNamespace: starboard-system
