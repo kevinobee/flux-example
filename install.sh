@@ -16,6 +16,7 @@ brewTools=( \
   "kind" \
   "krew" \
   "kubescape" \
+  "kustomize" \
   "linkerd" \
   "octant"
 )
