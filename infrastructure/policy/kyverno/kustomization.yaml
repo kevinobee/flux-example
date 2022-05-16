@@ -4,3 +4,5 @@ resources:
   - https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
   - sync.yaml
 
+patchesStrategicMerge:
+  - patches/resource-limits.yaml
