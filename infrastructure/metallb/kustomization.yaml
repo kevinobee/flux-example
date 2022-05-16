@@ -5,3 +5,6 @@ resources:
   - github.com/metallb/metallb//manifests?ref=v0.12.1
   - configmap.yaml
   - sync.yaml
+
+patchesStrategicMerge:
+  - patches/resource-limits.yaml
