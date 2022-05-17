@@ -8,54 +8,7 @@ set -o nounset;
 # debug commands
 # set -x;
 
-echo
-echo "Setup required CLI tools (uses Homebrew on Linux) ..."    # ref: https://brew.sh/
-export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
-
-brewTools=( \
-  "kind" \
-  "krew" \
-  "kubescape" \
-  "kustomize" \
-  "linkerd" \
-  "octant"
-)
-
-if [ ! $(which brew) ]; then
-  (
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-  )
-fi
-
-for i in "${brewTools[@]}"
-do
-  if [[ ! $(brew list "${i}") ]]; then
-    brew install "${i}"
-  fi
-done
-
-if [[ ! $(which "flux") ]]; then
-  brew install "fluxcd/tap/flux"
-fi
-
-echo
-echo "Setup kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
-if [ ! $(echo ${PATH} | grep ".krew/bin") ]; then
-  export PATH="${PATH}:${HOME}/.krew/bin"
-fi
-
-kubectlPlugins=( \
-  "starboard"
-)
-
-kubectl krew update
-
-for i in "${kubectlPlugins[@]}"
-do
-  if [[ ! $(kubectl "${i}" version) ]]; then
-    kubectl krew install ${i}
-  fi
-done
+./scripts/install-cli-tools.sh
 
 echo
 echo "Setup Kubernetes cluster ..."
@@ -108,6 +61,11 @@ echo
 echo "View the cluster configuration dashboard:"
 echo
 echo "octant"
+echo
+echo
+echo "Run Sanitizers against cluster configuration:"
+echo
+echo "popeye"
 echo
 echo
 echo "Run Kubescape scan:"
