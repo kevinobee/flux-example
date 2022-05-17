@@ -102,7 +102,7 @@ echo
 echo
 echo "Setup port forwards to expose Cluster dashboards:"
 echo
-echo "./port-forward.sh"
+echo "./scripts/port-forward.sh"
 echo
 echo
 echo "View the cluster configuration dashboard:"

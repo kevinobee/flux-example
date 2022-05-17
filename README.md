@@ -39,6 +39,8 @@ flux tree kustomization flux-system --compact
 
 ## Cluster Tools
 
+Run the [scripts/port-forward.sh](./scripts/port-forward.sh) shell script to expose cluster services as forwarded ports on `localhost`.
+
 Follow the links below for details of tooling installed in the cluster:
 
 * [Flux dashboards](./infrastructure/monitoring/README.md)

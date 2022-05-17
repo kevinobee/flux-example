@@ -1,5 +1,5 @@
 #!/bin/bash
-# install.sh - create k8s cluster and install GitOps applications
+# port-forward.sh - expose k8s cluster services with port forwarding
 
 # standard bash error handling
 set -o errexit;
@@ -39,8 +39,8 @@ if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:9091") ]]; then
 fi
 
 echo
-echo "Next steps:"
-echo "-----------"
+echo "Cluster Dashboards:"
+echo "-------------------"
 echo
 echo "View Flux dashboard in Grafana:"
 echo
