@@ -13,7 +13,7 @@ set -o nounset;
 echo
 echo "Setup Kubernetes cluster ..."
 if [ ! $(kind get clusters --quiet) ]; then
-  kind create cluster
+  kind create cluster --config kind-config.yaml --wait 1m
   kubectl wait node --all --for condition=ready
 fi
 kubectl cluster-info
