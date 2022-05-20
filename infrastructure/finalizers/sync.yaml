@@ -12,6 +12,7 @@ spec:
     - name: kyverno-policies
     - name: linkerd
     - name: metallb
+    - name: ingress-nginx
     - name: monitoring-stack
     - name: monitoring-config
   prune: true
