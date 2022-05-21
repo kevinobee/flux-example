@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./tools
+  path: ./tools/manifests
   dependsOn:
     - name: finalizers
   prune: true

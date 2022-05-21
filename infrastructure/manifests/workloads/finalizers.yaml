@@ -8,8 +8,9 @@ spec:
   interval: 10m0s
   path: ./infrastructure/finalizers
   dependsOn:
-    - name: policy
+    - name: kyverno
     - name: kyverno-policies
+    - name: policy-reporter
     - name: linkerd
     - name: metallb
     - name: ingress-nginx
