@@ -10,7 +10,6 @@ spec:
   dependsOn:
     - name: kyverno
     - name: kyverno-policies
-    - name: policy-reporter
     - name: linkerd
     - name: metallb
     - name: ingress-nginx
