@@ -8,5 +8,8 @@ resources:
 - linkerd-viz.yaml
 - linkerd.yaml
 - metallb.yaml
+- metrics-server.yaml
+- monitoring-config.yaml
+- monitoring-stack.yaml
 - policy-reporter.yaml
 - sealed-secrets.yaml
