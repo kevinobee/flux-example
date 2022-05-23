@@ -40,7 +40,7 @@ echo "-----------"
 echo
 echo "Watch status of all Flux resources:"
 echo
-echo "watch flux get all"
+echo "watch flux get all --all-namespaces"
 echo
 echo
 echo "Force Flux reconciliation:"
