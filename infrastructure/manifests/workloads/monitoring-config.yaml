@@ -9,6 +9,7 @@ spec:
   path: ./manifests/monitoring/monitoring-config
   dependsOn:
     - name: kyverno-policies
+    - name: monitoring-stack
   prune: true
   sourceRef:
     kind: GitRepository
