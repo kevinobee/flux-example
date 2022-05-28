@@ -2,6 +2,35 @@
 
 Example GitOps deployments using Flux.
 
+Cluster contains:
+
+1. [Flux CD](https://fluxcd.io/) continuous and progressive delivery solution for Kubernetes.
+
+1. [Linkerd](https://linkerd.io/) service mesh
+
+1. [MetalLB](https://metallb.org/) bare-metal load balancer
+
+1. [NGinx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+
+1. Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
+
+1. [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+
+1. Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
+
+1. [Kyverno](https://kyverno.io/) policy management and enforcement
+
+1. [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
+
+1. [Starboard](https://github.com/aquasecurity/starboard) Kubernetes-native toolkit for Security monitoring, image scanning and resource misconfiguration discovery
+
+1. [Octant](https://octant.dev/) developer-centric web interface for inspecting a Kubernetes cluster and its applications
+
+Future features:
+
+1. Log monitoring and alerting using Loki
+1. Vertical Pod Autoscaler
+
 ## Getting Started
 
 Before running `./install.sh` define environment variables to access GitHub:
