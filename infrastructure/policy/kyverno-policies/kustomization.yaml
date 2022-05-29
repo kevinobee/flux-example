@@ -27,5 +27,5 @@ resources:
 
   # nginx-ingress
   # - https://raw.githubusercontent.com/kyverno/policies/main/nginx-ingress/nginx-custom-snippets/disallow-custom-snippets.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/nginx-ingress/nginx_annotation_checks/restrict-annotations.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/nginx-ingress/nginx_path_checks/restrict-path.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/nginx-ingress/nginx_annotation_checks/restrict-annotations.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/nginx-ingress/nginx_path_checks/restrict-path.yaml
