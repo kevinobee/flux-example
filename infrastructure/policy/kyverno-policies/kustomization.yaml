@@ -11,7 +11,7 @@ resources:
   - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_cri_sock_mount/disallow_cri_sock_mount.yaml
   - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_default_namespace/disallow_default_namespace.yaml
   - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_helm_tiller/disallow_helm_tiller.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_latest_tag/disallow_latest_tag.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_latest_tag/disallow_latest_tag.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_drop_all/require_drop_all.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_drop_cap_net_raw/require_drop_cap_net_raw.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_labels/require_labels.yaml
