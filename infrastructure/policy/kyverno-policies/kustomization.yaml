@@ -7,9 +7,9 @@ bases:
 resources:
   # best practices
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/add_safe_to_evict/add_safe_to_evict.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow-empty-ingress-host/disallow_empty_ingress_host.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_cri_sock_mount/disallow_cri_sock_mount.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_default_namespace/disallow_default_namespace.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow-empty-ingress-host/disallow_empty_ingress_host.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_cri_sock_mount/disallow_cri_sock_mount.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_default_namespace/disallow_default_namespace.yaml
   - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_helm_tiller/disallow_helm_tiller.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/disallow_latest_tag/disallow_latest_tag.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_drop_all/require_drop_all.yaml
@@ -18,7 +18,7 @@ resources:
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_pod_requests_limits/require_pod_requests_limits.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_probes/require_probes.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_ro_rootfs/require_ro_rootfs.yaml
-  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict-service-external-ips/restrict-service-external-ips.yaml
+  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict-service-external-ips/restrict-service-external-ips.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_image_registries/restrict_image_registries.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_node_port/restrict_node_port.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/add_network_policy.yaml
