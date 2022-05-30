@@ -8,7 +8,6 @@ spec:
   interval: 10m0s
   path: ./manifests/monitoring/monitoring-config
   dependsOn:
-    - name: kyverno-policies
     - name: monitoring-stack
   prune: true
   sourceRef:
