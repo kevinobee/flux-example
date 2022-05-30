@@ -7,8 +7,6 @@ metadata:
 spec:
   interval: 10m0s
   path: ./infrastructure/service-mesh/linkerd
-  dependsOn:
-    - name: kyverno-policies
   prune: true
   sourceRef:
     kind: GitRepository

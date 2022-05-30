@@ -18,10 +18,10 @@ echo
 echo "Wait for tools to be ready ..."
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=10m
 
-# Expose Kynervo Policy Reporter
-if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8082") ]]; then
-  kubectl -n policy-reporter port-forward service/policy-reporter-policy-reporter-ui 8082:8080 > /dev/null 2>&1 &
-fi
+# # Expose Kynervo Policy Reporter
+# if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8082") ]]; then
+#   kubectl -n policy-reporter port-forward service/policy-reporter-policy-reporter-ui 8082:8080 > /dev/null 2>&1 &
+# fi
 
 # Expose Linkerd-Viz dashboards
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8084") ]]; then

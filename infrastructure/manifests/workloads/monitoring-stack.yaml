@@ -9,6 +9,12 @@ metadata:
   name: monitoring-stack
   namespace: flux-system
 spec:
+  interval: 10m0s
+  path: ./manifests/monitoring/kube-prometheus-stack
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: monitoring
   healthChecks:
   - kind: Deployment
     name: kube-prometheus-stack-operator
@@ -20,12 +26,4 @@ spec:
     kind: HelmRelease
     name: kube-prometheus-stack
     namespace: monitoring
-  interval: 10m0s
-  path: ./manifests/monitoring/kube-prometheus-stack
-  prune: true
-  sourceRef:
-    kind: GitRepository
-    name: monitoring
-  timeout: 2m0s
-  dependsOn:
-    - name: kyverno-policies
+

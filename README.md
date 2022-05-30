@@ -18,7 +18,7 @@ Cluster contains:
 
 1. Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
 
-1. [Kyverno](https://kyverno.io/) policy management and enforcement
+<!-- 1. [Kyverno](https://kyverno.io/) policy management and enforcement -->
 
 1. [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
 
@@ -78,7 +78,7 @@ Follow the links below for details of tooling installed in the cluster:
 
 * [Litmus Chaos](./tools/litmus/README.md)
 
-* [Policy Reporter UI](./infrastructure/policy/policy-reporter/README.md)
+<!-- * [Policy Reporter UI](./infrastructure/policy/policy-reporter/README.md) -->
 
 * [Starboard](./tools/starboard/README.md)
 
@@ -89,27 +89,3 @@ Flux manifests are used to deploy and maintain cluster resources.
 Manifests within the `./cluster/` folder are used to bootstrap the cluster.
 
 The `./infrastructure/finalizers` folder contains a `finalizers` Kustomization that is used to ensure all infrastructure resources are deployed before synchronizing application or tool manifests.
-
-The repository folder structure is:
-
-```text
-.
-├── apps
-│   └── emojivoto
-├── cluster
-│   └── flux-system
-├── infrastructure
-│   ├── finalizers
-│   ├── ingress-nginx
-│   ├── metallb
-│   ├── monitoring
-│   │   ├── kube-prometheus-stack
-│   │   └── monitoring-config
-│   ├── policy
-│   ├── sealed-secrets
-│   └── service-mesh
-│       └── linkerd
-└── tools
-    ├── litmus
-    └── starboard
-```

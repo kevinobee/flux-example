@@ -8,7 +8,6 @@ spec:
   interval: 10m0s
   path: ./infrastructure/ingress-nginx
   dependsOn:
-    - name: kyverno-policies
     - name: linkerd
     - name: metallb
   prune: true

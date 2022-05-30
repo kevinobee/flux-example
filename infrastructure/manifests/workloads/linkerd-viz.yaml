@@ -7,7 +7,6 @@ spec:
   interval: 10m0s
   path: ./infrastructure/service-mesh/linkerd-viz
   dependsOn:
-    - name: kyverno-policies
     - name: linkerd
   prune: true
   sourceRef:
