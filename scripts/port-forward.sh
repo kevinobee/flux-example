@@ -55,11 +55,11 @@ echo "View Linkerd Service Mesh status:"
 echo
 echo "Linkerd dashboard:  http://localhost:8084"
 echo "Grafana dashboard:  http://localhost:8084/grafana"
-echo
-echo
-echo "View Kynervo Policy Reporter:"
-echo
-echo "Policy Reporter:    http://localhost:8082"
+# echo
+# echo
+# echo "View Kynervo Policy Reporter:"
+# echo
+# echo "Policy Reporter:    http://localhost:8082"
 echo
 echo
 echo "View Litmus ChaosCenter:"
