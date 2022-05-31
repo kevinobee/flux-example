@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: LimitRange
+metadata:
+  name: cpu-min-max-limit-range
+spec:
+  limits:
+  - max:
+      cpu: "400m"
+    min:
+      cpu: "200m"
+    type: Container

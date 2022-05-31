@@ -5,5 +5,8 @@ commonAnnotations:
   linkerd.io/inject: enabled
 
 resources:
+- resource
 - emojivoto.yaml
 - sync.yaml
+
+namespace: emojivoto
