@@ -4,3 +4,5 @@ resources:
 - cpu-constraints.yaml
 - memory-constraints.yaml
 - quota-mem-cpu.yaml
+
+namespace: emojivoto
