@@ -7,5 +7,5 @@ spec:
   - max:
       cpu: "800m"
     min:
-      cpu: "200m"
+      cpu: "10m"
     type: Container

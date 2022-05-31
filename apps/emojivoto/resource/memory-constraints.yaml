@@ -7,5 +7,5 @@ spec:
   - max:
       memory: "400Mi"
     min:
-      memory: "400Mi"
+      memory: "10Mi"
     type: Container
