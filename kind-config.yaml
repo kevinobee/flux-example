@@ -13,7 +13,7 @@ nodes:
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "ingress-ready=true"
+        node-labels: "ingress-ready=true,org.kevinobee/workload-type=control-plane"
 
   - |
     kind: ClusterConfiguration
@@ -50,3 +50,29 @@ nodes:
     protocol: TCP
 
 - role: worker
+
+  kubeadmConfigPatches:
+    - |
+      kind: JoinConfiguration
+      nodeRegistration:
+        kubeletExtraArgs:
+          node-labels: "org.kevinobee/workload-type=worker"
+
+- role: worker
+
+  kubeadmConfigPatches:
+    - |
+      kind: JoinConfiguration
+      nodeRegistration:
+        kubeletExtraArgs:
+          node-labels: "org.kevinobee/workload-type=observability"
+
+- role: worker
+
+  kubeadmConfigPatches:
+    - |
+      kind: JoinConfiguration
+      nodeRegistration:
+        kubeletExtraArgs:
+          node-labels: "org.kevinobee/workload-type=tools"
+
