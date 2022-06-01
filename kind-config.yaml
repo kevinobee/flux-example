@@ -50,6 +50,7 @@ nodes:
     protocol: TCP
 
 - role: worker
+  name: worker-1
 
   kubeadmConfigPatches:
     - |
@@ -59,6 +60,7 @@ nodes:
           node-labels: "org.kevinobee/workload-type=worker"
 
 - role: worker
+  name: observability
 
   kubeadmConfigPatches:
     - |
@@ -68,6 +70,7 @@ nodes:
           node-labels: "org.kevinobee/workload-type=observability"
 
 - role: worker
+  name: tools
 
   kubeadmConfigPatches:
     - |
