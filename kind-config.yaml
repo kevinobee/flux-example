@@ -13,7 +13,7 @@ nodes:
     kind: InitConfiguration
     nodeRegistration:
       kubeletExtraArgs:
-        node-labels: "ingress-ready=true,org.kevinobee/workload-type=control-plane"
+        node-labels: "ingress-ready=true,role=control-plane"
 
   - |
     kind: ClusterConfiguration
@@ -22,6 +22,9 @@ nodes:
         extraArgs:
           audit-log-path: /var/log/kubernetes/kube-apiserver-audit.log
           audit-policy-file: /etc/kubernetes/policies/audit-policy.yaml
+          enable-admission-plugins: NodeRestriction,MutatingAdmissionWebhook,ValidatingAdmissionWebhook
+          # authorization-mode: Node
+
         # mount new files / directories on the control plane
         extraVolumes:
           - name: audit-policies
@@ -50,32 +53,23 @@ nodes:
     protocol: TCP
 
 - role: worker
-  name: worker-1
-
-  kubeadmConfigPatches:
-    - |
-      kind: JoinConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "org.kevinobee/workload-type=worker"
 
 - role: worker
-  name: observability
-
-  kubeadmConfigPatches:
-    - |
-      kind: JoinConfiguration
-      nodeRegistration:
-        kubeletExtraArgs:
-          node-labels: "org.kevinobee/workload-type=observability"
 
 - role: worker
-  name: tools
 
   kubeadmConfigPatches:
     - |
       kind: JoinConfiguration
       nodeRegistration:
         kubeletExtraArgs:
-          node-labels: "org.kevinobee/workload-type=tools"
+          node-labels: "role=observability"
 
+- role: worker
+
+  kubeadmConfigPatches:
+  - |
+    kind: JoinConfiguration
+    nodeRegistration:
+      kubeletExtraArgs:
+        node-labels: "role=tools"

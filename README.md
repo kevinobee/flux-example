@@ -46,6 +46,8 @@ Then run the installation script:
 ./install.sh
 ```
 
+The script will create a four node cluster running in Docker containers.
+
 ## GitOps Operations
 
 To force Flux to run reconcile the manifests held in the Git repository to the cluster run:

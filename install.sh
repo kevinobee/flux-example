@@ -19,6 +19,11 @@ fi
 kubectl cluster-info
 
 echo
+echo "Taint cluster nodes ..."
+kubectl taint nodes kind-worker3 role=observability:NoSchedule --overwrite=true
+kubectl taint nodes kind-worker4 role=tools:NoSchedule --overwrite=true
+
+echo
 echo "Install Flux in cluster ..."
 flux check --pre
 

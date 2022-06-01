@@ -9,6 +9,6 @@ resources:
   # - resource
 
 patchesStrategicMerge:
-  - resource-limits.yaml
+  - patches/resource-limits.yaml
 
 namespace: ingress-nginx
