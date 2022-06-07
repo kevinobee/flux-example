@@ -36,6 +36,7 @@
         "metallb",
         "mutatingwebhookconfigurations",
         "netdns",
+        "promtail",
         "replicasets",
         "replicationcontrollers",
         "serverauthorizations",

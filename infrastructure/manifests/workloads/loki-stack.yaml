@@ -1,0 +1,19 @@
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: loki-stack
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./manifests/monitoring/loki-stack
+  dependsOn:
+    - name: monitoring-stack
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: monitoring
+  healthChecks:
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: loki-stack
+    namespace: monitoring

@@ -14,6 +14,8 @@ Cluster contains:
 
 1. Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
 
+1. Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
+
 1. [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 
 1. Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
@@ -25,11 +27,6 @@ Cluster contains:
 1. [Starboard](https://github.com/aquasecurity/starboard) Kubernetes-native toolkit for Security monitoring, image scanning and resource misconfiguration discovery
 
 1. [Octant](https://octant.dev/) developer-centric web interface for inspecting a Kubernetes cluster and its applications
-
-Future features:
-
-1. Log monitoring and alerting using Loki
-1. Vertical Pod Autoscaler
 
 ## Getting Started
 
