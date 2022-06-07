@@ -7,3 +7,5 @@ resources:
 
 patchesStrategicMerge:
   - patches/resource-limits.yaml
+  - patches/inject-linkerd.yaml
+  
