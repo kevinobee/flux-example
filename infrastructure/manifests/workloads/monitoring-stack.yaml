@@ -15,20 +15,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: monitoring
-  patches:
-    - patch: |-
-        apiVersion: apps/v1
-        kind: Deployment
-        metadata:
-          name: not-used
-        spec:
-          template:
-            spec:
-              tolerations:
-              - effect: NoSchedule
-                key: role
-                operator: Equal
-                value: observability
   healthChecks:
   - kind: Deployment
     name: kube-prometheus-stack-operator
