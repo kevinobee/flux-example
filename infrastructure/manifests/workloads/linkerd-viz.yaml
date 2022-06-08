@@ -4,8 +4,8 @@ metadata:
   name: linkerd-viz
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/service-mesh/linkerd-viz
+  interval: 1h0m0s
+  path: ./infrastructure/source/service-mesh/linkerd-viz
   dependsOn:
     - name: linkerd
   prune: true

@@ -5,8 +5,8 @@ metadata:
   name: ingress-nginx
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/ingress-nginx
+  interval: 1h0m0s
+  path: ./infrastructure/source/ingress-nginx
   dependsOn:
     - name: linkerd
     - name: metallb

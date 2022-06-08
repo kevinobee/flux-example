@@ -5,8 +5,8 @@ metadata:
   name: linkerd
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/service-mesh/linkerd
+  interval: 1h0m0s
+  path: ./infrastructure/source/service-mesh/linkerd
   prune: true
   sourceRef:
     kind: GitRepository

@@ -69,22 +69,10 @@ flux tree kustomization flux-system --compact
 
 Run the [scripts/port-forward.sh](./scripts/port-forward.sh) shell script to expose cluster services as forwarded ports on `localhost`.
 
-Follow the links below for details of tooling installed in the cluster:
-
-* [Flux dashboards](./infrastructure/monitoring/README.md)
-
-* [Linkerd UI](./infrastructure/service-mesh/linkerd-viz/README.md)
-
-* [Litmus Chaos](./tools/litmus/README.md)
-
-<!-- * [Policy Reporter UI](./infrastructure/policy/policy-reporter/README.md) -->
-
-* [Starboard](./tools/starboard/README.md)
-
 ## Flux Manifests
 
 Flux manifests are used to deploy and maintain cluster resources.
 
 Manifests within the `./cluster/` folder are used to bootstrap the cluster.
 
-The `./infrastructure/finalizers` folder contains a `finalizers` Kustomization that is used to ensure all infrastructure resources are deployed before synchronizing application or tool manifests.
+The `./infrastructure/source/finalizers` folder contains a `finalizers` Kustomization that is used to ensure all infrastructure resources are deployed before synchronizing application or tool manifests.

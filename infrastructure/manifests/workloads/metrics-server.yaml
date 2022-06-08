@@ -5,8 +5,8 @@ metadata:
   name: metrics-server
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/metrics-server
+  interval: 1h0m0s
+  path: ./infrastructure/source/metrics-server
   prune: true
   sourceRef:
     kind: GitRepository

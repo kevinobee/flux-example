@@ -5,8 +5,8 @@ metadata:
   name: kyverno-policies
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/policy/kyverno-policies
+  interval: 1h0m0s
+  path: ./infrastructure/source/policy/kyverno-policies
   dependsOn:
     - name: kyverno
   prune: true

@@ -5,9 +5,9 @@ resources:
 - metallb.yaml
 - sealed-secrets.yaml
 - metrics-server.yaml
-- ingress-nginx.yaml
 - monitoring-stack.yaml
-- monitoring-config.yaml
+- ingress-nginx.yaml
 - loki-stack.yaml
+- monitoring-config.yaml
 - linkerd-viz.yaml
 - finalizers.yaml

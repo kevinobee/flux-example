@@ -5,8 +5,8 @@ metadata:
   name: finalizers
   namespace: flux-system
 spec:
-  interval: 10m0s
-  path: ./infrastructure/finalizers
+  interval: 1h0m0s
+  path: ./infrastructure/source/finalizers
   dependsOn:
     - name: linkerd
     - name: metallb
