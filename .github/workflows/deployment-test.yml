@@ -8,7 +8,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Checkout
@@ -55,10 +55,10 @@ jobs:
 
       - name: Run tests
         run: |
-          k6 login cloud -t $K6_TOKEN
+          # k6 login cloud -t $K6_TOKEN
           k6 run test.js
-        env:
-          K6_TOKEN: ${{ secrets.K6_TOKEN }}
+        # env:
+        #   K6_TOKEN: ${{ secrets.K6_TOKEN }}
 
       - name: DAST (Kubescape)
         run: |
