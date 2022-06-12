@@ -15,7 +15,6 @@ export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 brewTools=( \
   "k6" \
   "kind" \
-  "krew" \
   "kubescape"
 )
 
@@ -39,23 +38,3 @@ fi
 if [[ ! $(which "popeye") ]]; then
   brew install "derailed/popeye/popeye"
 fi
-
-echo
-echo "Setup kubectl plugins ..."    # ref: https://kubernetes.io/docs/tasks/extend-kubectl/kubectl-plugins/
-if [ ! $(echo ${PATH} | grep ".krew/bin") ]; then
-  export PATH="${PATH}:${HOME}/.krew/bin"
-fi
-
-kubectlPlugins=( \
-  "starboard"
-)
-
-kubectl krew update
-
-for i in "${kubectlPlugins[@]}"
-do
-  if [[ ! $(kubectl "${i}" version) ]]; then
-    kubectl krew install ${i}
-  fi
-done
-
