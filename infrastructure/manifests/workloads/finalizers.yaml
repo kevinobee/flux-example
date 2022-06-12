@@ -13,7 +13,6 @@ spec:
     - name: ingress-nginx
     - name: monitoring-config
     - name: metrics-server
-    - name: loki-stack
   prune: true
   sourceRef:
     kind: GitRepository
@@ -26,4 +25,3 @@ spec:
     kind: HelmRelease
     name: sealed-secrets
     namespace: flux-system
-    
