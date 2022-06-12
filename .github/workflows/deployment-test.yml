@@ -1,4 +1,4 @@
-name: Test Deployment on Kind Cluster
+name: Test Cluster Deployment
 
 on:
 
@@ -38,7 +38,7 @@ jobs:
             --personal
         env:
           GITHUB_USER: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
           REPOSITORY: ${{ github.event.repository.name }}
 
       - name: Reconcile flux-system
