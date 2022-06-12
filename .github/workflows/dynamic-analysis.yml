@@ -16,7 +16,6 @@ jobs:
 
       - name: Setup CLI tools
         run: |
-          brew install kind
           brew install fluxcd/tap/flux
         env:
           HOMEBREW_NO_INSTALL_CLEANUP: true
