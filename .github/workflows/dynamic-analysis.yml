@@ -51,7 +51,7 @@ jobs:
 
       - name: Check configuration
         run: |
-          popeye --all-namespaces --lint warn
+          popeye --all-namespaces --lint warn --force-exit-zero
 
       - name: Run tests
         run: |
