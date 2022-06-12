@@ -37,7 +37,7 @@ flux bootstrap github \
 echo
 flux tree kustomization flux-system --compact
 echo
-flux get all
+flux get all --all-namespaces
 
 echo
 echo "Next steps:"
@@ -58,7 +58,7 @@ echo
 echo "flux tree kustomization flux-system --compact"
 echo
 echo
-echo "Setup port forwards to expose Cluster dashboards:"
+echo "Setup port forwards to expose applications and dashboards:"
 echo
 echo "./scripts/port-forward.sh"
 echo

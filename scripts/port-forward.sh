@@ -8,18 +8,34 @@ set -o nounset;
 # debug commands
 # set -x;
 
-flux get all
+flux get all --all-namespaces
 
 echo
 echo "Wait for infrastructure to be ready ..."
 kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=5m
+flux get all --all-namespaces
+
 kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=10m
+flux get all --all-namespaces
+
 # kubectl -n flux-system wait helmrelease/policy-reporter --for=condition=ready
+# flux get all --all-namespaces
+
+echo
+echo "Wait for applications to be ready ..."
+kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=5m
+flux get all --all-namespaces
+
+kubectl -n flux-system wait kustomization/emojivoto --for=condition=ready --timeout=5m
+flux get all --all-namespaces
 
 echo
 echo "Wait for tools to be ready ..."
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=10m
+flux get all --all-namespaces
+
 kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --timeout=10m
+flux get all --all-namespaces
 
 # Expose monitoring Grafana on port 3000
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:3000") ]]; then
@@ -36,10 +52,16 @@ if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8084") ]]; then
   kubectl -n linkerd-viz port-forward svc/web 8084:8084 > /dev/null 2>&1 &
 fi
 
+# Expose Emojivoto on port 8080
+if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8080") ]]; then
+  kubectl -n emojivoto port-forward svc/web-svc 8080:80 > /dev/null 2>&1 &
+fi
+
 # Expose Litmus ChaosCenter on port 9091
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:9091") ]]; then
   kubectl -n litmus port-forward svc/chaos-litmus-frontend-service 9091:9091 > /dev/null 2>&1 &
 fi
+
 
 echo
 echo "Cluster Dashboards:"
@@ -68,4 +90,10 @@ echo
 echo "View Litmus ChaosCenter:"
 echo
 echo "Litmus:             http://localhost:9091/"
+echo
+echo
+echo "Applications:"
+echo "------------ "
+echo
+echo "Emojivoto:          http://localhost:8080/"
 echo

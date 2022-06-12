@@ -13,6 +13,7 @@ echo "Setup required CLI tools (uses Homebrew on Linux) ..."    # ref: https://b
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 
 brewTools=( \
+  "k6" \
   "kind" \
   "krew" \
   "kubescape" \

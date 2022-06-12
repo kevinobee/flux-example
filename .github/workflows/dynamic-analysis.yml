@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-  kubernetes:
+  test:
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -16,9 +16,7 @@ jobs:
 
       - name: Setup CLI tools
         run: |
-          brew install fluxcd/tap/flux
-        env:
-          HOMEBREW_NO_INSTALL_CLEANUP: true
+          ./scripts/install-ci-tools.sh
 
       - name: Setup Kubernetes
         run: |
@@ -53,7 +51,7 @@ jobs:
 
       - name: Test
         run: |
-          echo "Run K6 Tests ... "
+          k6 run test.js
 
       - name: DAST (Kubescape)
         run: |
@@ -68,3 +66,4 @@ jobs:
           kubectl -n flux-system logs deploy/source-controller
           kubectl -n flux-system logs deploy/kustomize-controller
           kubectl -n flux-system logs deploy/helm-controller
+          flux get all --all-namespaces
