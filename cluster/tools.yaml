@@ -16,9 +16,14 @@ spec:
   healthChecks:
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
-    name: litmuschaos
+    name: starboard-operator
     namespace: flux-system
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
-    name: sealed-secrets
+    name: starboard-exporter
     namespace: flux-system
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: litmuschaos
+    namespace: flux-system
+
