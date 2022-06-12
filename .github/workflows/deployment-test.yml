@@ -1,4 +1,4 @@
-name: Dynamic Analysis
+name: Test Deployment on Kind Cluster
 
 on:
 
@@ -6,9 +6,9 @@ on:
 
 jobs:
 
-  test:
+  deployment-test:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 20
 
     steps:
       - name: Checkout
@@ -38,7 +38,7 @@ jobs:
             --personal
         env:
           GITHUB_USER: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPOSITORY: ${{ github.event.repository.name }}
 
       - name: Reconcile flux-system
@@ -47,7 +47,7 @@ jobs:
 
       - name: Expose services
         run: |
-          ./scripts/port-forward.sh || ./scripts/debug-failure.sh
+          ./scripts/port-forward.sh
 
       - name: Check configuration
         run: |
@@ -61,10 +61,10 @@ jobs:
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
 
-      - name: Debug failure
-        if: failure()
+      - name: Dump Flux state
+        if: always()
         run: |
-          ./scripts/debug-failure.sh
+          ./scripts/dump-flux-state.sh
 
       - name: Teardown cluster
         if: always()

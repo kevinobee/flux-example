@@ -1,5 +1,5 @@
 #!/bin/bash
-# debug-failure.sh - dump cluster status to diagnose a failure in flux reconciliation loop
+# dump-flux-state.sh - dump cluster status to diagnose a failure in flux reconciliation loop
 
 # standard bash error handling
 set -o errexit;
@@ -16,3 +16,9 @@ kubectl -n flux-system logs deploy/kustomize-controller
 kubectl -n flux-system logs deploy/helm-controller
 
 flux get all --all-namespaces
+
+flux tree kustomization flux-system --compact
+
+flux tree kustomization flux-system
+
+flux logs --all-namespaces
