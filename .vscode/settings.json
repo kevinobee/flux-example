@@ -23,6 +23,7 @@
         "grafana",
         "helmrelease",
         "IPAM",
+        "jetstack",
         "kevinobee",
         "kube",
         "kubeadm",
