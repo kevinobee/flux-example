@@ -20,7 +20,7 @@ jobs:
 
       - name: Setup Kubernetes
         run: |
-          kind create cluster
+          kind create cluster --config kind-config.yaml --name ci-kind
           kubectl wait node --all --for condition=ready
           kubectl cluster-info
 
@@ -47,7 +47,7 @@ jobs:
 
       - name: Expose services
         run: |
-          ./scripts/port-forward.sh
+          ./scripts/port-forward.sh || ./scripts/debug-failure.sh
 
       - name: Test
         run: |
@@ -60,10 +60,8 @@ jobs:
       - name: Debug failure
         if: failure()
         run: |
-          kubectl get ns
-          kubectl get crd
-          kubectl -n flux-system get all
-          kubectl -n flux-system logs deploy/source-controller
-          kubectl -n flux-system logs deploy/kustomize-controller
-          kubectl -n flux-system logs deploy/helm-controller
-          flux get all --all-namespaces
+          ./scripts/debug-failure.sh
+
+      - name: Teardown cluster
+        run: |
+          kind delete cluster --name ci-kind
