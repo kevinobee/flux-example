@@ -11,7 +11,7 @@ set -o nounset;
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 
 brewTools=( \
-  "kind"
+  "kubescape"
 )
 
 if [ ! $(which brew) ]; then
