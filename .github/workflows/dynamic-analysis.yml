@@ -40,7 +40,7 @@ jobs:
             --path=./cluster \
             --personal
         env:
-          GITHUB_USER: kevinobee  # ${{ secrets.GITHUB_USER }}
+          GITHUB_USER: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
           REPOSITORY: ${{ github.event.repository.name }}
 
@@ -48,39 +48,13 @@ jobs:
         run: |
           flux reconcile kustomization flux-system --with-source
 
-#     - name: Setup cluster reconciliation
-#       run: |
-#         flux create source git flux-system \
-#         --url=${{ github.event.repository.html_url }} \
-#         --branch=${GITHUB_REF#refs/heads/}
-#         flux create kustomization flux-system \
-#         --source=flux-system \
-#         --path=./cluster
-
-#     - name: Verify cluster reconciliation
-#       run: |
-#         kubectl -n flux-system wait kustomization/flux-system --for=condition=ready --timeout=1m
-#         # kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=1m
-#         # kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=1m
-
-      # - name: Verify helm reconciliation
-      #   run: |
-      #     kubectl -n nginx wait helmrelease/nginx --for=condition=ready --timeout=1m
-
-      # - name: Docker network checks
-      #   run: |
-      #     docker network inspect -f '{{.IPAM.Config}}' kind
-
-      - name: Namespace checks
+      - name: Expose services
         run: |
-          ns=( \
-            "flux-system"
-          )
+          ./scripts/port-forward.sh
 
-          for i in "${ns[@]}"
-          do
-            kubectl get ns "${i}"
-          done
+      - name: Test
+        run: |
+          echo "Run K6 Tests ... "
 
       - name: Debug failure
         if: failure()
