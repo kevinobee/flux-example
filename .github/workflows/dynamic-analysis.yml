@@ -16,7 +16,7 @@ jobs:
 
       - name: Setup CLI tools
         run: |
-          ./scripts/install-ci-tools.sh
+          ./scripts/install-cli-tools.sh
 
       - name: Setup Kubernetes
         run: |
@@ -49,7 +49,11 @@ jobs:
         run: |
           ./scripts/port-forward.sh || ./scripts/debug-failure.sh
 
-      - name: Test
+      - name: Check configuration
+        run: |
+          popeye --all-namespaces --lint warn
+
+      - name: Run tests
         run: |
           k6 run test.js
 
@@ -63,5 +67,6 @@ jobs:
           ./scripts/debug-failure.sh
 
       - name: Teardown cluster
+        if: always()
         run: |
           kind delete cluster --name ci-kind

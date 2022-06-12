@@ -65,6 +65,7 @@ echo
 echo
 echo "View the cluster configuration dashboard:"
 echo
+echo "brew install octant"
 echo "octant"
 echo
 echo

@@ -16,11 +16,7 @@ brewTools=( \
   "k6" \
   "kind" \
   "krew" \
-  "kubescape" \
-  "kubeseal" \
-  "kustomize" \
-  "linkerd" \
-  "octant"
+  "kubescape"
 )
 
 if [ ! $(which brew) ]; then
