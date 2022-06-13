@@ -8,6 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/finalizers
   dependsOn:
+    - name: cert-manager
     - name: linkerd
     - name: metallb
     - name: ingress-nginx
