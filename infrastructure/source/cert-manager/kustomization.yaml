@@ -3,3 +3,6 @@ kind: Kustomization
 
 resources:
   - https://github.com/cert-manager/cert-manager/releases/download/v1.8.0/cert-manager.yaml
+
+patchesStrategicMerge:
+  - patches/inject-linkerd.yaml
