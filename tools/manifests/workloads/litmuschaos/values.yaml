@@ -56,11 +56,7 @@ upgradeAgent:
       tag: "2.9.0"
       pullPolicy: "Always"
     restartPolicy: OnFailure
-  tolerations:
-  - effect: NoSchedule
-    key: role
-    operator: Equal
-    value: tools
+  tolerations: {}
 
   affinity: {}
 
@@ -124,11 +120,7 @@ portal:
       hosts: []
       gateways: []
       pathPrefixEnabled: false
-    tolerations:
-    - effect: NoSchedule
-      key: role
-      operator: Equal
-      value: tools
+    tolerations: {}
     affinity: {}
 
   server:
@@ -278,11 +270,7 @@ portal:
       authRpcServer:
         port: 3030
         targetPort: 3030
-    tolerations:
-    - effect: NoSchedule
-      key: role
-      operator: Equal
-      value: tools
+    tolerations: {}
     affinity: {}
 
 mongo:
@@ -334,11 +322,7 @@ mongo:
     targetPort: 27017
   # Service account to be used by mongo pods
   # serviceAccountName: "mongo-service-account"
-  tolerations:
-  - effect: NoSchedule
-    key: role
-    operator: Equal
-    value: tools
+  tolerations: {}
   affinity: {}
 
 # OpenShift specific configuration

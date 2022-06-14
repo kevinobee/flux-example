@@ -13,11 +13,7 @@ operator:
 
 
 starboard:
-  scanJobTolerations:
-    - key: "role"
-      operator: "Equal"
-      value: "tools"
-      effect: "NoSchedule"
+  scanJobTolerations: []
 
 trivy:
 
