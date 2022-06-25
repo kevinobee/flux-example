@@ -48,21 +48,6 @@ echo
 echo "./scripts/port-forward.sh"
 echo
 echo
-echo "Watch status of all Flux resources:"
-echo
-echo "watch flux get all --all-namespaces"
-echo
-echo
-echo "Force Flux reconciliation:"
-echo
-echo "flux reconcile kustomization flux-system --with-source"
-echo
-echo
-echo "View Flux Kustomization tree:"
-echo
-echo "flux tree kustomization flux-system --compact"
-echo
-echo
 echo "View the cluster configuration dashboard:"
 echo
 echo "brew install octant"

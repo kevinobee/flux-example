@@ -56,3 +56,9 @@ echo "------------ "
 echo
 echo "Emojivoto:          http://localhost:8080/"
 echo
+echo
+echo "Run Smoke Tests:"
+echo "--------------- "
+echo
+echo "k6 run cluster-smoke-test.js"
+echo
