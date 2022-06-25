@@ -38,6 +38,16 @@ echo
 echo "Next steps:"
 echo "-----------"
 echo
+echo "Wait for Flux to sync cluster applications:"
+echo
+echo "./scripts/wait-for-sync.sh"
+echo
+echo
+echo "Setup port forwarding to expose applications and dashboards:"
+echo
+echo "./scripts/port-forward.sh"
+echo
+echo
 echo "Watch status of all Flux resources:"
 echo
 echo "watch flux get all --all-namespaces"
@@ -51,11 +61,6 @@ echo
 echo "View Flux Kustomization tree:"
 echo
 echo "flux tree kustomization flux-system --compact"
-echo
-echo
-echo "Setup port forwards to expose applications and dashboards:"
-echo
-echo "./scripts/port-forward.sh"
 echo
 echo
 echo "View the cluster configuration dashboard:"
