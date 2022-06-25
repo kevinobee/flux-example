@@ -45,7 +45,7 @@ jobs:
         run: |
           flux reconcile kustomization flux-system --with-source
           ./scripts/wait-for-sync.sh
-          
+
       - name: Expose services
         run: |
           ./scripts/port-forward.sh
@@ -57,7 +57,7 @@ jobs:
       - name: Run tests
         run: |
           k6 login cloud -t $K6_TOKEN
-          k6 run -o cloud test.js
+          k6 run -o cloud cluster-smoke-test.js
         env:
           K6_TOKEN: ${{ secrets.K6_TOKEN }}
 

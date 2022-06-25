@@ -18,11 +18,6 @@ fi
 #   kubectl -n policy-reporter port-forward service/policy-reporter-policy-reporter-ui 8082:8080 > /dev/null 2>&1 &
 # fi
 
-# Expose Linkerd-Viz dashboards on port 8084
-if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8084") ]]; then
-  kubectl -n linkerd-viz port-forward svc/web 8084:8084 > /dev/null 2>&1 &
-fi
-
 # Expose Emojivoto on port 8080
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:8080") ]]; then
   kubectl -n emojivoto port-forward svc/web-svc 8080:80 > /dev/null 2>&1 &
@@ -44,12 +39,6 @@ echo "  password: prom-operator"
 echo
 echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
-echo
-echo
-echo "View Linkerd Service Mesh status:"
-echo
-echo "Linkerd dashboard:  http://localhost:8084"
-echo "Grafana dashboard:  http://localhost:8084/grafana"
 # echo
 # echo
 # echo "View Kynervo Policy Reporter:"

@@ -10,5 +10,4 @@ resources:
 - monitoring-config.yaml
 - loki-stack.yaml
 - ingress-nginx.yaml
-- linkerd-viz.yaml
 - finalizers.yaml

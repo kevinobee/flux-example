@@ -69,6 +69,13 @@ echo "brew install octant"
 echo "octant"
 echo
 echo
+echo "View Service Mesh dashboard:"
+echo
+echo "brew install linkerd"
+echo "linkerd viz install"
+echo "linkerd viz dashboard"
+echo
+echo
 echo "Run Sanitizers against cluster configuration:"
 echo
 echo "popeye"
