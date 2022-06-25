@@ -30,7 +30,7 @@ fi
 
 # Expose Litmus ChaosCenter on port 9091
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:9091") ]]; then
-  kubectl -n litmus port-forward svc/chaos-litmus-frontend-service 9091:9091 > /dev/null 2>&1 &
+  kubectl -n litmus port-forward svc/litmus-litmuschaos-frontend-service 9091:9091 > /dev/null 2>&1 &
 fi
 
 echo
