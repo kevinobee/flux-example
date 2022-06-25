@@ -8,35 +8,6 @@ set -o nounset;
 # debug commands
 # set -x;
 
-flux get all --all-namespaces
-
-echo
-echo "Wait for infrastructure to be ready ..."
-kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=5m
-flux get all --all-namespaces
-
-kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=10m
-flux get all --all-namespaces
-
-# kubectl -n flux-system wait helmrelease/policy-reporter --for=condition=ready
-# flux get all --all-namespaces
-
-echo
-echo "Wait for applications to be ready ..."
-kubectl -n flux-system wait kustomization/apps --for=condition=ready --timeout=5m
-flux get all --all-namespaces
-
-kubectl -n flux-system wait kustomization/emojivoto --for=condition=ready --timeout=5m
-flux get all --all-namespaces
-
-echo
-echo "Wait for tools to be ready ..."
-kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=10m
-flux get all --all-namespaces
-
-kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --timeout=10m
-flux get all --all-namespaces
-
 # Expose monitoring Grafana on port 3000
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:3000") ]]; then
   kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80 > /dev/null 2>&1 &
@@ -61,7 +32,6 @@ fi
 if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:9091") ]]; then
   kubectl -n litmus port-forward svc/chaos-litmus-frontend-service 9091:9091 > /dev/null 2>&1 &
 fi
-
 
 echo
 echo "Cluster Dashboards:"

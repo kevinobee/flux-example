@@ -44,7 +44,8 @@ jobs:
       - name: Reconcile flux-system
         run: |
           flux reconcile kustomization flux-system --with-source
-
+          ./scripts/wait-for-sync.sh
+          
       - name: Expose services
         run: |
           ./scripts/port-forward.sh
