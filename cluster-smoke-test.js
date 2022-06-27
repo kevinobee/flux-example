@@ -5,6 +5,7 @@ export const options = {
   vus: 1,
 
   thresholds: {
+    http_req_failed: ['rate<=0.05'],
     http_req_duration: ['p(99)<500'], // 99% of requests must complete below 500ms
   },
 
@@ -12,57 +13,54 @@ export const options = {
     loadimpact: {
       projectID: 3589514,
       // Test runs with the same name groups test runs together
-      name: "Cluster Services Test"
+      name: "Flux Example: Cluster Services"
     }
   }
 };
 
 export default function () {
-  checkMonitoring()
-  checkApplications();
-  checkTools();
 
-  sleep(1);
-}
-
-function checkApplications() {
+  // Apps
   checkEmojiVotoApp();
-}
 
-function checkTools() {
+  // Monitoring
+  checkGrafana()
+
+  // Tools
   checkLitmusChaos();
 }
 
+
 function checkEmojiVotoApp() {
-  const res = http.get('http://localhost:8080');
+  const res = http.get('http://localhost:8080', {tags: {name: '01_Emoji_App_Homepage'}});
 
   check(res, {
-    'Emoji Vote homepage returns status code 200': (r) => r.status === 200,
-    'Emoji Vote homepage returns expected text': (r) =>
+    'is status 200': (r) => r.status === 200,
+    '01_text verification': (r) =>
       r.body.includes('Emoji Vote'),
    });
 }
 
-function checkLitmusChaos() {
-  const res = http.get('http://localhost:9091/');
+function checkGrafana() {
+  const res = http.get('http://localhost:3000', {tags: {name: '02_Grafana_Homepage'}});
 
   check(res, {
-    'Litmus Chaos returns status code 200': (r) => r.status === 200,
-    'Litmus Chaos returns expected text': (r) =>
+    'is status 200': (r) => r.status === 200,
+    '02_text verification': (r) =>
+      r.body.includes('Grafana'),
+   });
+}
+
+function checkLitmusChaos() {
+  const res = http.get('http://localhost:9091/', {tags: {name: '03_Litmus_Chaos_Homepage'}});
+
+  check(res, {
+    'is status 200': (r) => r.status === 200,
+    '03_text verification': (r) =>
       r.body.includes('ChaosCenter'),
    });
 }
 
-function checkMonitoring() {
-  checkGrafana();
-}
 
-function checkGrafana() {
-  const res = http.get('http://localhost:3000');
 
-  check(res, {
-    'Grafana returns status code 200': (r) => r.status === 200,
-    'Grafana returns expected text': (r) =>
-      r.body.includes('Grafana'),
-   });
-}
+
