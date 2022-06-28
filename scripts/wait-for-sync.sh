@@ -27,8 +27,8 @@ echo
 flux get all --all-namespaces
 
 echo
-echo "Next steps:"
-echo "-----------"
+echo "Next Step:"
+echo "--------- "
 echo
 echo "Setup port forwarding to expose applications and dashboards:"
 echo

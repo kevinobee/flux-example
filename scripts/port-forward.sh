@@ -29,6 +29,21 @@ if [[ ! $(netstat -tlp | grep kubectl | grep "localhost:9091") ]]; then
 fi
 
 echo
+echo "Next Steps:"
+echo
+echo
+echo "Applications:"
+echo "------------ "
+echo
+echo "Emojivoto:          http://localhost:8080/"
+echo
+echo
+echo "Run Smoke Tests:"
+echo "--------------- "
+echo
+echo "k6 run -o cloud ./test/cluster-smoke-test.js"
+echo
+echo
 echo "Cluster Dashboards:"
 echo "-------------------"
 echo
@@ -51,14 +66,29 @@ echo
 echo "Litmus:             http://localhost:9091/"
 echo
 echo
-echo "Applications:"
-echo "------------ "
+echo "Cluster Dashboard:"
+echo "----------------- "
 echo
-echo "Emojivoto:          http://localhost:8080/"
+echo "brew install octant"
+echo "octant"
 echo
 echo
-echo "Run Smoke Tests:"
-echo "--------------- "
+echo "Service Mesh Dashboard:"
+echo "---------------------- "
 echo
-echo "k6 run -o cloud ./test/cluster-smoke-test.js"
+echo "brew install linkerd"
+echo "linkerd viz install"
+echo "linkerd viz dashboard"
+echo
+echo
+echo "Report Cluster Resource Issues:"
+echo "------------------------------ "
+echo
+echo "popeye"
+echo
+echo
+echo "Run Kubescape Scan:"
+echo "------------------ "
+echo
+echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"
 echo

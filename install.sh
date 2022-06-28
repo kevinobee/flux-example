@@ -35,38 +35,11 @@ echo
 flux get all --all-namespaces
 
 echo
-echo "Next steps:"
-echo "-----------"
+echo "Next Step:"
+echo "--------- "
 echo
 echo "Wait for Flux to sync cluster applications:"
 echo
 echo "./scripts/wait-for-sync.sh"
 echo
-echo
-echo "Setup port forwarding to expose applications and dashboards:"
-echo
-echo "./scripts/port-forward.sh"
-echo
-echo
-echo "View the cluster configuration dashboard:"
-echo
-echo "brew install octant"
-echo "octant"
-echo
-echo
-echo "View Service Mesh dashboard:"
-echo
-echo "brew install linkerd"
-echo "linkerd viz install"
-echo "linkerd viz dashboard"
-echo
-echo
-echo "Run Sanitizers against cluster configuration:"
-echo
-echo "popeye"
-echo
-echo
-echo "Run Kubescape scan:"
-echo
-echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"
-echo
+
