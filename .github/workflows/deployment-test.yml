@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
     inputs:
       cleanup:
-        description: 'Teardown Lind cluster after workflow run'
+        description: 'Teardown Kind cluster after workflow run'
         required: false
         default: false
         type: boolean
