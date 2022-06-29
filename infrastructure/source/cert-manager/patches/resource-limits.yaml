@@ -1,0 +1,56 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-manager
+  namespace: "cert-manager"
+spec:
+  template:
+    spec:
+      containers:
+        - name: cert-manager
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "120m"
+            limits:
+              memory: "64Mi"
+              cpu: "120m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-manager-cainjector
+  namespace: "cert-manager"
+spec:
+  template:
+    spec:
+      containers:
+        - name: cert-manager
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "25m"
+            limits:
+              memory: "128Mi"
+              cpu: "25m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cert-manager-webhook
+  namespace: "cert-manager"
+spec:
+  template:
+    spec:
+      containers:
+        - name: cert-manager
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "30m"
+            limits:
+              memory: "64Mi"
+              cpu: "30m"
