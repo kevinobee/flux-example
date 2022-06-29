@@ -65,6 +65,10 @@ jobs:
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
 
+      - name: Security Scanner (Trivy)
+        run: |
+          trivy k8s --report summary cluster
+
       - name: Dump Flux state
         if: always()
         run: |

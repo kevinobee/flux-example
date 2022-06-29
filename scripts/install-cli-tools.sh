@@ -38,3 +38,7 @@ fi
 if [[ ! $(which "popeye") ]]; then
   brew install "derailed/popeye/popeye"
 fi
+
+if [[ ! $(which "trivy") ]]; then
+  brew install "aquasecurity/trivy/trivy"
+fi
