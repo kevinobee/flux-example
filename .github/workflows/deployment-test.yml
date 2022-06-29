@@ -3,6 +3,12 @@ name: Test Cluster Deployment
 on:
 
   workflow_dispatch:
+    inputs:
+      cleanup:
+        description: 'Teardown Lind cluster after workflow run'
+        required: false
+        default: false
+        type: boolean
 
 jobs:
 
@@ -70,11 +76,11 @@ jobs:
           trivy k8s --report summary cluster
 
       - name: Dump Flux state
-        if: always()
+        if: failure()
         run: |
           ./scripts/dump-flux-state.sh
 
       - name: Teardown cluster
-        if: always()
+        if: inputs.cleanup
         run: |
           kind delete cluster --name ci-kind
