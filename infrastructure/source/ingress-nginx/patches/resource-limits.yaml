@@ -11,7 +11,45 @@ spec:
         resources:
           requests:
             cpu: 100m
-            memory: 90Mi
+            memory: 200Mi
           limits:
-            cpu: 200m
-            memory: 150Mi
+            cpu: 100m
+            memory: 200Mi
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ingress-nginx-admission-create
+  namespace: ingress-nginx
+spec:
+  template:
+    spec:
+      containers:
+      - name: create
+        resources:
+          requests:
+            cpu: 10m
+            memory: 10Mi
+          limits:
+            cpu: 10m
+            memory: 10Mi
+
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: ingress-nginx-admission-patch
+  namespace: ingress-nginx
+spec:
+  template:
+    spec:
+      containers:
+      - name: patch
+        resources:
+          requests:
+            cpu: 10m
+            memory: 10Mi
+          limits:
+            cpu: 10m
+            memory: 10Mi
