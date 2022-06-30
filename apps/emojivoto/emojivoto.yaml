@@ -10,18 +10,21 @@ kind: ServiceAccount
 metadata:
   name: emoji
   namespace: emojivoto
+automountServiceAccountToken: false
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: voting
   namespace: emojivoto
+automountServiceAccountToken: false
 ---
 apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: web
   namespace: emojivoto
+automountServiceAccountToken: false
 ---
 apiVersion: v1
 kind: Service
