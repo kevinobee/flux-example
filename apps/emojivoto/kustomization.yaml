@@ -8,3 +8,6 @@ resources:
 # - resource
 - emojivoto.yaml
 - sync.yaml
+
+patchesStrategicMerge:
+  - patches/immutable-fs.yaml
