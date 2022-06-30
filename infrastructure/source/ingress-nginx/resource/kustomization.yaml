@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
 - cpu-constraints.yaml
 - memory-constraints.yaml
-- quota-mem-cpu.yaml
+# - quota-mem-cpu.yaml
