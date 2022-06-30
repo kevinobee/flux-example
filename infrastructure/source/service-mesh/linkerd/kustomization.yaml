@@ -6,3 +6,5 @@ resources:
 
 patchesStrategicMerge:
   - patches/immutable-fs.yaml
+
+namespace: linkerd
