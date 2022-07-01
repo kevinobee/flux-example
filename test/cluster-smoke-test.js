@@ -1,12 +1,33 @@
-import http from 'k6/http';
-import { check, sleep } from 'k6';
+export { checkEmojiVotoApp } from './apps/emojivoto/user-journey.js';
+export { checkGrafana } from './infrastructure/monitoring/grafana/user-journey.js';
+export { checkLitmusChaos } from './tools/litmuschaos/user-journey.js';
 
 export const options = {
-  vus: 1,
 
   thresholds: {
     http_req_failed: ['rate<=0.05'],
     http_req_duration: ['p(99)<500'], // 99% of requests must complete below 500ms
+  },
+
+  scenarios: {
+    EmojiVoto: {
+      executor: 'shared-iterations',
+      exec: 'checkEmojiVotoApp',
+      vus: 10,
+      iterations: 20
+    },
+    Observability: {
+      executor: 'shared-iterations',
+      exec: 'checkGrafana',
+      vus: 2,
+      iterations: 5
+    },
+    Tools: {
+      executor: 'shared-iterations',
+      exec: 'checkLitmusChaos',
+      vus: 1,
+      iterations: 2
+    }
   },
 
   ext: {
@@ -17,50 +38,3 @@ export const options = {
     }
   }
 };
-
-export default function () {
-
-  // Apps
-  checkEmojiVotoApp();
-
-  // Monitoring
-  checkGrafana()
-
-  // Tools
-  checkLitmusChaos();
-}
-
-
-function checkEmojiVotoApp() {
-  const res = http.get('http://localhost:8080', {tags: {name: '01_Emoji_App_Homepage'}});
-
-  check(res, {
-    'is status 200': (r) => r.status === 200,
-    '01_text verification': (r) =>
-      r.body.includes('Emoji Vote'),
-   });
-}
-
-function checkGrafana() {
-  const res = http.get('http://localhost:3000', {tags: {name: '02_Grafana_Homepage'}});
-
-  check(res, {
-    'is status 200': (r) => r.status === 200,
-    '02_text verification': (r) =>
-      r.body.includes('Grafana'),
-   });
-}
-
-function checkLitmusChaos() {
-  const res = http.get('http://localhost:9091/', {tags: {name: '03_Litmus_Chaos_Homepage'}});
-
-  check(res, {
-    'is status 200': (r) => r.status === 200,
-    '03_text verification': (r) =>
-      r.body.includes('ChaosCenter'),
-   });
-}
-
-
-
-
