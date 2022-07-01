@@ -45,6 +45,7 @@
         "promtail",
         "replicasets",
         "replicationcontrollers",
+        "SAST",
         "serverauthorizations",
         "serviceaccounts",
         "servicemeshinterface",

@@ -56,16 +56,9 @@ jobs:
         run: |
           ./scripts/port-forward.sh
 
-      - name: Check configuration
+      - name: SAST Configuration (Popeye)
         run: |
           popeye --all-namespaces --lint warn --force-exit-zero
-
-      - name: Run tests
-        run: |
-          k6 login cloud -t $K6_TOKEN
-          k6 run -o cloud ./test/cluster-smoke-test.js
-        env:
-          K6_TOKEN: ${{ secrets.K6_TOKEN }}
 
       - name: DAST (Kubescape)
         run: |
@@ -74,6 +67,18 @@ jobs:
       - name: Security Scanner (Trivy)
         run: |
           trivy k8s --report summary cluster
+
+      - name: Login to k6 cloud
+        run: |
+          k6 login cloud -t $K6_TOKEN
+        env:
+          K6_TOKEN: ${{ secrets.K6_TOKEN }}
+
+      - name: Run k6 local test
+        uses: grafana/k6-action@v0.2.0
+        with:
+          filename: ./test/cluster-smoke-test.js
+          # flags: --vus 50 --duration 10s
 
       - name: Dump Flux state
         if: failure()
