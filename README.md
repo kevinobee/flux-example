@@ -2,31 +2,45 @@
 
 Example GitOps deployments using Flux.
 
-Cluster contains:
+Deployed Kubernetes cluster contains:
 
-1. [Flux CD](https://fluxcd.io/) continuous and progressive delivery solution for Kubernetes.
+1. GitOps
 
-1. [Linkerd](https://linkerd.io/) service mesh
+    * [Flux CD](https://fluxcd.io/) continuous and progressive delivery solution for Kubernetes
 
-1. [MetalLB](https://metallb.org/) bare-metal load balancer
+1. Infrastructure
 
-1. [NGinx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
+    * [Linkerd](https://linkerd.io/) service mesh
 
-1. Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
+    * [MetalLB](https://metallb.org/) bare-metal load balancer
 
-1. Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
+    * [NGinx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
 
-1. [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+    * Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
 
-1. Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
+    <!-- * [Kyverno](https://kyverno.io/) policy management and enforcement -->
 
-<!-- 1. [Kyverno](https://kyverno.io/) policy management and enforcement -->
+1. Observability
 
-1. [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
+    * Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
 
-1. [Starboard](https://github.com/aquasecurity/starboard) Kubernetes-native toolkit for Security monitoring, image scanning and resource misconfiguration discovery
+    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
 
-1. [Octant](https://octant.dev/) developer-centric web interface for inspecting a Kubernetes cluster and its applications
+    * [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
+
+    * [Linkerd Viz](https://linkerd.io/) service mesh and Grafana dashboards
+
+1. Tools
+
+    * [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
+
+    * [Starboard](https://github.com/aquasecurity/starboard) Kubernetes-native toolkit for Security monitoring, image scanning and resource misconfiguration discovery
+
+    1. [Octant](https://octant.dev/) CLI provides a developer-centric web interface for inspecting a Kubernetes cluster and its applications
+
+1. Applications
+
+    * [EmojiVoto](https://github.com/BuoyantIO/emojivoto) sample microservice application
 
 ## Getting Started
 
@@ -43,7 +57,7 @@ Then run the installation script:
 ./install.sh
 ```
 
-The script will create a four node cluster running in Docker containers.
+The script will create a multi-node cluster running in Docker containers.
 
 ## GitOps Operations
 
