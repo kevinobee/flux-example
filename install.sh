@@ -34,12 +34,71 @@ flux tree kustomization flux-system --compact
 echo
 flux get all --all-namespaces
 
-echo
-echo "Next Step:"
-echo "--------- "
-echo
-echo "Wait for Flux to sync cluster applications:"
-echo
-echo "./scripts/wait-for-sync.sh"
-echo
+./scripts/wait-for-sync.sh
 
+./scripts/port-forward.sh
+
+echo
+echo "Next Steps:"
+echo
+echo
+echo "Applications:"
+echo "------------ "
+echo
+echo "Emojivoto:          http://localhost:8080/"
+echo
+echo
+echo "Run Smoke Tests:"
+echo "--------------- "
+echo
+echo "k6 run -o cloud ./test/cluster-smoke-test.js"
+echo
+echo
+echo "Cluster Dashboards:"
+echo "-------------------"
+echo
+echo "View Flux dashboard in Grafana:"
+echo
+echo "  username: admin"
+echo "  password: prom-operator"
+echo
+echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
+echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
+# echo
+# echo
+# echo "View Kynervo Policy Reporter:"
+# echo
+# echo "Policy Reporter:    http://localhost:8082"
+echo
+echo
+echo "View Litmus ChaosCenter:"
+echo
+echo "Litmus:             http://localhost:9091/"
+echo
+echo
+echo "Cluster Dashboard:"
+echo "----------------- "
+echo
+echo "brew install octant"
+echo "octant"
+echo
+echo
+echo "Service Mesh Dashboard:"
+echo "---------------------- "
+echo
+echo "brew install linkerd"
+echo "linkerd viz install | kubectl apply -f -"
+echo "linkerd viz dashboard"
+echo
+echo
+echo "Report Cluster Resource Issues:"
+echo "------------------------------ "
+echo
+echo "popeye"
+echo
+echo
+echo "Run Kubescape Scan:"
+echo "------------------ "
+echo
+echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"
+echo

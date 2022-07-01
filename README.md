@@ -65,10 +65,6 @@ View the Flux `Kustomization` dependency tree with:
 flux tree kustomization flux-system --compact
 ```
 
-## Cluster Tools
-
-Run the [scripts/port-forward.sh](./scripts/port-forward.sh) shell script to expose cluster services as forwarded ports on `localhost`.
-
 ## Flux Manifests
 
 Flux manifests are used to deploy and maintain cluster resources.

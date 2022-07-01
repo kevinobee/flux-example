@@ -25,12 +25,3 @@ kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --time
 
 echo
 flux get all --all-namespaces
-
-echo
-echo "Next Step:"
-echo "--------- "
-echo
-echo "Setup port forwarding to expose applications and dashboards:"
-echo
-echo "./scripts/port-forward.sh"
-echo
