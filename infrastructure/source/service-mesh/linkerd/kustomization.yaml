@@ -3,8 +3,10 @@ kind: Kustomization
 
 resources:
   - linkerd.yaml
+  - priority-class.yaml
 
 patchesStrategicMerge:
   - patches/immutable-fs.yaml
+  - patches/patch-priority-class.yaml
 
 namespace: linkerd
