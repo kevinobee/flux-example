@@ -4,17 +4,14 @@ export { checkLitmusChaos } from './tools/litmuschaos/user-journey.js';
 
 export const options = {
 
-  thresholds: {
-    http_req_failed: ['rate<=0.05'],
-    http_req_duration: ['p(99)<500'], // 99% of requests must complete below 500ms
-  },
+  // httpDebug: 'full',
 
   scenarios: {
     EmojiVoto: {
       executor: 'shared-iterations',
       exec: 'checkEmojiVotoApp',
       vus: 10,
-      iterations: 20
+      iterations: 30
     },
     Observability: {
       executor: 'shared-iterations',

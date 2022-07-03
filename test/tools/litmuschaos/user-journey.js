@@ -1,16 +1,34 @@
 import http from 'k6/http';
-import { check } from 'k6';
+import { check, group } from 'k6'
+import { Trend } from 'k6/metrics'
 
 import { ThinkTime } from '../../utils.js';
 
+let HomePageTrend = new Trend('LitmusChaos Get homepage', true);
+
+const baseUrl = __ENV.LITMUSCHAOS_URL
+  ? `https://${__ENV.LITMUSCHAOS_URL}`
+  : `http://localhost:9091`;
+
+const endpoints = {
+  homepage: `${baseUrl}/`
+}
+
 export function checkLitmusChaos() {
-    const res = http.get('http://localhost:9091/', {tags: {name: '03_Litmus_Chaos_Homepage'}});
 
-    check(res, {
-      'is status 200': (r) => r.status === 200,
-      '03_text verification': (r) =>
-        r.body.includes('ChaosCenter'),
-     });
+  group('Tools: Litmus Chaos', () => {
 
-   ThinkTime();
+    let responses;
+
+    responses = http.batch([
+      ['GET', endpoints.homepage, null, { tags: { ctype: 'html' } }],
+    ], { tag: { name: 'Get Homepage' } });
+    check(responses[0], {
+      'status was 200': (res) => res.status === 200,
+      'text verification': (res) => res.body.includes('ChaosCenter')
+    });
+
+    HomePageTrend.add(responses[0].timings.duration)
+    ThinkTime();
+  })
 }

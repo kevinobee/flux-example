@@ -1,16 +1,34 @@
 import http from 'k6/http';
-import { check } from 'k6';
+import { check, group } from 'k6'
+import { Trend } from 'k6/metrics'
 
 import { ThinkTime } from '../../../utils.js';
 
+let HomePageTrend = new Trend('Grafana Get homepage', true);
+
+const baseUrl = __ENV.GRAFANA_URL
+    ? `https://${__ENV.GRAFANA_URL}`
+    : `http://localhost:3000`;
+
+const endpoints = {
+    homepage: `${baseUrl}/`
+}
+
 export function checkGrafana() {
-    const res = http.get('http://localhost:3000', { tags: { name: '02_Grafana_Homepage' } });
 
-    check(res, {
-        'is status 200': (r) => r.status === 200,
-        '02_text verification': (r) =>
-            r.body.includes('Grafana'),
-    });
+    group('Observability: Grafana dashboard', () => {
 
-    ThinkTime();
+        let responses;
+
+        responses = http.batch([
+            ['GET', endpoints.homepage, null, { tags: { ctype: 'html' } }],
+        ], { tag: { name: 'Get Homepage' } });
+        check(responses[0], {
+            'status was 200': (res) => res.status === 200,
+            'text verification': (res) => res.body.includes('Grafana')
+        });
+
+        HomePageTrend.add(responses[0].timings.duration)
+        ThinkTime();
+    })
 }

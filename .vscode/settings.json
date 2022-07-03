@@ -12,6 +12,7 @@
         "configmaps",
         "conftest",
         "crds",
+        "ctype",
         "customresourcedefinitions",
         "daemonsets",
         "DAST",
