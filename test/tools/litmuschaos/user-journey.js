@@ -16,7 +16,7 @@ const endpoints = {
 
 export function checkLitmusChaos() {
 
-  group('Tools: Litmus Chaos', () => {
+  group('Tools: Litmus Chaos is available', () => {
 
     let responses;
 

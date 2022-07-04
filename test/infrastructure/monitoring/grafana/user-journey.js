@@ -16,7 +16,7 @@ const endpoints = {
 
 export function checkGrafana() {
 
-    group('Observability: Grafana dashboard', () => {
+    group('Observability: Grafana dashboard is available', () => {
 
         let responses;
 
