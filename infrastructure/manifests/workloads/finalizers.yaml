@@ -12,6 +12,8 @@ spec:
     - name: linkerd
     - name: metallb
     - name: ingress-nginx
+    - name: monitoring-stack
+    - name: loki-stack
     - name: monitoring-config
     - name: metrics-server
   prune: true
