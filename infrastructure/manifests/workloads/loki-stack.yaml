@@ -15,12 +15,9 @@ spec:
     name: monitoring
   timeout: 5m0s
   healthChecks:
-  # - kind: Deployment
-  #   name: kube-prometheus-stack-operator
-  #   namespace: monitoring
-  # - kind: Deployment
-  #   name: kube-prometheus-stack-grafana
-  #   namespace: monitoring
+  - kind: StatefulSet
+    name: loki-stack
+    namespace: monitoring
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
     name: loki-stack
