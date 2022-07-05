@@ -38,6 +38,8 @@ flux get all --all-namespaces
 
 ./scripts/port-forward.sh
 
+k6 run -o cloud ./test/cluster-smoke-test.js
+
 echo
 echo "Next Steps:"
 echo
@@ -46,12 +48,6 @@ echo "Applications:"
 echo "------------ "
 echo
 echo "Emojivoto:          http://localhost:8080/"
-echo
-echo
-echo "Run Smoke Tests:"
-echo "--------------- "
-echo
-echo "k6 run -o cloud ./test/cluster-smoke-test.js"
 echo
 echo
 echo "Cluster Dashboards:"
