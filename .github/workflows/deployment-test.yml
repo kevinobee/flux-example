@@ -74,11 +74,10 @@ jobs:
         env:
           K6_TOKEN: ${{ secrets.K6_TOKEN }}
 
-      - name: Run k6 local test
-        uses: grafana/k6-action@v0.2.0
+      - name: Run k6 local smoke test
+        uses: grafana/k6-action@55845c6c2e400af4356c84e5b514aeabb1bfdbd4
         with:
           filename: ./test/cluster-smoke-test.js
-          # flags: --vus 50 --duration 10s
 
       - name: Dump Flux state
         if: failure()
