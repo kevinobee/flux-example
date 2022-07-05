@@ -10,7 +10,7 @@ resources:
 - metrics-server.yaml
 - monitoring-stack.yaml
 - monitoring-config.yaml
-- loki-stack.yaml
+# - loki-stack.yaml
 - ingress-nginx.yaml
 - policy-reporter.yaml
 - finalizers.yaml
