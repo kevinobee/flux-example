@@ -29,5 +29,5 @@ fi
 
 echo 'Expose Prometheus on port 9090'
 if [[ ! $(netstat -tlp 2> /dev/null | grep kubectl | grep "localhost:9090") ]]; then
-  kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:80 > /dev/null &
+  kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090 > /dev/null &
 fi
