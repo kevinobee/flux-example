@@ -1,6 +1,6 @@
 export { checkEmojiVotoApp } from './apps/emojivoto/user-journey.js';
 export { checkGrafana } from './infrastructure/monitoring/grafana/user-journey.js';
-export { checkPolicyReporter } from './infrastructure/policy/kynervo/user-journey.js';
+export { checkPolicyReporter } from './infrastructure/policy/kyverno/user-journey.js';
 export { checkLitmusChaos } from './tools/litmuschaos/user-journey.js';
 
 export const options = {

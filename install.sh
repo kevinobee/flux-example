@@ -62,7 +62,7 @@ echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stat
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
 echo
 echo
-echo "View Kynervo Policy Reporter:"
+echo "View kyverno Policy Reporter:"
 echo
 echo "Policy Reporter:    http://localhost:8082"
 echo

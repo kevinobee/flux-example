@@ -18,7 +18,7 @@ if [[ ! $(netstat -tlp 2> /dev/null | grep kubectl | grep "localhost:8080") ]]; 
   kubectl -n emojivoto port-forward svc/web-svc 8080:80 > /dev/null > /dev/null &
 fi
 
-echo 'Expose Kynervo Policy Reporter on port 8082'
+echo 'Expose Policy Reporter on port 8082'
 if [[ ! $(netstat -tlp 2> /dev/null | grep kubectl | grep "localhost:8082") ]]; then
   kubectl -n policy-reporter port-forward service/policy-reporter-policy-reporter-ui 8082:8080 > /dev/null &
 fi

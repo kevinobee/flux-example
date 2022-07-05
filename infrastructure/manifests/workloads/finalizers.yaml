@@ -8,8 +8,8 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/finalizers
   dependsOn:
-    - name: kynervo
-    - name: kynervo-policies
+    - name: kyverno
+    - name: kyverno-policies
     - name: cert-manager
     - name: linkerd
     - name: metallb
