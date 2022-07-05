@@ -34,6 +34,7 @@
         "kubelet",
         "Kubescape",
         "Kustomization",
+        "kynervo",
         "kyverno",
         "leaderboard",
         "linkerd",

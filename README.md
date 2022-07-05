@@ -18,7 +18,7 @@ Deployed Kubernetes cluster contains:
 
     * Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
 
-    <!-- * [Kyverno](https://kyverno.io/) policy management and enforcement -->
+    * [Kyverno](https://kyverno.io/) policy management and enforcement
 
 1. Observability
 

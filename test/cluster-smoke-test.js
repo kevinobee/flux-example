@@ -1,5 +1,6 @@
 export { checkEmojiVotoApp } from './apps/emojivoto/user-journey.js';
 export { checkGrafana } from './infrastructure/monitoring/grafana/user-journey.js';
+export { checkPolicyReporter } from './infrastructure/policy/kynervo/user-journey.js';
 export { checkLitmusChaos } from './tools/litmuschaos/user-journey.js';
 
 export const options = {
@@ -19,11 +20,17 @@ export const options = {
       vus: 2,
       iterations: 5
     },
+    Policy: {
+      executor: 'shared-iterations',
+      exec: 'checkPolicyReporter',
+      vus: 1,
+      iterations: 1
+    },
     Tools: {
       executor: 'shared-iterations',
       exec: 'checkLitmusChaos',
       vus: 1,
-      iterations: 2
+      iterations: 1
     }
   },
 
