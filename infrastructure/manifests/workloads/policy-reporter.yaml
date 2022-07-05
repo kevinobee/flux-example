@@ -26,3 +26,16 @@ spec:
       enabled: true
       plugins:
         kyverno: true
+    metrics:
+      enabled: true
+    monitoring:
+      enabled: true
+    rest:
+      enabled: true
+    resources:
+      limits:
+        memory: 100Mi
+        cpu: 10m
+      requests:
+        memory: 75Mi
+        cpu: 5m
