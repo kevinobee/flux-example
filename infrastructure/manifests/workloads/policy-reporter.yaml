@@ -29,7 +29,7 @@ spec:
     metrics:
       enabled: true
     monitoring:
-      enabled: true
+      enabled: false
     rest:
       enabled: true
     resources:
