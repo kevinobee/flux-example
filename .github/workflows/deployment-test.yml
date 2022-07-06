@@ -56,10 +56,6 @@ jobs:
         run: |
           ./scripts/port-forward.sh
 
-      - name: SAST Configuration (Popeye)
-        run: |
-          popeye --all-namespaces --lint warn --force-exit-zero
-
       - name: DAST (Kubescape)
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
@@ -67,6 +63,10 @@ jobs:
       - name: Security Scanner (Trivy)
         run: |
           trivy k8s --report summary cluster
+
+      - name: Cluster Configuration (Popeye)
+        run: |
+          popeye --all-namespaces --lint warn --force-exit-zero
 
       - name: Login to k6 cloud
         run: |
