@@ -1,0 +1,77 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkerd-proxy-injector
+  namespace: linkerd
+spec:
+  template:
+   spec:
+      containers:
+        - name: linkerd-proxy
+          resources:
+            requests:
+              memory: "80Mi"
+              cpu: "10m"
+            limits:
+              memory: "80Mi"
+              cpu: "10m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkerd-identity
+  namespace: linkerd
+spec:
+  template:
+   spec:
+      containers:
+        - name: identity
+          resources:
+            requests:
+              memory: "48Mi"
+              cpu: "10m"
+            limits:
+              memory: "48Mi"
+              cpu: "10m"
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: linkerd-destination
+  namespace: linkerd
+spec:
+  template:
+   spec:
+      containers:
+        - name: linkerd-proxy
+          resources:
+            requests:
+              memory: "120Mi"
+              cpu: "30m"
+            limits:
+              memory: "120Mi"
+              cpu: "30m"
+
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: linkerd-heartbeat
+  namespace: linkerd
+spec:
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: heartbeat
+              resources:
+                requests:
+                  memory: "64Mi"
+                  cpu: "10m"
+                limits:
+                  memory: "64Mi"
+                  cpu: "10m"
