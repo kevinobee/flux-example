@@ -7,5 +7,5 @@ commonAnnotations:
 resources:
   - https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
 
-patchesStrategicMerge:
-  - patches/resource-limits.yaml
+# patchesStrategicMerge:
+#   - patches/resource-limits.yaml
