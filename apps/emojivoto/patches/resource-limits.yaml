@@ -1,0 +1,19 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vote-bot
+  namespace: emojivoto
+spec:
+  template:
+   spec:
+      containers:
+        - name: vote-bot
+          resources:
+            requests:
+              memory: "64Mi"
+              cpu: "20m"
+            limits:
+              memory: "64Mi"
+              cpu: "20m"
+
