@@ -24,13 +24,13 @@ export const options = {
       executor: 'shared-iterations',
       exec: 'checkPolicyReporter',
       vus: 1,
-      iterations: 1
+      iterations: 5
     },
     Tools: {
       executor: 'shared-iterations',
       exec: 'checkLitmusChaos',
       vus: 1,
-      iterations: 1
+      iterations: 5
     }
   },
 
