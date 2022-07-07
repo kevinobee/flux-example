@@ -9,8 +9,7 @@ spec:
   path: ./infrastructure/source/service-mesh/linkerd
   prune: true
   dependsOn:
-    - name: kyverno
-    - name: kyverno-policies
+    - name: flux-system
   sourceRef:
     kind: GitRepository
     name: flux-system
