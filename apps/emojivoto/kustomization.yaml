@@ -8,11 +8,14 @@ commonLabels:
   app: emojivoto
   tier: application
 
+bases:
+  - github.com/BuoyantIO/emojivoto/kustomize/deployment/
+
 resources:
 # - resource
-- emojivoto.yaml
 - sync.yaml
 
 patchesStrategicMerge:
   - patches/resource-limits.yaml
   - patches/immutable-fs.yaml
+  - patches/disable-sa.yaml
