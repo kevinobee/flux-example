@@ -4,6 +4,10 @@ kind: Kustomization
 commonAnnotations:
   linkerd.io/inject: enabled
 
+commonLabels:
+  app: emojivoto
+  tier: application
+
 resources:
 # - resource
 - emojivoto.yaml
