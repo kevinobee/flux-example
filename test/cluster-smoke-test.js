@@ -7,6 +7,11 @@ export const options = {
 
   // httpDebug: 'full',
 
+  thresholds: {
+    // the rate of successful checks should be higher than 90%
+    checks: ['rate>0.9'],
+  },
+
   scenarios: {
     EmojiVoto: {
       executor: 'shared-iterations',
