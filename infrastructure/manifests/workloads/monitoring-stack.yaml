@@ -6,14 +6,14 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  path: ./manifests/monitoring/kube-prometheus-stack
+  path: ./infrastructure/source/monitoring/kube-prometheus-stack
   prune: true
   dependsOn:
     - name: linkerd
     - name: kyverno
   sourceRef:
     kind: GitRepository
-    name: monitoring
+    name: flux-system
   timeout: 5m0s
   healthChecks:
   - kind: Deployment
