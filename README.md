@@ -34,7 +34,7 @@ Deployed Kubernetes cluster contains:
 
     * [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
 
-    * [Starboard](https://github.com/aquasecurity/starboard) Kubernetes-native toolkit for Security monitoring, image scanning and resource misconfiguration discovery
+    * [Trivy-Operator](https://github.com/aquasecurity/trivy-operator) Automated vulnerability scanning for Kubernetes workloads. image scanning and resource misconfiguration discovery
 
     1. [Octant](https://octant.dev/) CLI provides a developer-centric web interface for inspecting a Kubernetes cluster and its applications
 
