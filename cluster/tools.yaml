@@ -8,7 +8,8 @@ spec:
   interval:  1h0m0s
   path: ./tools/manifests
   dependsOn:
-    - name: finalizers
+    - name: linkerd
+    - name: kyverno-policies
   prune: true
   sourceRef:
     kind: GitRepository
