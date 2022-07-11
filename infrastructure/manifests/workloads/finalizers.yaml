@@ -15,7 +15,7 @@ spec:
     - name: metallb
     - name: ingress-nginx
     - name: prometheus-operator
-    # - name: loki-stack
+    - name: loki
     - name: metrics-server
   prune: true
   sourceRef:

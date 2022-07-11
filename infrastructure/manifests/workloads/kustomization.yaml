@@ -10,7 +10,7 @@ resources:
   - sealed-secrets.yaml
   - metrics-server.yaml
   - prometheus-operator.yaml
-  - loki-stack.yaml
+  - loki.yaml
   - ingress-nginx.yaml
   - policy-reporter.yaml
   - finalizers.yaml
