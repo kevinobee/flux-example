@@ -15,7 +15,6 @@ spec:
     - name: metallb
     - name: ingress-nginx
     - name: prometheus-operator
-    - name: loki
     - name: metrics-server
   prune: true
   sourceRef:
@@ -32,4 +31,8 @@ spec:
   - apiVersion: helm.toolkit.fluxcd.io/v2beta1
     kind: HelmRelease
     name: policy-reporter
+    namespace: flux-system
+  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
+    kind: HelmRelease
+    name: loki
     namespace: flux-system
