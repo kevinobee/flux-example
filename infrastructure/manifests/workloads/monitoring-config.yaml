@@ -6,10 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  path: ./manifests/monitoring/monitoring-config
+  path: ./infrastructure/source/monitoring/monitoring-config
   dependsOn:
     - name: monitoring-stack
   prune: true
   sourceRef:
     kind: GitRepository
-    name: monitoring
+    name: flux-system

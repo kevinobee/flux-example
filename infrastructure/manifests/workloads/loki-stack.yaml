@@ -6,20 +6,10 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  path: ./manifests/monitoring/loki-stack
+  path: ./infrastructure/source/monitoring/loki-stack
   dependsOn:
     - name: monitoring-stack
   prune: true
   sourceRef:
     kind: GitRepository
-    name: monitoring
-  timeout: 5m0s
-  healthChecks:
-  - kind: StatefulSet
-    name: loki-stack
-    namespace: monitoring
-  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    name: loki-stack
-    namespace: monitoring
-
+    name: flux-system

@@ -9,6 +9,7 @@ spec:
   path: ./infrastructure/source/monitoring/kube-prometheus-stack
   prune: true
   dependsOn:
+    - name: flux-system
     - name: linkerd
     - name: kyverno
   sourceRef:

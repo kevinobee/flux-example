@@ -7,9 +7,6 @@ commonLabels:
   tier: infrastructure
 
 bases:
-  - github.com/fluxcd/flux2/manifests/monitoring/kube-prometheus-stack
-
-patchesStrategicMerge:
-  - patches/inject-linkerd.yaml
+  - github.com/fluxcd/flux2/manifests/monitoring/monitoring-config
 
 namespace: monitoring
