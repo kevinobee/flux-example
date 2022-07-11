@@ -10,7 +10,7 @@ set -o nounset;
 
 echo 'Expose Grafana on http://localhost:3000'
 if [[ ! $(ps -ef | grep port-forward | grep grafana | grep 3000) ]]; then
-  kubectl -n monitoring port-forward svc/kube-prometheus-stack-grafana 3000:80 > /dev/null &
+  kubectl -n monitoring port-forward svc/grafana 3000:3000 > /dev/null &
 fi
 
 echo 'Expose Emojivoto on http://localhost:8080'
