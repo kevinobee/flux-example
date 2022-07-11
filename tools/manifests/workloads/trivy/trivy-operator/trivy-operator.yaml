@@ -9,7 +9,7 @@ spec:
   path: ./tools/source/trivy-operator
   prune: true
   dependsOn:
-    - name: finalizers
+    - name: kyverno-policies
   sourceRef:
     kind: GitRepository
     name: flux-system

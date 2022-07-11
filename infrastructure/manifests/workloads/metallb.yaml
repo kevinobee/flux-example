@@ -8,8 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/metallb
   dependsOn:
-    - name: linkerd
-    - name: kyverno
+    - name: kyverno-policies
   prune: true
   sourceRef:
     kind: GitRepository

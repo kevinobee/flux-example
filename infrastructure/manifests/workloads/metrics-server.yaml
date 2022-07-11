@@ -9,8 +9,7 @@ spec:
   path: ./infrastructure/source/metrics-server
   prune: true
   dependsOn:
-    - name: linkerd
-    - name: kyverno
+    - name: kyverno-policies
   sourceRef:
     kind: GitRepository
     name: flux-system

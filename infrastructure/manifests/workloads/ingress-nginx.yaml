@@ -8,9 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/ingress-nginx
   dependsOn:
-    - name: linkerd
-    - name: kyverno
-    - name: metallb
+    - name: kyverno-policies
   prune: true
   sourceRef:
     kind: GitRepository
