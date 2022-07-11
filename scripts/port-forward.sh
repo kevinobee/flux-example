@@ -27,8 +27,3 @@ echo 'Expose Litmus Chaos on http://localhost:9091'
 if [[ ! $(ps -ef | grep port-forward | grep litmuschaos | grep 9091) ]]; then
   kubectl -n litmus port-forward svc/litmus-litmuschaos-frontend-service 9091:9091 > /dev/null &
 fi
-
-echo 'Expose Prometheus on http://localhost:9090'
-if [[ ! $(ps -ef | grep port-forward | grep prometheus | grep 9090) ]]; then
-  kubectl -n monitoring port-forward svc/kube-prometheus-stack-prometheus 9090:9090 > /dev/null &
-fi
