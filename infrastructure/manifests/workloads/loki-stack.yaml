@@ -8,7 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/monitoring/loki-stack
   dependsOn:
-    - name: monitoring-stack
+    - name: prometheus-operator
   prune: true
   sourceRef:
     kind: GitRepository

@@ -9,8 +9,7 @@ resources:
   - metallb.yaml
   - sealed-secrets.yaml
   - metrics-server.yaml
-  - monitoring-stack.yaml
-  - monitoring-config.yaml
+  - prometheus-operator.yaml
   - loki-stack.yaml
   - ingress-nginx.yaml
   - policy-reporter.yaml

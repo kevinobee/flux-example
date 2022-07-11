@@ -4,6 +4,7 @@
         "apiservices",
         "aquasecurity",
         "Bitnami",
+        "blackbox",
         "buoyantio",
         "cainjector",
         "clusterrolebindings",

@@ -1,0 +1,39 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: prometheus-operator
+  namespace: flux-system
+spec:
+  interval: 1h0m0s
+  path: ./infrastructure/source/monitoring/prometheus-operator
+  prune: true
+  validation: server
+  dependsOn:
+    - name: flux-system
+    - name: linkerd
+    - name: kyverno
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: blackbox-exporter
+      namespace: monitoring
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: grafana
+      namespace: monitoring
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kube-state-metrics
+      namespace: monitoring
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: prometheus-adapter
+      namespace: monitoring
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: prometheus-operator
+      namespace: monitoring
