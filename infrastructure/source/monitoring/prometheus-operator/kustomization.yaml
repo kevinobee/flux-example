@@ -6,7 +6,7 @@ commonLabels:
   role: observability
   tier: infrastructure
 
-resources:
+bases:
   - github.com/prometheus-operator/kube-prometheus
 
 patchesStrategicMerge:
