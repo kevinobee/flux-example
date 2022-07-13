@@ -8,8 +8,6 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/service-mesh/linkerd
   prune: true
-  dependsOn:
-    - name: flux-system
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: git-repo

@@ -1,0 +1,54 @@
+---
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: GitRepository
+metadata:
+  name: git-repo
+spec:
+  interval: 1h0m0s
+  ref:
+    branch: main
+  timeout: 60s
+  url: https://github.com/kevinobee/flux-example
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: infrastructure
+spec:
+  interval: 1h0m0s
+  path: ./infrastructure/manifests
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: git-repo
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: apps
+spec:
+  interval: 1h0m0s
+  path: ./apps
+  dependsOn:
+    - name: kyverno-policies
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: git-repo
+
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
+kind: Kustomization
+metadata:
+  name: tools
+spec:
+  interval:  1h0m0s
+  path: ./tools/manifests
+  dependsOn:
+    - name: kyverno-policies
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: git-repo
