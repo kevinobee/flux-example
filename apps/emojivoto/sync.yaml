@@ -17,16 +17,12 @@ spec:
     - apiVersion: apps/v1
       kind: Deployment
       name: emoji
-      namespace: emojivoto
     - apiVersion: apps/v1
       kind: Deployment
       name: vote-bot
-      namespace: emojivoto
     - apiVersion: apps/v1
       kind: Deployment
       name: web
-      namespace: emojivoto
     - apiVersion: apps/v1
       kind: Deployment
       name: voting
-      namespace: emojivoto
