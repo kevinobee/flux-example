@@ -6,8 +6,6 @@ metadata:
 spec:
   interval: 10m0s
   path: ./apps/emojivoto
-  dependsOn:
-    - name: finalizers
   prune: true
   sourceRef:
     kind: GitRepository
