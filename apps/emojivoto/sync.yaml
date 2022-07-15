@@ -12,6 +12,7 @@ spec:
   sourceRef:
     kind: GitRepository
     name: git-repo
+    namespace: flux-system
   validation: client
   healthChecks:
     - apiVersion: apps/v1
