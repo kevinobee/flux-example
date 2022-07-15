@@ -15,7 +15,8 @@ export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 brewTools=( \
   "k6" \
   "kind" \
-  "kubescape"
+  "kubescape" \
+  "kustomize"
 )
 
 if [ ! $(which brew) ]; then
