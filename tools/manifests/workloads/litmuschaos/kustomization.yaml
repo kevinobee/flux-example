@@ -9,5 +9,7 @@ commonLabels:
   tier: tools
 
 resources:
-- namespace.yaml
-- litmuschaos.yaml
+  - namespace.yaml
+  - litmuschaos.yaml
+
+namespace: flux-system
