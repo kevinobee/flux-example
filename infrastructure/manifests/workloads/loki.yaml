@@ -5,6 +5,7 @@ metadata:
   name: loki
 spec:
   interval: 1h0m0s
+  timeout: 10m0s
   releaseName: loki
   targetNamespace: monitoring
   chart:

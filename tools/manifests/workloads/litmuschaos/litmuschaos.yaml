@@ -12,5 +12,5 @@ spec:
         name: litmuschaos
       valuesFiles:
         - values.yaml
-  interval: 10m0s
+  timeout: 10m0s
   targetNamespace: litmus
