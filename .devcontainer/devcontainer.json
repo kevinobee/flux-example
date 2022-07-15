@@ -15,7 +15,10 @@
 
 	// Add the IDs of extensions you want installed when the container is created.
 	"extensions": [
-		"k6.k6"
+		"k6.k6",
+		"ms-kubernetes-tools.vscode-kubernetes-tools",
+		"redhat.vscode-yaml",
+		"weaveworks.vscode-gitops-tools"
 	],
 
 	// Use 'forwardPorts' to make a list of ports inside the container available locally.

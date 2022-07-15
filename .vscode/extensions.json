@@ -1,5 +1,8 @@
 {
     "recommendations": [
-        "k6.k6"
+        "k6.k6",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "redhat.vscode-yaml",
+        "weaveworks.vscode-gitops-tools"
     ]
 }
