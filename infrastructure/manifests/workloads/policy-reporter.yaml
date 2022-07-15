@@ -10,7 +10,6 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: policy-reporter
-  namespace: flux-system
 spec:
   interval: 1h0m0s
   chart:
@@ -20,7 +19,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: policy-reporter
-        namespace: flux-system
   targetNamespace: policy-reporter
   values:
     kyvernoPlugin:
