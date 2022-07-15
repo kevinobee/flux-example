@@ -12,6 +12,8 @@ spec:
         name: litmuschaos
       valuesFiles:
         - values.yaml
+  install:
+    createNamespace: true
   timeout: 10m0s
   interval: 1h0m0s
   targetNamespace: litmus
