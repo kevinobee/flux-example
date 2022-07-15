@@ -19,16 +19,3 @@ spec:
   sourceRef:
     kind: GitRepository
     name: git-repo
-  healthChecks:
-  - kind: Deployment
-    name: sealed-secrets-controller
-    namespace: kube-system
-  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    name: sealed-secrets
-  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    name: policy-reporter
-  - apiVersion: helm.toolkit.fluxcd.io/v2beta1
-    kind: HelmRelease
-    name: loki
