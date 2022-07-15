@@ -13,4 +13,5 @@ spec:
       valuesFiles:
         - values.yaml
   timeout: 10m0s
+  interval: 1h0m0s
   targetNamespace: litmus
