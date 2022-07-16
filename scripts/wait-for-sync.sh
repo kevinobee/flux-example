@@ -9,6 +9,9 @@ set -o nounset;
 # set -x;
 
 echo
+flux get all --all-namespaces
+
+echo
 echo "Wait for infrastructure to be ready ..."
 kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=5m
 kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=10m
@@ -25,3 +28,7 @@ kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --time
 
 echo
 flux get all --all-namespaces
+
+echo
+flux tree kustomization flux-system --compact
+echo

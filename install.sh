@@ -29,11 +29,6 @@ flux bootstrap github \
   --path=./cluster \
   --personal
 
-echo
-flux tree kustomization flux-system --compact
-echo
-flux get all --all-namespaces
-
 ./scripts/wait-for-sync.sh
 
 ./scripts/port-forward.sh
