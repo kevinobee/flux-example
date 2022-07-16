@@ -17,5 +17,6 @@ spec:
         name: grafana
   install:
     crds: Create
+    createNamespace: true
   upgrade:
     crds: CreateReplace
