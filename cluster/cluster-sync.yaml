@@ -32,7 +32,7 @@ spec:
   interval: 1h0m0s
   path: ./apps
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   prune: true
   sourceRef:
     kind: GitRepository
@@ -47,7 +47,7 @@ spec:
   interval:  1h0m0s
   path: ./tools/manifests
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   prune: true
   sourceRef:
     kind: GitRepository

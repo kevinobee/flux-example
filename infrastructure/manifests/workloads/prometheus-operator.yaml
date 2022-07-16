@@ -9,7 +9,7 @@ spec:
   prune: true
   validation: server
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   sourceRef:
     kind: GitRepository
     name: git-repo

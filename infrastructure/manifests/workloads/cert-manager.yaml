@@ -8,7 +8,7 @@ spec:
   path: ./infrastructure/source/cert-manager
   prune: true
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   sourceRef:
     kind: GitRepository
     name: git-repo

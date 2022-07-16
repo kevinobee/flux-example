@@ -7,7 +7,7 @@ spec:
   interval: 1h0m0s
   path: ./infrastructure/source/metallb
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   prune: true
   sourceRef:
     kind: GitRepository

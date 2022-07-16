@@ -8,8 +8,7 @@ spec:
   path: ./infrastructure/source/finalizers
   dependsOn:
     - name: linkerd
-    - name: kyverno
-    - name: kyverno-policies
+    - name: policy
     - name: cert-manager
     - name: metallb
     - name: ingress-nginx

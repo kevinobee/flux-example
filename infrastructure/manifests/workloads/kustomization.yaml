@@ -3,8 +3,7 @@ kind: Kustomization
 
 resources:
   - linkerd.yaml
-  - kyverno.yaml
-  - kyverno-policies.yaml
+  - policy.yaml
   - cert-manager.yaml
   - metallb.yaml
   - sealed-secrets.yaml
@@ -12,7 +11,6 @@ resources:
   - prometheus-operator.yaml
   - loki.yaml
   - ingress-nginx.yaml
-  - policy-reporter.yaml
   - finalizers.yaml
 
 namespace: flux-system

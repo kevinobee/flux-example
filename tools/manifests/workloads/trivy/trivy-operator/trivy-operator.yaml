@@ -8,7 +8,7 @@ spec:
   path: ./tools/source/trivy-operator
   prune: true
   dependsOn:
-    - name: kyverno-policies
+    - name: policy
   sourceRef:
     kind: GitRepository
     name: git-repo
