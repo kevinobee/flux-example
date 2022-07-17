@@ -8,6 +8,7 @@ spec:
   path: ./infrastructure/source/metallb
   dependsOn:
     - name: policy
+    - name: linkerd
   prune: true
   sourceRef:
     kind: GitRepository

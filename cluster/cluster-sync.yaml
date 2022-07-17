@@ -33,6 +33,7 @@ spec:
   path: ./apps
   dependsOn:
     - name: policy
+    - name: linkerd
   prune: true
   sourceRef:
     kind: GitRepository
@@ -48,6 +49,7 @@ spec:
   path: ./tools/manifests
   dependsOn:
     - name: policy
+    - name: linkerd
   prune: true
   sourceRef:
     kind: GitRepository

@@ -8,6 +8,7 @@ spec:
   path: ./infrastructure/source/ingress-nginx
   dependsOn:
     - name: policy
+    - name: linkerd
   prune: true
   sourceRef:
     kind: GitRepository

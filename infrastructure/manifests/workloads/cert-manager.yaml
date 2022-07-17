@@ -9,6 +9,7 @@ spec:
   prune: true
   dependsOn:
     - name: policy
+    - name: linkerd
   sourceRef:
     kind: GitRepository
     name: git-repo
