@@ -17,6 +17,3 @@ spec:
         name: policy-reporter
       valuesFiles:
         - values.yaml
-  valuesFrom:
-    - kind: C
-      name: 
