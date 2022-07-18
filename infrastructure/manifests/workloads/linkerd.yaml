@@ -10,3 +10,16 @@ spec:
   sourceRef:
     kind: GitRepository
     name: git-repo
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: linkerd-destination
+      namespace: linkerd
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: linkerd-identity
+      namespace: linkerd
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: linkerd-proxy-injector
+      namespace: linkerd
