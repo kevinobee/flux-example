@@ -14,7 +14,6 @@ flux get all --all-namespaces
 echo
 echo "Wait for infrastructure to be ready ..."
 kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=5m
-kubectl -n flux-system wait kustomization/finalizers --for=condition=ready --timeout=10m
 
 echo
 echo "Wait for applications to be ready ..."
