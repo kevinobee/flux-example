@@ -13,7 +13,6 @@ spec:
   sourceRef:
     kind: GitRepository
     name: git-repo
-  validation: client
   healthChecks:
     - apiVersion: apps/v1
       kind: Deployment
