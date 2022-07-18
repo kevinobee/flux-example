@@ -35,6 +35,7 @@ spec:
     - name: policy
     - name: linkerd
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -51,6 +52,7 @@ spec:
     - name: policy
     - name: linkerd
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
