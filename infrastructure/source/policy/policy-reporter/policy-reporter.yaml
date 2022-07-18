@@ -17,3 +17,8 @@ spec:
         name: policy-reporter
       valuesFiles:
         - values.yaml
+  install:
+    crds: Create
+    createNamespace: true
+  upgrade:
+    crds: CreateReplace

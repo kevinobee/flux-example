@@ -3,6 +3,9 @@ kind: HelmRelease
 metadata:
   name: litmuschaos
 spec:
+  interval: 1h0m0s
+  timeout: 10m0s
+  targetNamespace: litmus
   chart:
     spec:
       chart: litmus
@@ -13,7 +16,7 @@ spec:
       valuesFiles:
         - values.yaml
   install:
+    crds: Create
     createNamespace: true
-  timeout: 10m0s
-  interval: 1h0m0s
-  targetNamespace: litmus
+  upgrade:
+    crds: CreateReplace
