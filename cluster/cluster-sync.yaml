@@ -32,8 +32,7 @@ spec:
   interval: 1h0m0s
   path: ./apps
   dependsOn:
-    - name: policy
-    - name: linkerd
+    - name: infrastructure
   prune: true
   wait: true
   sourceRef:
@@ -49,8 +48,7 @@ spec:
   interval:  1h0m0s
   path: ./tools/manifests
   dependsOn:
-    - name: policy
-    - name: linkerd
+    - name: infrastructure
   prune: true
   wait: true
   sourceRef:
