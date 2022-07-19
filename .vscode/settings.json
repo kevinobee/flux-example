@@ -25,6 +25,7 @@
         "fluxcd",
         "fullname",
         "giantswarm",
+        "gitops",
         "gotk",
         "grafana",
         "healthz",

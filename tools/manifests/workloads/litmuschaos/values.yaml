@@ -6,10 +6,9 @@ portalScope: cluster
 
 nameOverride: ""
 
-# -- Additional labels
 customLabels:
-  {}
-# my.company.com/concourse-cd: 2
+  app: litmuschaos
+  tier: tools
 
 adminConfig:
   DBUSER: "admin"
@@ -32,7 +31,7 @@ ingress:
   enabled: false
   name: litmus-ingress
   annotations:
-    {}
+    linkerd.io/inject: enabled
     # kubernetes.io/tls-acme: "true"
     # nginx.ingress.kubernetes.io/rewrite-target: /$1
 
@@ -83,14 +82,11 @@ portal:
       tag: 2.9.0
       pullPolicy: "Always"
     containerPort: 8080
-    customLabels: {}
-    # my.company.com/tier: "frontend"
+    customLabels:
+      app: litmuschaos
+      tier: tools
 
     resources:
-    # We usually recommend not to specify default resources and to leave this as a conscious
-    # choice for the user. This also increases chances charts run on environments with little
-    # resources, such as Minikube. If you do want to specify resources, uncomment the following
-    # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
       requests:
         memory: "150Mi"
         cpu: "125m"
@@ -111,7 +107,8 @@ portal:
       successThreshold: 1
       timeoutSeconds: 1
     service:
-      annotations: {}
+      annotations:
+        linkerd.io/inject: enabled
       type: NodePort
       port: 9091
       targetPort: 8080
@@ -136,8 +133,9 @@ portal:
     ##       maxSurge: 1
     ##       maxUnavailable: 25%
     serviceAccountName: litmus-server-account
-    customLabels: {}
-    # my.company.com/tier: "backend"
+    customLabels:
+      app: litmuschaos
+      tier: tools
     waitForMongodb:
       image:
         repository: curl
@@ -256,7 +254,8 @@ portal:
           cpu: "550m"
           ephemeral-storage: "1Gi"
     service:
-      annotations: {}
+      annotations:
+        linkerd.io/inject: enabled
       type: NodePort
       graphqlServer:
         port: 9002
@@ -276,8 +275,8 @@ portal:
 mongo:
   replicas: 1
   customLabels:
-    {}
-  # my.company.com/tier: "database"
+    app: litmuschaos
+    tier: tools
   automountServiceAccountToken: false
   securityContext:
     # runAsUser: 2000
