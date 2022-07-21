@@ -5,7 +5,7 @@ metadata:
   name: finalizers
 spec:
   interval: 1h0m0s
-  path: ./infrastructure/source/finalizers
+  path: ./k8s/infrastructure/source/finalizers
   dependsOn:
     - name: linkerd
     - name: policy

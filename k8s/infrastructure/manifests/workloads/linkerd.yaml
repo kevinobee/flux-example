@@ -5,7 +5,7 @@ metadata:
   name: linkerd
 spec:
   interval: 1h0m0s
-  path: ./infrastructure/source/service-mesh/linkerd
+  path: ./k8s/infrastructure/source/service-mesh/linkerd
   prune: true
   sourceRef:
     kind: GitRepository

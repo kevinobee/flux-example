@@ -5,7 +5,7 @@ metadata:
   name: cert-manager
 spec:
   interval: 1h0m0s
-  path: ./infrastructure/source/cert-manager
+  path: ./k8s/infrastructure/source/cert-manager
   prune: true
   dependsOn:
     - name: policy

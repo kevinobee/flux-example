@@ -83,6 +83,6 @@ flux tree kustomization flux-system --compact
 
 Flux manifests are used to deploy and maintain cluster resources.
 
-Manifests within the `./cluster/` folder are used to bootstrap the cluster.
+Manifests within the `./k8s/cluster/` folder are used to bootstrap the cluster.
 
 The `./infrastructure/source/finalizers` folder contains a `finalizers` Kustomization that is used to ensure all infrastructure resources are deployed before synchronizing application or tool manifests.

@@ -5,7 +5,7 @@ metadata:
   name: prometheus-operator
 spec:
   interval: 1h0m0s
-  path: ./infrastructure/source/monitoring/prometheus-operator
+  path: ./k8s/infrastructure/source/monitoring/prometheus-operator
   prune: true
   validation: server
   dependsOn:

@@ -40,7 +40,7 @@ jobs:
             --owner=$GITHUB_USER \
             --repository=${REPOSITORY} \
             --branch=${GITHUB_REF#refs/heads/} \
-            --path=./cluster \
+            --path=./k8s/cluster \
             --personal
         env:
           GITHUB_USER: ${{ github.actor }}

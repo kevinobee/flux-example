@@ -26,7 +26,7 @@ flux bootstrap github \
   --owner=$GITHUB_USER \
   --repository=flux-example \
   --branch=main \
-  --path=./cluster \
+  --path=./k8s/cluster \
   --personal
 
 ./scripts/wait-for-sync.sh

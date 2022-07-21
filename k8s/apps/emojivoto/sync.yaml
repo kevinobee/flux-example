@@ -5,7 +5,7 @@ metadata:
   name: emojivoto
 spec:
   interval: 10m0s
-  path: ./apps/emojivoto
+  path: ./k8s/apps/emojivoto
   prune: true
   sourceRef:
     kind: GitRepository
