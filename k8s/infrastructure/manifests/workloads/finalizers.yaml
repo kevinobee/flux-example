@@ -15,6 +15,7 @@ spec:
     - name: ingress-nginx
     - name: prometheus-operator
     - name: metrics-server
+    - name: loki
   prune: true
   sourceRef:
     kind: GitRepository
