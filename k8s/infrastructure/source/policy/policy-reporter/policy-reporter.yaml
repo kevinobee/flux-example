@@ -6,8 +6,8 @@ metadata:
   namespace: flux-system
 spec:
   interval: 1h0m0s
-  targetNamespace: policy-reporter
   timeout: 10m0s
+  targetNamespace: policy-reporter
   chart:
     spec:
       chart: policy-reporter
