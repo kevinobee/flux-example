@@ -3,5 +3,8 @@
   "extends": [
     "config:base"
   ],
+  "kubernetes": {
+    "fileMatch": ["k8s/,+\\.yaml$"]
+  },
   "dependencyDashboard": true
 }
