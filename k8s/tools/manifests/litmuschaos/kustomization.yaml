@@ -6,6 +6,7 @@ commonLabels:
   tier: tools
 
 resources:
+  - helm-repo.yaml
   - namespace.yaml
   - litmuschaos.yaml
 
