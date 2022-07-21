@@ -7,5 +7,7 @@ commonLabels:
   tier: infrastructure
 
 resources:
+  - helm-repo.yaml
   - loki.yaml
 
+namespace: flux-system
