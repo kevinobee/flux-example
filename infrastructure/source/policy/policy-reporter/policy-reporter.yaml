@@ -11,14 +11,32 @@ spec:
   chart:
     spec:
       chart: policy-reporter
-      version: 2.10.1
+      version: 2.10.2
       sourceRef:
         kind: HelmRepository
         name: policy-reporter
-      valuesFiles:
-        - values.yaml
   install:
     crds: Create
     createNamespace: true
   upgrade:
     crds: CreateReplace
+  values:
+    kyvernoPlugin:
+      enabled: true
+    ui:
+      enabled: true
+      plugins:
+        kyverno: true
+    metrics:
+      enabled: true
+    monitoring:
+      enabled: false
+    rest:
+      enabled: true
+    resources:
+      limits:
+        memory: 100Mi
+        cpu: 10m
+      requests:
+        memory: 75Mi
+        cpu: 5m
