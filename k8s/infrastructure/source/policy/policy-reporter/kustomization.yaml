@@ -3,4 +3,7 @@ kind: Kustomization
 
 resources:
   - namespace.yaml
+  - helm-repo.yaml
   - policy-reporter.yaml
+
+namespace: flux-system

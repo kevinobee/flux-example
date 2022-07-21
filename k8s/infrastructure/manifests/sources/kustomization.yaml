@@ -4,6 +4,5 @@ kind: Kustomization
 resources:
   - bitnami.yaml
   - grafana.yaml
-  - policy-reporter.yaml
 
 namespace: flux-system
