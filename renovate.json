@@ -4,7 +4,7 @@
     "config:base"
   ],
   "kubernetes": {
-    "fileMatch": ["k8s/,+\\.yaml$"]
+    "fileMatch": ["k8s/.+\\.yaml$"]
   },
   "dependencyDashboard": true
 }
