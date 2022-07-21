@@ -45,26 +45,14 @@ echo
 echo "Emojivoto:          http://localhost:8080/"
 echo
 echo
-echo "Cluster Dashboards:"
-echo "-------------------"
+echo "Monitoring and Tools:"
+echo "-------------------- "
 echo
-echo "View Flux dashboard in Grafana:"
-echo
-echo "  username: admin"
-echo "  password: admin"
-# echo
-# echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
-# echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
-echo
-echo
-echo "View kyverno Policy Reporter:"
+echo "Grafana:            http://localhost:3000   (initial credentials: admin/admin)"
 echo
 echo "Policy Reporter:    http://localhost:8082"
 echo
-echo
-echo "View Litmus ChaosCenter:"
-echo
-echo "Litmus:             http://localhost:9091/"
+echo "Litmus ChaosCenter: http://localhost:9091/"
 echo
 echo
 echo "Cluster Dashboard:"
