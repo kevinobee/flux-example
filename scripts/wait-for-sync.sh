@@ -20,7 +20,7 @@ kubectl -n flux-system	wait kustomization/metallb --for=condition=ready --timeou
 kubectl -n flux-system	wait kustomization/ingress-nginx --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/metrics-server --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/prometheus-operator --for=condition=ready --timeout=5m
-kubectl -n flux-system	wait kustomization/loki --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/loki --for=condition=ready --timeout=10m
 kubectl -n flux-system	wait kustomization/sealed-secrets --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/finalizers --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/infrastructure --for=condition=ready --timeout=5m
