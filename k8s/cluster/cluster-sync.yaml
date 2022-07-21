@@ -37,7 +37,8 @@ spec:
   interval: 1h0m0s
   path: ./k8s/apps
   dependsOn:
-    - name: infrastructure
+    - name: linkerd
+    - name: policy
   prune: true
   wait: true
   sourceRef:
@@ -53,7 +54,8 @@ spec:
   interval:  1h0m0s
   path: ./k8s/tools/manifests
   dependsOn:
-    - name: infrastructure
+    - name: linkerd
+    - name: policy
   prune: true
   wait: true
   sourceRef:
