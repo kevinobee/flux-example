@@ -13,7 +13,18 @@ flux get all --all-namespaces
 
 echo
 echo "Wait for infrastructure to be ready ..."
-kubectl -n flux-system wait kustomization/infrastructure --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/flux-system --for=condition=ready --timeout=5m
+sleep 5s
+kubectl -n flux-system	wait kustomization/linkerd --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/policy --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/cert-manager --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/metallb --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/ingress-nginx --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/metrics-server --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/prometheus-operator --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/sealed-secrets --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/finalizers --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/infrastructure --for=condition=ready --timeout=5m
 
 echo
 echo "Wait for applications to be ready ..."
@@ -22,6 +33,7 @@ kubectl -n emojivoto wait kustomization/emojivoto --for=condition=ready --timeou
 
 echo
 echo "Wait for tools to be ready ..."
+kubectl -n flux-system wait kustomization/trivy-operator --for=condition=ready --timeout=5m
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=10m
 kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --timeout=10m
 
