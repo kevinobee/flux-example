@@ -16,7 +16,7 @@ kind: Kustomization
 metadata:
   name: infrastructure
 spec:
-  interval: 1h0m0s
+  interval: 1m0s
   path: ./k8s/infrastructure/manifests
   prune: true
   sourceRef:
