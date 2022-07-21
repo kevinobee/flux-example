@@ -5,6 +5,5 @@ resources:
   - bitnami.yaml
   - grafana.yaml
   - policy-reporter.yaml
-  - sealed-secrets.yaml
 
 namespace: flux-system
