@@ -29,6 +29,8 @@ flux bootstrap github \
   --path=./k8s/cluster \
   --personal
 
+sleep 5s
+
 ./scripts/wait-for-sync.sh
 
 ./scripts/port-forward.sh
