@@ -51,7 +51,7 @@ echo
 echo "View Flux dashboard in Grafana:"
 echo
 echo "  username: admin"
-echo "  password: prom-operator"
+echo "  password: admin"
 echo
 echo "Flux Cluster Stats: http://localhost:3000/d/flux-cluster/flux-cluster-stats"
 echo "Flux Control Plane: http://localhost:3000/d/flux-control-plane"
