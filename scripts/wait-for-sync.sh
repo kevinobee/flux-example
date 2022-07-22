@@ -9,7 +9,7 @@ set -o nounset;
 # set -x;
 
 echo
-flux get all --all-namespaces
+flux tree kustomization flux-system --compact
 
 echo
 echo "Wait for infrastructure to be ready ..."
