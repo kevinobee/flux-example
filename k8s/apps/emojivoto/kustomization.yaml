@@ -17,7 +17,7 @@ resources:
 
 patchesStrategicMerge:
   - patches/resource-limits.yaml
-  - patches/immutable-fs.yaml
+  - patches/security-context.yaml
   - patches/disable-sa.yaml
 
 namespace: emojivoto

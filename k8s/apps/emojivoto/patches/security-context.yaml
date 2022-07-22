@@ -7,10 +7,15 @@ metadata:
 spec:
   template:
    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
       containers:
         - name: voting-svc
           securityContext:
             readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
 
 ---
 apiVersion: apps/v1
@@ -21,10 +26,15 @@ metadata:
 spec:
   template:
    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
       containers:
         - name: web-svc
           securityContext:
             readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
 
 ---
 apiVersion: apps/v1
@@ -35,10 +45,15 @@ metadata:
 spec:
   template:
    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
       containers:
         - name: emoji-svc
           securityContext:
             readOnlyRootFilesystem: true
+            allowPrivilegeEscalation: false
 
 ---
 apiVersion: apps/v1
@@ -49,9 +64,13 @@ metadata:
 spec:
   template:
    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
       containers:
         - name: vote-bot
           securityContext:
             readOnlyRootFilesystem: true
-
+            allowPrivilegeEscalation: false
 
