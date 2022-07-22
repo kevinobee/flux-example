@@ -44,7 +44,7 @@ echo
 echo "Applications:"
 echo "------------ "
 echo
-echo "Emojivoto:          http://localhost:8080/"
+echo "Emojivoto:          http://localhost:8081/"
 echo
 echo
 echo "Monitoring and Tools:"

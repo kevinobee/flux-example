@@ -13,9 +13,9 @@ if [[ ! $(ps -ef | grep port-forward | grep grafana | grep 3000) ]]; then
   kubectl -n monitoring port-forward svc/grafana 3000:3000 > /dev/null &
 fi
 
-echo 'Expose Emojivoto on http://localhost:8080'
-if [[ ! $(ps -ef | grep port-forward | grep emojivoto | grep 8080) ]]; then
-  kubectl -n emojivoto port-forward svc/web-svc 8080:80 > /dev/null &
+echo 'Expose Emojivoto on http://localhost:8081'
+if [[ ! $(ps -ef | grep port-forward | grep emojivoto | grep 8081) ]]; then
+  kubectl -n emojivoto port-forward svc/web-svc 8081:80 > /dev/null &
 fi
 
 echo 'Expose Policy Reporter on http://localhost:8082'
