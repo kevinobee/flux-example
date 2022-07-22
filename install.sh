@@ -35,7 +35,7 @@ sleep 5s
 
 ./scripts/port-forward.sh
 
-k6 run -o cloud ./test/cluster-smoke-test.js
+k6 run ./test/cluster-smoke-test.js
 
 echo
 echo "Next Steps:"
