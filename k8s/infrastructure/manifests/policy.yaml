@@ -12,3 +12,8 @@ spec:
   sourceRef:
     kind: GitRepository
     name: git-repo
+  healthChecks:
+    - apiVersion: apps/v1
+      kind: Deployment
+      name: kyverno
+      namespace: kyverno
