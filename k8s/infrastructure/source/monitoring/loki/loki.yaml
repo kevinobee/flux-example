@@ -8,6 +8,8 @@ spec:
   timeout: 10m0s
   releaseName: loki
   targetNamespace: monitoring
+  dependsOn:
+    - name: kube-prometheus-stack
   chart:
     spec:
       chart: loki-distributed
