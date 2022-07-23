@@ -2,22 +2,23 @@
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: loki
+  name: promtail
 spec:
   interval: 1h0m0s
   timeout: 10m0s
-  releaseName: loki
   targetNamespace: monitoring
+  dependsOn:
+    - name: kube-prometheus-stack
   chart:
     spec:
-      chart: loki-distributed
-      version: 0.48.6
+      chart: promtail
+      version: 6.0.0
       sourceRef:
         kind: HelmRepository
         name: grafana
-  install:
-    crds: Create
-  upgrade:
-    crds: CreateReplace
-
+  values:
+    config:
+      serverPort: 80
+      clients:
+        - url: http://loki-loki-distributed-gateway/loki/api/v1/push
 

@@ -3,6 +3,7 @@ apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: GitRepository
 metadata:
   name: git-repo
+  namespace: flux-system
 spec:
   interval: 1h0m0s
   ref:
@@ -15,10 +16,12 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: infrastructure
+  namespace: flux-system
 spec:
   interval: 1m0s
   path: ./k8s/infrastructure/manifests
   prune: true
+  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -33,6 +36,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: apps
+  namespace: flux-system
 spec:
   interval: 1h0m0s
   path: ./k8s/apps
@@ -50,6 +54,7 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: tools
+  namespace: flux-system
 spec:
   interval:  1h0m0s
   path: ./k8s/tools/manifests

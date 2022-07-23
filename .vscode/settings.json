@@ -18,6 +18,8 @@
         "customresourcedefinitions",
         "daemonsets",
         "DAST",
+        "Datasource",
+        "datasources",
         "dnsmasq",
         "emojivoto",
         "engineerd",

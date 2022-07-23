@@ -13,7 +13,7 @@ spec:
     - name: sealed-secrets
     - name: metallb
     - name: ingress-nginx
-    - name: prometheus-operator
+    - name: monitoring
     - name: metrics-server
     - name: loki
   prune: true
