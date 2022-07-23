@@ -6,4 +6,4 @@ resources:
   - helm-repo.yaml
   - policy-reporter.yaml
 
-namespace: flux-system
+namespace: policy-reporter

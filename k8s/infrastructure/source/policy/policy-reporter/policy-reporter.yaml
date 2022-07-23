@@ -16,7 +16,6 @@ spec:
         name: policy-reporter
   install:
     crds: Create
-    createNamespace: true
   upgrade:
     crds: CreateReplace
   values:
