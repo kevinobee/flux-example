@@ -8,8 +8,15 @@ spec:
   interval: 1h0m0s
   ref:
     branch: main
-  timeout: 60s
   url: https://github.com/kevinobee/flux-example
+  ignore: |
+    # exclude all
+    /*
+    # include k8s dir
+    !/k8s
+    # exclude file extensions from k8s dir
+    /k8s/**/*.md
+    /k8s/**/*.txt
 
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
