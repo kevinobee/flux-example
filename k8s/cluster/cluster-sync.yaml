@@ -21,7 +21,7 @@ spec:
   interval: 1m0s
   path: ./k8s/infrastructure/manifests
   prune: true
-  wait: true
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -44,7 +44,7 @@ spec:
     - name: linkerd
     - name: policy
   prune: true
-  wait: true
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -62,7 +62,7 @@ spec:
     - name: linkerd
     - name: policy
   prune: true
-  wait: true
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo

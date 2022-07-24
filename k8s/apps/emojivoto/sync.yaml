@@ -7,6 +7,7 @@ spec:
   interval: 10m0s
   path: ./k8s/apps/emojivoto
   prune: true
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo

@@ -6,6 +6,8 @@ metadata:
 spec:
   interval: 1h0m0s
   path: ./k8s/infrastructure/source/finalizers
+  prune: true
+  timeout: 10m
   dependsOn:
     - name: linkerd
     - name: policy
@@ -16,7 +18,6 @@ spec:
     - name: monitoring
     - name: metrics-server
     - name: loki
-  prune: true
   sourceRef:
     kind: GitRepository
     name: git-repo

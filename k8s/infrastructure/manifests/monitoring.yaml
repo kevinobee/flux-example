@@ -8,6 +8,7 @@ spec:
   interval: 1h0m0s
   path: ./k8s/infrastructure/source/monitoring
   prune: true
+  timeout: 10m
   dependsOn:
     - name: linkerd
   sourceRef:
