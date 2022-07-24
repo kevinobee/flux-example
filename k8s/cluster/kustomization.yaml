@@ -5,6 +5,7 @@ bases:
   - flux-system
 
 resources:
+  - git-repo.yaml
   - cluster-sync.yaml
 
 namespace: flux-system

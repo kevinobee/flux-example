@@ -10,6 +10,7 @@ spec:
     - name: policy
     - name: linkerd
   prune: true
+  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo
