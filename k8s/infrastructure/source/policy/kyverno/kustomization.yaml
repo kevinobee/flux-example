@@ -1,13 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
-commonAnnotations:
-  linkerd.io/inject: enabled
-
-commonLabels:
-  app: kyverno
-  tier: infrastructure
-
 resources:
   - https://raw.githubusercontent.com/kyverno/kyverno/main/config/install.yaml
 

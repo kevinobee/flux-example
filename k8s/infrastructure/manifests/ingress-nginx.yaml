@@ -8,7 +8,6 @@ spec:
   path: ./k8s/infrastructure/source/ingress-nginx
   dependsOn:
     - name: policy
-    - name: linkerd
   prune: true
   timeout: 10m
   sourceRef:

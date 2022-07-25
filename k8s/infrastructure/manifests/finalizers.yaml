@@ -7,7 +7,6 @@ spec:
   interval: 1h0m0s
   path: ./k8s/infrastructure/source/finalizers
   prune: true
-  timeout: 10m
   dependsOn:
     - name: linkerd
     - name: policy
@@ -17,7 +16,7 @@ spec:
     - name: ingress-nginx
     - name: monitoring
     - name: metrics-server
-    - name: loki
+    - name: observability
   sourceRef:
     kind: GitRepository
     name: git-repo

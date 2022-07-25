@@ -3,14 +3,13 @@ apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
 metadata:
   name: monitoring
-  namespace: flux-system
 spec:
   interval: 1h0m0s
   path: ./k8s/infrastructure/source/monitoring
   prune: true
   timeout: 10m
   dependsOn:
-    - name: linkerd
+    - name: policy
   sourceRef:
     kind: GitRepository
     name: git-repo
