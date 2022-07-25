@@ -44,7 +44,7 @@ metadata:
   namespace: flux-system
 spec:
   interval:  1h0m0s
-  path: ./k8s/tools/manifests
+  path: ./k8s/tools
   dependsOn:
     - name: linkerd
     - name: policy
