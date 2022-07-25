@@ -3,11 +3,10 @@ kind: Kustomization
 
 commonLabels:
   app: litmuschaos
-  tier: tools
 
 resources:
   - helm-repo.yaml
   - namespace.yaml
   - litmuschaos.yaml
 
-namespace: flux-system
+namespace: litmus

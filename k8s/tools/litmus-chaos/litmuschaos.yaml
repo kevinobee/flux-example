@@ -9,14 +9,14 @@ spec:
   chart:
     spec:
       chart: litmus
-      version: 2.10.2
+      version: 2.10.1
       sourceRef:
         kind: HelmRepository
         name: litmuschaos
-      valuesFiles:
-        - values.yaml
   install:
     crds: Create
-    createNamespace: true
   upgrade:
     crds: CreateReplace
+  values:
+    customLabels:
+      tier: tools
