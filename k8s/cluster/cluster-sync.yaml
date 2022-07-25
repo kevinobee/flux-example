@@ -25,7 +25,7 @@ metadata:
   name: apps
   namespace: flux-system
 spec:
-  interval: 1h0m0s
+  interval: 2m
   path: ./k8s/apps
   dependsOn:
     - name: linkerd
