@@ -38,3 +38,5 @@ spec:
       requests:
         memory: 75Mi
         cpu: 5m
+    nodeSelector:
+      role: observability
