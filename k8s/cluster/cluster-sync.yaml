@@ -5,10 +5,9 @@ metadata:
   name: infrastructure
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 10m
   path: ./k8s/infrastructure/manifests
   prune: true
-  timeout: 10m
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -32,6 +31,7 @@ spec:
     - name: policy
   prune: true
   timeout: 10m
+  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
@@ -50,6 +50,7 @@ spec:
     - name: policy
   prune: true
   timeout: 10m
+  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
