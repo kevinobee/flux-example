@@ -19,7 +19,6 @@ spec:
     crds: CreateReplace
   values:
     customLabels:
-      app: litmuschaos
       tier: tools
     upgradeAgent:
       nodeSelector:
