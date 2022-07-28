@@ -9,7 +9,7 @@ commonLabels:
   tier: infrastructure
 
 resources:
-  - github.com/metallb/metallb//manifests?ref=v0.12.1
+  - github.com/metallb/metallb//manifests?ref=v0.13.4
   - configmap.yaml
 
 patchesStrategicMerge:
