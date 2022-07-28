@@ -8,8 +8,8 @@ spec:
   path: ./k8s/infrastructure/source/finalizers
   prune: true
   dependsOn:
-    - name: linkerd
     - name: policy
+    - name: linkerd
     - name: cert-manager
     - name: sealed-secrets
     - name: metallb

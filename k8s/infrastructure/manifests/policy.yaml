@@ -8,8 +8,6 @@ spec:
   path: ./k8s/infrastructure/source/policy
   prune: true
   timeout: 10m
-  dependsOn:
-    - name: linkerd
   sourceRef:
     kind: GitRepository
     name: git-repo
