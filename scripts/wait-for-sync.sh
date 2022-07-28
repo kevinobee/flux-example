@@ -31,7 +31,6 @@ kubectl -n emojivoto wait kustomization/emojivoto --for=condition=ready --timeou
 
 echo
 echo "Wait for tools to be ready ..."
-kubectl -n flux-system wait kustomization/trivy-operator --for=condition=ready --timeout=5m
 kubectl -n flux-system wait kustomization/tools --for=condition=ready --timeout=10m
 kubectl -n flux-system wait helmrelease/litmuschaos --for=condition=ready --timeout=10m
 
