@@ -8,5 +8,3 @@ resources:
   - helm-repo.yaml
   - namespace.yaml
   - litmuschaos.yaml
-
-namespace: litmus
