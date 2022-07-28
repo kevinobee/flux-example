@@ -7,12 +7,8 @@ metadata:
 spec:
   interval:  1h0m0s
   path: ./k8s/tools
-  dependsOn:
-    - name: linkerd
-    - name: policy
   prune: true
   timeout: 10m
-  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
