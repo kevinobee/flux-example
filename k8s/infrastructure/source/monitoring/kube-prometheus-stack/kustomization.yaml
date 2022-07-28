@@ -9,4 +9,3 @@ resources:
   - helm-repo.yaml
   - prometheus.yaml
 
-namespace: monitoring

@@ -30,27 +30,49 @@ jobs:
           kubectl wait node --all --for condition=ready
           kubectl cluster-info
 
-      - name: Run pre-installation checks
+      - name: Pre-Install Checks
         run: |
           flux check --pre
 
-      - name: Bootstrap Flux
+      - name: Install Flux
         run: |
-          flux bootstrap github \
-            --owner=$GITHUB_USER \
-            --repository=${REPOSITORY} \
-            --branch=${GITHUB_REF#refs/heads/} \
-            --path=./k8s/cluster \
-            --personal
-        env:
-          GITHUB_USER: ${{ github.actor }}
-          GITHUB_TOKEN: ${{ secrets.FLUX_TOKEN }}
-          REPOSITORY: ${{ github.event.repository.name }}
+          flux install
 
-      - name: Reconcile flux-system
+      - name: Post-Install Checks
         run: |
-          flux reconcile kustomization flux-system --with-source
-          ./scripts/wait-for-sync.sh
+          flux check
+
+      - name: Install Git Repo
+        run: |
+          kubectl apply -f k8s/cluster/git-repo.yaml -n flux-system
+
+      - name: Reconcile Git Repo
+        run: |
+          flux reconcile source git git-repo
+
+      - name: Install Infrastructure
+        run: |
+          kubectl apply -f k8s/cluster/infrastructure.yaml -n flux-system
+
+      - name: Reconcile Infrastructure
+        run: |
+          flux reconcile kustomization -n flux-system infrastructure --timeout 10m
+
+      - name: Install Applications
+        run: |
+          kubectl apply -f k8s/cluster/apps.yaml -n flux-system
+
+      - name: Reconcile Applications
+        run: |
+          flux reconcile kustomization -n flux-system apps --timeout 10m
+
+      - name: Install Tools
+        run: |
+          kubectl apply -f k8s/cluster/tools.yaml -n flux-system
+
+      - name: Reconcile Tools
+        run: |
+          flux reconcile kustomization -n flux-system tools --timeout 10m
 
       - name: Expose services
         run: |

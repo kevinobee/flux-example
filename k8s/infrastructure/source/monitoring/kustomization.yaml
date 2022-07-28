@@ -9,5 +9,3 @@ bases:
   - kube-prometheus-stack
   - promtail
   - loki
-
-namespace: monitoring

@@ -6,6 +6,8 @@ bases:
 
 resources:
   - git-repo.yaml
-  - cluster-sync.yaml
+  - infrastructure.yaml
+  - apps.yaml
+  - tools.yaml
 
 namespace: flux-system
