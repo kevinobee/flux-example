@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: policy-reporter
   annotations:
-    linkerd.io/inject: enabled
+    linkerd.io/inject: disabled
