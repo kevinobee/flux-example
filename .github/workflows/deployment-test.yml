@@ -44,37 +44,13 @@ jobs:
         run: |
           flux check
 
-      - name: Install Git Repo
+      - name: Install Root Kustomization (flux-system)
         run: |
-          kubectl apply -f k8s/cluster/git-repo.yaml -n flux-system
+          kubectl apply -k ./k8s/cluster/overlays/local -n flux-system
 
-      - name: Reconcile Git Repo
+      - name: Reconcile flux-system
         run: |
-          flux reconcile source git git-repo
-
-      - name: Install Infrastructure
-        run: |
-          kubectl apply -f k8s/cluster/infrastructure.yaml -n flux-system
-
-      - name: Reconcile Infrastructure
-        run: |
-          flux reconcile kustomization -n flux-system infrastructure --timeout 10m
-
-      - name: Install Applications
-        run: |
-          kubectl apply -f k8s/cluster/apps.yaml -n flux-system
-
-      - name: Reconcile Applications
-        run: |
-          flux reconcile kustomization -n flux-system apps --timeout 10m
-
-      - name: Install Tools
-        run: |
-          kubectl apply -f k8s/cluster/tools.yaml -n flux-system
-
-      - name: Reconcile Tools
-        run: |
-          flux reconcile kustomization -n flux-system tools --timeout 10m
+          flux reconcile kustomization -n flux-system flux-system --timeout 10m
 
       - name: Expose services
         run: |
@@ -83,10 +59,6 @@ jobs:
       - name: DAST (Kubescape)
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
-
-      - name: Security Scanner (Trivy)
-        run: |
-          trivy k8s --report summary cluster
 
       - name: Cluster Configuration (Popeye)
         run: |
@@ -102,6 +74,10 @@ jobs:
         uses: grafana/k6-action@8203a111fe9500ab659601e28e944296bb646b8d
         with:
           filename: ./test/cluster-smoke-test.js
+
+      - name: Security Scanner (Trivy)
+        run: |
+          trivy k8s --report summary cluster
 
       - name: Dump Flux state
         if: failure()
