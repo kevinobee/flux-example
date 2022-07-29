@@ -11,6 +11,7 @@ spec:
   targetNamespace: monitoring
   dependsOn:
     - name: kube-prometheus-stack
+    - name: promtail
   chart:
     spec:
       chart: loki-distributed
