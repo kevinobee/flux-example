@@ -1,5 +1,5 @@
 #!/bin/bash
-# install.sh - create k8s cluster and install GitOps applications using Flux CLI
+# bootstrap.sh - create k8s cluster and bootstraps GitOps applications using Flux CLI
 
 # standard bash error handling
 set -o errexit;
@@ -21,15 +21,17 @@ kubectl cluster-info
 echo
 echo "Install Flux in cluster ..."
 flux check --pre
-flux install
 
-echo
-echo "Install Root Kustomization (flux-system) ..."
-kubectl apply -k ./k8s/cluster/overlays/local -n flux-system
+flux bootstrap github \
+  --owner=$GITHUB_USER \
+  --repository=flux-example \
+  --branch=main \
+  --path=./k8s/cluster \
+  --personal
 
-echo
-echo "Reconcile flux-system ..."
-flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
+sleep 5s
+
+./scripts/wait-for-sync.sh
 
 ./scripts/port-forward.sh
 
