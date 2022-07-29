@@ -50,7 +50,7 @@ jobs:
 
       - name: Reconcile flux-system
         run: |
-          flux reconcile kustomization -n flux-system flux-system --timeout 10m
+          flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
 
       - name: Expose services
         run: |
