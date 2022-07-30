@@ -31,6 +31,8 @@ echo
 echo "Reconcile flux-system ..."
 flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
 
+./scripts/wait-for-sync.sh
+
 ./scripts/port-forward.sh
 
 k6 run ./test/cluster-smoke-test.js
