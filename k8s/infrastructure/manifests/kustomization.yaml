@@ -8,7 +8,6 @@ resources:
   - metallb.yaml
   - sealed-secrets.yaml
   - metrics-server.yaml
-  - monitoring.yaml
   - observability.yaml
   - ingress-nginx.yaml
   - finalizers.yaml
