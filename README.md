@@ -24,7 +24,7 @@ Deployed Kubernetes cluster contains:
 
     * Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
 
-    <!-- * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/) -->
+    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
 
     * [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 
