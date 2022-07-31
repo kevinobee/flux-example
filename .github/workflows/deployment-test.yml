@@ -27,7 +27,7 @@ jobs:
       - name: Setup Kubernetes
         run: |
           if [ ! $(kind get clusters --quiet) ]; then
-            kind create cluster --config kind-config.yaml --name ci-kind
+            kind create cluster --config kind-config.yaml --name kind
             kubectl wait node --all --for condition=ready
           fi
           kubectl cluster-info
