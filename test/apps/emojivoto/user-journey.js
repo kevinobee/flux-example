@@ -9,7 +9,7 @@ let LeaderboardPageTrend = new Trend('EmojiVoto Get leaderboard', true);
 
 const baseUrl = __ENV.EMOJIVOTO_URL
     ? `https://${__ENV.EMOJIVOTO_URL}`
-    : `http://localhost:8081`;
+    : `http://localhost:8080`;
 
 const endpoints = {
     homepage: `${baseUrl}/`,
