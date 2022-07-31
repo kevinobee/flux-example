@@ -52,6 +52,10 @@ jobs:
         run: |
           flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
 
+      - name: Wait for sync to complete
+        run: |
+          ./scripts/wait-for-sync.sh
+
       - name: Expose services
         run: |
           ./scripts/port-forward.sh
