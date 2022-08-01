@@ -4,6 +4,9 @@ kind: Kustomization
 bases:
   - ../../base
 
+commonAnnotations:
+  linkerd.io/inject: enabled
+
 resources:
   - flux-system.yaml
 
