@@ -15,9 +15,9 @@ resources:
 # - resource
   - sync.yaml
 
-# patchesStrategicMerge:
-#   - patches/resource-limits.yaml
-#   - patches/security-context.yaml
-#   - patches/disable-sa.yaml
+patchesStrategicMerge:
+  - patches/resource-limits.yaml
+  - patches/security-context.yaml
+  - patches/disable-sa.yaml
 
 namespace: emojivoto
