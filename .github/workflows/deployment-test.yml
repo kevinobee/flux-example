@@ -60,6 +60,16 @@ jobs:
         run: |
           ./scripts/port-forward.sh
 
+      - name: Build the local manifests as they were built on the cluster
+        run: |
+          flux build kustomization flux-system --path ./k8s > ./.output/kustomize.yaml
+
+      - name: Upload YAML output
+        uses: actions/upload-artifact@v2
+        with:
+          name: kustomize
+          path: ./.output/kustomize.yaml
+
       - name: DAST (Kubescape)
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
