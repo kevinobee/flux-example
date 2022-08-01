@@ -21,6 +21,8 @@ spec:
         serviceMonitorSelectorNilUsesHelmValues: false
         serviceMonitorSelector: {}
         serviceMonitorNamespaceSelector: {}
+        nodeSelector:
+          role: observability
 
     grafana:
       sidecar:
@@ -30,3 +32,15 @@ spec:
         - name: Loki
           type: loki
           url: http://loki-loki-distributed-query-frontend.monitoring:3100
+
+    alertmanagerSpec:
+      nodeSelector:
+        role: observability
+
+    prometheusOperator:
+      admissionWebhooks:
+        patch:
+          nodeSelector:
+            role: observability
+      nodeSelector:
+        role: observability
