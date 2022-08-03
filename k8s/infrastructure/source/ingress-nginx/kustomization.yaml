@@ -5,7 +5,6 @@ commonAnnotations:
   linkerd.io/inject: enabled
 
 commonLabels:
-  app: ingress-nginx
   tier: infrastructure
 
 resources:
