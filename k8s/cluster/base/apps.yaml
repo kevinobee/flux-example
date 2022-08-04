@@ -12,7 +12,6 @@ spec:
     - name: policy
   prune: true
   timeout: 10m
-  wait: true
   sourceRef:
     kind: GitRepository
     name: git-repo
