@@ -21,7 +21,7 @@ echo
 echo "Monitoring and Tools:"
 echo "-------------------- "
 echo
-echo "Grafana:            http://localhost:3000   (initial credentials: admin/admin)"
+echo "Grafana:            http://localhost:3000   (initial credentials: admin/prom-operator)"
 echo
 echo "Policy Reporter:    http://localhost:8082"
 echo
