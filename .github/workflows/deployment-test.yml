@@ -74,9 +74,9 @@ jobs:
         run: |
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
 
-      - name: Cluster Configuration (Popeye)
-        run: |
-          popeye --all-namespaces --lint warn --force-exit-zero
+      # - name: Cluster Configuration (Popeye)
+      #   run: |
+      #     popeye --all-namespaces --lint warn --force-exit-zero
 
       - name: Login to k6 cloud
         run: |
