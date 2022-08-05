@@ -1,8 +1,11 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+commonLabels:
+  tier: application
+
 bases:
-  - github.com/BuoyantIO/emojivoto/kustomize/deployment/
+  - github.com/BuoyantIO/emojivoto/kustomize/deployment
 
 resources:
 # - resource
@@ -12,3 +15,5 @@ patchesStrategicMerge:
   - patches/resource-limits.yaml
   - patches/security-context.yaml
   - patches/disable-sa.yaml
+
+namespace: emojivoto
