@@ -7,5 +7,5 @@ commonAnnotations:
 commonLabels:
   tier: application
 
-resources:
-  - emojivoto
+bases:
+  - podinfo

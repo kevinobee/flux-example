@@ -1,4 +1,4 @@
-export { checkEmojiVotoApp } from './apps/emojivoto/user-journey.js';
+export { checkPodinfoApp } from './apps/podinfo/user-journey.js';
 export { checkGrafana } from './infrastructure/monitoring/grafana/user-journey.js';
 export { checkPolicyReporter } from './infrastructure/policy/kyverno/user-journey.js';
 export { checkLitmusChaos } from './tools/litmuschaos/user-journey.js';
@@ -13,9 +13,9 @@ export const options = {
   },
 
   scenarios: {
-    EmojiVoto: {
+    Podinfo: {
       executor: 'shared-iterations',
-      exec: 'checkEmojiVotoApp',
+      exec: 'checkPodinfoApp',
       vus: 10,
       iterations: 30
     },

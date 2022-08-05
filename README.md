@@ -40,7 +40,7 @@ Deployed Kubernetes cluster contains:
 
 1. Applications
 
-    * [EmojiVoto](https://github.com/BuoyantIO/emojivoto) sample microservice application
+    * [Podinfo](https://github.com/stefanprodan/podinfo) sample microservice application
 
 ## Getting Started
 
@@ -103,37 +103,6 @@ View the Flux `Kustomization` dependency tree with:
 
 ```shell
 flux tree kustomization flux-system --compact
-```
-
-Dependencies for this repo are shown below:
-
-```text
-Kustomization/flux-system/flux-system
-├── Kustomization/flux-system/apps
-│   └── Kustomization/emojivoto/emojivoto
-├── Kustomization/flux-system/infrastructure
-│   ├── Kustomization/flux-system/cert-manager
-│   ├── Kustomization/flux-system/finalizers
-│   ├── Kustomization/flux-system/ingress-nginx
-│   ├── Kustomization/flux-system/linkerd
-│   ├── Kustomization/flux-system/metallb
-│   ├── Kustomization/flux-system/metrics-server
-│   ├── Kustomization/flux-system/observability
-│   │   ├── HelmRelease/flux-system/kube-prometheus-stack
-│   │   ├── HelmRelease/flux-system/loki
-│   │   ├── HelmRelease/flux-system/policy-reporter
-│   │   ├── HelmRelease/flux-system/promtail
-│   │   ├── HelmRepository/flux-system/grafana
-│   │   ├── HelmRepository/flux-system/policy-reporter
-│   │   └── HelmRepository/flux-system/prometheus-community
-│   ├── Kustomization/flux-system/policy
-│   └── Kustomization/flux-system/sealed-secrets
-│       ├── HelmRelease/flux-system/sealed-secrets
-│       └── HelmRepository/flux-system/sealed-secrets
-├── Kustomization/flux-system/tools
-│   ├── HelmRelease/flux-system/litmuschaos
-│   └── HelmRepository/flux-system/litmuschaos
-└── GitRepository/flux-system/git-repo
 ```
 
 ### Flux Manifest Locations

@@ -15,7 +15,7 @@ echo
 echo "Applications:"
 echo "------------ "
 echo
-echo "Emojivoto:          http://localhost:8080/"
+echo "Podinfo:            http://localhost:9898/"
 echo
 echo
 echo "Monitoring and Tools:"
