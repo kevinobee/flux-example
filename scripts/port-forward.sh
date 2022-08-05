@@ -15,7 +15,7 @@ fi
 
 echo 'Expose Emojivoto on http://localhost:8080'
 if [[ ! $(ps -ef | grep port-forward | grep emojivoto | grep 8080) ]]; then
-  kubectl -n emojivoto port-forward svc/web-svc 8080:8080 > /dev/null &
+  kubectl -n emojivoto port-forward svc/web-svc 8080:80 > /dev/null &
 fi
 
 echo 'Expose Policy Reporter on http://localhost:8082'
