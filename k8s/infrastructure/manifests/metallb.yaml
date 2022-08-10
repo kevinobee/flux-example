@@ -9,7 +9,6 @@ spec:
   prune: true
   timeout: 10m
   dependsOn:
-    - name: policy
     - name: linkerd
   sourceRef:
     kind: GitRepository
