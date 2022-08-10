@@ -9,5 +9,5 @@ bases:
   - metrics-server
   - observability
   - policy
-  - sealed-secrets
+  # - sealed-secrets
   - service-mesh

@@ -3,6 +3,6 @@ kind: Kustomization
 
 resources:
   - helm-repo.yaml
-  - sealed-secrets.yaml
+  # - sealed-secrets.yaml
 
 namespace: flux-system

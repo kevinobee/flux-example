@@ -15,8 +15,8 @@ Deployed Kubernetes cluster contains:
     * [MetalLB](https://metallb.org/) bare-metal load balancer
 
     * [NGinx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-
-    * Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets)
+<!-- 
+    * Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) -->
 
     * [Kyverno](https://kyverno.io/) policy management and enforcement
 
