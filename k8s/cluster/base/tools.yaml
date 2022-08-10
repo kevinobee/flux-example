@@ -7,6 +7,8 @@ metadata:
 spec:
   interval:  1h0m0s
   path: ./k8s/tools
+  dependsOn:
+    - name: apps
   prune: true
   timeout: 10m
   sourceRef:
