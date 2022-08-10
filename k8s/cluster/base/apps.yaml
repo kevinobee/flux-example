@@ -8,8 +8,7 @@ spec:
   interval: 2m
   path: ./k8s/apps
   dependsOn:
-    - name: linkerd
-    - name: policy
+    - name: finalizers
   prune: true
   timeout: 10m
   sourceRef:
