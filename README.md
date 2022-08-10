@@ -15,7 +15,7 @@ Deployed Kubernetes cluster contains:
     * [MetalLB](https://metallb.org/) bare-metal load balancer
 
     * [NGinx Ingress Controller](https://kubernetes.github.io/ingress-nginx/)
-<!-- 
+<!--
     * Bitnami [Sealed Secrets](https://github.com/bitnami-labs/sealed-secrets) -->
 
     * [Kyverno](https://kyverno.io/) policy management and enforcement
@@ -23,8 +23,8 @@ Deployed Kubernetes cluster contains:
 1. Observability
 
     * Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
-
-    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
+<!-- 
+    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/) -->
 
     * [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 

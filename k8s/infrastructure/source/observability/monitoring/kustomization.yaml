@@ -4,4 +4,4 @@ kind: Kustomization
 bases:
   - kube-prometheus-stack
   - promtail
-  - loki
+  # - loki
