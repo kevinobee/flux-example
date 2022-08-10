@@ -11,10 +11,12 @@ jobs:
   components:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
+      - name: Checkout code
         uses: actions/checkout@v3
+
       - name: Setup Flux CLI
         uses: fluxcd/flux2/action@main
+
       - name: Check for updates
         id: update
         run: |
@@ -23,6 +25,7 @@ jobs:
 
           VERSION="$(flux -v)"
           echo "::set-output name=flux_version::$VERSION"
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
