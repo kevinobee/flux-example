@@ -52,7 +52,7 @@ jobs:
 
     steps:
       - name: Setup kube-score
-        uses: tobbbles/setup-kubescore@v1.0.2
+        uses: tobbbles/setup-kubescore@v1.0.3
         with:
           version: latest
 
