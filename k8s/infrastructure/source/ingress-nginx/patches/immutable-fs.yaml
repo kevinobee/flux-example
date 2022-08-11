@@ -6,7 +6,7 @@ metadata:
   namespace: ingress-nginx
 spec:
   template:
-   spec:
+    spec:
       containers:
         - name: controller
           securityContext:
