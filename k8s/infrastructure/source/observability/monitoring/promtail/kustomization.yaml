@@ -3,6 +3,6 @@ kind: Kustomization
 
 resources:
   - helm-repo.yaml
-  - promtail.yaml
+  # - promtail.yaml
 
 namespace: flux-system
