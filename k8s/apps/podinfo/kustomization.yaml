@@ -12,4 +12,7 @@ resources:
   - namespace.yaml
   - sync.yaml
 
+patchesStrategicMerge:
+  - patches/immutable-fs.yaml
+
 namespace: podinfo
