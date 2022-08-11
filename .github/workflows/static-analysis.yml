@@ -1,11 +1,11 @@
 name: static-analysis
 
 on:
-  push:
-    branches: [ main ]
-    paths:
-      - 'k8s/**'
-      - '!k8s/**/*.md'
+  # push:
+  #   branches: [ main ]
+  #   paths:
+  #     - 'k8s/**'
+  #     - '!k8s/**/*.md'
 
   workflow_dispatch:
 
@@ -32,7 +32,7 @@ jobs:
     name: Kubescape
     needs: kustomize
     runs-on: ubuntu-latest
-    
+
     steps:
       - name: Install Kubescape
         run: curl -s https://raw.githubusercontent.com/armosec/kubescape/master/install.sh | /bin/bash
