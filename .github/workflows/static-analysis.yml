@@ -20,13 +20,13 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Generate kustomize YAML
-        run: kustomize build ./k8s > kustomize.yaml
+        run: kustomize build ./k8s > ./.output/kustomize.yaml
 
       - name: Upload YAML output
         uses: actions/upload-artifact@v2
         with:
           name: kustomize
-          path: kustomize.yaml
+          path: ./.output/kustomize.yaml
 
   kubescape:
     name: Kubescape
