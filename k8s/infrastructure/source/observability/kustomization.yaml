@@ -8,4 +8,4 @@ commonLabels:
 bases:
   - monitoring
   - policy-reporter
-  - linkerd-viz
+  # - linkerd-viz
