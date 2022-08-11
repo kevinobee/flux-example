@@ -72,6 +72,7 @@ jobs:
 
       - name: DAST (Kubescape)
         run: |
+          brew install kubescape
           kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus
 
       # - name: Cluster Configuration (Popeye)
@@ -91,6 +92,7 @@ jobs:
 
       - name: Security Scanner (Trivy)
         run: |
+          brew install aquasecurity/trivy/trivy
           trivy k8s --report summary cluster
 
       - name: Dump Flux state

@@ -46,11 +46,13 @@ echo
 echo "Report Cluster Resource Issues:"
 echo "------------------------------ "
 echo
+echo "brew install derailed/popeye/popeye"
 echo "popeye"
 echo
 echo
 echo "Run Kubescape Scan:"
 echo "------------------ "
 echo
+echo "brew install kubescape"
 echo "kubescape scan --exclude-namespaces kube-system,kube-public,kube-node-lease,local-path-storage,litmus"
 echo
