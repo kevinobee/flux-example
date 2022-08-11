@@ -42,8 +42,8 @@ jobs:
         with:
           name: kustomize
 
-      - name: Run Kubescape scan for DevOps issues
-        run: kubescape scan framework devopsbest --exclude-namespaces kube-system,kube-public kustomize.yaml --fail-threshold 0
+      - name: Kubescape scan
+        run: kubescape scan framework all kustomize.yaml --verbose --fail-threshold 0 --exclude-namespaces kube-system,kube-public
 
   kube-score:
     name: kube-score
