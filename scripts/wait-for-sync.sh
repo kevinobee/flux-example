@@ -13,8 +13,8 @@ flux tree kustomization flux-system --compact
 
 echo
 echo "Wait for infrastructure to be ready ..."
-kubectl -n flux-system	wait kustomization/linkerd --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/policy --for=condition=ready --timeout=5m
+kubectl -n flux-system	wait kustomization/linkerd --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/cert-manager --for=condition=ready --timeout=5m
 kubectl -n flux-system	wait kustomization/metallb --for=condition=ready --timeout=5m
 # kubectl -n flux-system	wait kustomization/sealed-secrets --for=condition=ready --timeout=5m
