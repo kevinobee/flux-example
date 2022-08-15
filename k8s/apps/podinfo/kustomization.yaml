@@ -14,7 +14,6 @@ resources:
   - sync.yaml
 
 patchesStrategicMerge:
-  - patches/immutable-fs.yaml
-  - patches/priv-escalation.yaml
+  - patches/security-context.yaml
 
 namespace: podinfo

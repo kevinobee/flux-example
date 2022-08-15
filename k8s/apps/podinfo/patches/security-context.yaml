@@ -10,3 +10,7 @@ spec:
       - name: podinfod
         securityContext:
           readOnlyRootFilesystem: true
+          allowPrivilegeEscalation: false
+          # runAsNonRoot: true
+  # securityContext:
+  #   runAsNonRoot: true
