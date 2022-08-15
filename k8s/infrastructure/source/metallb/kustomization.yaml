@@ -8,7 +8,7 @@ commonLabels:
   tier: infrastructure
 
 bases:
-  - https://raw.githubusercontent.com/metallb/metallb/v0.13.4/config/manifests/metallb-native.yaml
+  - https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 
 resources:
   - configmap.yaml
