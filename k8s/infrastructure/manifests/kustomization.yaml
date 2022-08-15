@@ -6,7 +6,7 @@ resources:
   - policy.yaml
   - cert-manager.yaml
   - metallb.yaml
-  # - sealed-secrets.yaml
+  - sealed-secrets.yaml
   - metrics-server.yaml
   - observability.yaml
   - ingress-nginx.yaml
