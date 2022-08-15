@@ -8,6 +8,7 @@ commonLabels:
   tier: infrastructure
 
 bases:
+  - https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/namespace.yaml
   - https://raw.githubusercontent.com/metallb/metallb/v0.12.1/manifests/metallb.yaml
 
 resources:
