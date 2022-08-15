@@ -17,6 +17,7 @@ if [ ! $(kind get clusters --quiet) ]; then
   kubectl wait node --all --for condition=ready
 fi
 kubectl cluster-info
+docker network inspect -f '{{json .IPAM.Config}}' kind
 
 echo
 echo "Install Flux in cluster ..."

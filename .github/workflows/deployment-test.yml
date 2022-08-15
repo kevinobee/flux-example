@@ -31,6 +31,7 @@ jobs:
             kubectl wait node --all --for condition=ready
           fi
           kubectl cluster-info
+          docker network inspect -f '{{json .IPAM.Config}}' kind
 
       - name: Pre-Install Checks
         run: |
