@@ -8,7 +8,7 @@ let HomePageTrend = new Trend('Podinfo Get homepage', true);
 
 const baseUrl = __ENV.PODINFO_URL
     ? `https://${__ENV.PODINFO_URL}`
-    : `http://localhost:9898`;
+    : `http://localhost`;
 
 const endpoints = {
     homepage: `${baseUrl}/`

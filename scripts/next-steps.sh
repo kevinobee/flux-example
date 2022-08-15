@@ -15,7 +15,7 @@ echo
 echo "Applications:"
 echo "------------ "
 echo
-echo "Podinfo:            http://localhost:9898/"
+echo "Podinfo:            http://localhost/"
 echo
 echo
 echo "Monitoring and Tools:"
