@@ -23,20 +23,18 @@ Deployed Kubernetes cluster contains:
 1. Observability
 
     * Monitoring stack using [Grafana](https://grafana.com/) and [Prometheus](https://prometheus.io/)
-<!-- 
-    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/) -->
 
     * [Kubernetes Metrics Server](https://github.com/kubernetes-sigs/metrics-server)
 
     * [Linkerd Viz](https://linkerd.io/) service mesh and Grafana dashboards
+
+    * Log monitoring and alerting using [Loki](https://grafana.com/oss/loki/)
 
 1. Tools
 
     * [LitmusChaos](https://litmuschaos.io/) open source Chaos Engineering platform
 
     * [Trivy-Operator](https://github.com/aquasecurity/trivy-operator) Automated vulnerability scanning for Kubernetes workloads. image scanning and resource misconfiguration discovery
-
-    1. [Octant](https://octant.dev/) CLI provides a developer-centric web interface for inspecting a Kubernetes cluster and its applications
 
 1. Applications
 
