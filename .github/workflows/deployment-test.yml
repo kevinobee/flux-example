@@ -20,6 +20,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Setup Flux CLI
+        uses: fluxcd/flux2/action@main
+
       - name: Setup CLI tools
         run: |
           ./scripts/install-cli-tools.sh
