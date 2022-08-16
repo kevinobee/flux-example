@@ -12,9 +12,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+
       - name: Setup Flux CLI
         uses: fluxcd/flux2/action@main
+
       - name: Setup Kubernetes Kind
         uses: engineerd/setup-kind@v0.5.0
+        with:
+          version: "v0.14.0"
+
+      - name: Cluster Info
+        run: |
+          kubectl cluster-info
+          kubectl get pods -n kube-system
+
+      - name: Network Info
+        run: |
+          docker network inspect -f '{{json .IPAM.Config}}' kind
+
+      - name: Pre-Install Checks
+        run: |
+          flux check --pre
+
       - name: Install Flux in Kubernetes Kind
-        run: flux install
+        run: |
+          flux install
+
+      - name: Post-Install Checks
+        run: |
+          flux check
