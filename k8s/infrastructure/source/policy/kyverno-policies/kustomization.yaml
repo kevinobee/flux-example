@@ -20,7 +20,7 @@ resources:
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_ro_rootfs/require_ro_rootfs.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict-service-external-ips/restrict-service-external-ips.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_image_registries/restrict_image_registries.yaml
-  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_node_port/restrict_node_port.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_node_port/restrict_node_port.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/add_network_policy.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/add_ns_quota.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/check_deprecated_apis.yaml

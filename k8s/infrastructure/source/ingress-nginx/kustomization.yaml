@@ -12,5 +12,6 @@ patchesStrategicMerge:
   - patches/resource-limits.yaml
   - patches/immutable-fs.yaml
   - patches/inject-linkerd.yaml
+  - patches/load-balancer.yaml
 
 namespace: ingress-nginx
