@@ -39,7 +39,7 @@ echo "Service Mesh Dashboard:"
 echo "---------------------- "
 echo
 echo "brew install linkerd"
-echo "linkerd viz install"
+echo "linkerd viz install | kubectl apply -f -"
 echo "linkerd viz dashboard"
 echo
 echo
