@@ -1,0 +1,11 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: litmusportal-server-service
+  namespace: litmus
+spec:
+  selector:
+    component: litmusportal-server
+    tier: tools
+  type: ClusterIP

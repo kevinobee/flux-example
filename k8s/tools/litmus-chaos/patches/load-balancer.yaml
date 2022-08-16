@@ -1,0 +1,12 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: litmusportal-frontend-service
+  namespace: litmus
+spec:
+  selector:
+    component: litmusportal-frontend
+    tier: tools
+  type: LoadBalancer
+  

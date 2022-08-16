@@ -19,6 +19,6 @@ if [[ ! $(ps -ef | grep port-forward | grep policy-reporter | grep 8082) ]]; the
 fi
 
 echo 'Expose Litmus Chaos on http://localhost:9091'
-if [[ ! $(ps -ef | grep port-forward | grep litmuschaos | grep 9091) ]]; then
-  kubectl -n litmus port-forward svc/litmus-litmuschaos-frontend-service 9091:9091 > /dev/null &
+if [[ ! $(ps -ef | grep port-forward | grep litmus | grep 9091) ]]; then
+  kubectl -n litmus port-forward svc/litmusportal-frontend-service 9091:9091 > /dev/null &
 fi
