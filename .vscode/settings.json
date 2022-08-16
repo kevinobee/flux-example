@@ -43,6 +43,7 @@
         "Kustomization",
         "kyverno",
         "leaderboard",
+        "letsencrypt",
         "linkerd",
         "litmuschaos",
         "litmusportal",
