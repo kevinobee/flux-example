@@ -25,7 +25,7 @@ echo "Grafana:            http://localhost:3000   (initial credentials: admin/pr
 echo
 echo "Policy Reporter:    http://localhost:8082"
 echo
-echo "Litmus ChaosCenter: http://localhost:9091/"
+echo "Litmus ChaosCenter: http://localhost:9091   (initial credentials: admin/litmus)"
 echo
 echo
 echo "Cluster Dashboard:"
