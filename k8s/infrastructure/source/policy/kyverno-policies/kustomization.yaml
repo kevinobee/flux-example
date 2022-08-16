@@ -18,7 +18,7 @@ resources:
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_pod_requests_limits/require_pod_requests_limits.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_probes/require_probes.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/require_ro_rootfs/require_ro_rootfs.yaml
-  # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict-service-external-ips/restrict-service-external-ips.yaml
+  - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict-service-external-ips/restrict-service-external-ips.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_image_registries/restrict_image_registries.yaml
   - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/restrict_node_port/restrict_node_port.yaml
   # - https://raw.githubusercontent.com/kyverno/policies/main/best-practices/add_network_policy.yaml
