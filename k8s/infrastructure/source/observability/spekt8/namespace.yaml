@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: spekt8
   annotations:
-    linkerd.io/inject: enabled
+    linkerd.io/inject: disabled
