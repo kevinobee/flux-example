@@ -13,9 +13,9 @@ if [[ ! $(ps -ef | grep port-forward | grep grafana | grep 3000) ]]; then
   kubectl -n monitoring port-forward svc/monitoring-kube-prometheus-stack-grafana 3000:80 > /dev/null &
 fi
 
-echo 'Expose Spekt8 on http://localhost:3001'
-if [[ ! $(ps -ef | grep port-forward | grep spekt8 | grep 3001) ]]; then
-  kubectl -n spekt8 port-forward deployment/spekt8 3001:3000 > /dev/null &
+# echo 'Expose Spekt8 on http://localhost:3001'
+# if [[ ! $(ps -ef | grep port-forward | grep spekt8 | grep 3001) ]]; then
+#   kubectl -n spekt8 port-forward deployment/spekt8 3001:3000 > /dev/null &
 fi
 
 echo 'Expose Policy Reporter on http://localhost:8082'

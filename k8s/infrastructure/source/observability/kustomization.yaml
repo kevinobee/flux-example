@@ -9,3 +9,4 @@ bases:
   - monitoring
   - policy-reporter
   # - linkerd-viz
+  # - spekt8
