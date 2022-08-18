@@ -10,7 +10,8 @@ spec:
   releaseName: loki
   targetNamespace: monitoring
   dependsOn:
-    - name: promtail
+    - name: kube-prometheus-stack
+    # - name: promtail
   chart:
     spec:
       chart: loki-distributed
