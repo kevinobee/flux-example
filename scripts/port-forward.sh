@@ -16,7 +16,7 @@ fi
 # echo 'Expose Spekt8 on http://localhost:3001'
 # if [[ ! $(ps -ef | grep port-forward | grep spekt8 | grep 3001) ]]; then
 #   kubectl -n spekt8 port-forward deployment/spekt8 3001:3000 > /dev/null &
-fi
+# fi
 
 echo 'Expose Policy Reporter on http://localhost:8082'
 if [[ ! $(ps -ef | grep port-forward | grep policy-reporter | grep 8082) ]]; then
