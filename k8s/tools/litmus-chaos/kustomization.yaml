@@ -8,7 +8,7 @@ commonLabels:
   tier: tools
 
 resources:
-  - https://litmuschaos.github.io/litmus/2.4.0/litmus-2.4.0.yaml
+  - https://litmuschaos.github.io/litmus/2.12.0/litmus-2.12.0.yaml
 
 patchesStrategicMerge:
   - patches/load-balancer.yaml
