@@ -42,44 +42,15 @@ Deployed Kubernetes cluster contains:
 
 ## Getting Started
 
-Shell scripts are provider to create a Kubernetes cluster using [Kind](https://kind.sigs.k8s.io/) and populate it with infrastructure, tools and a sample application.
+Shell scripts are provided to create a Kubernetes cluster using [Kind](https://kind.sigs.k8s.io/) and populate it with infrastructure, tools and a sample application from a GitHub repo.
 
-Two options exist:
-
-1. A simple Flux Installation from a GitHub repo
-
-1. A Bootstrapped Flux install that has the potential to modify the cluster with Flux updates.
-
-### Flux Install Option
-
-Run the installation script to create a Kubernetes cluster and populate it with infrastructure, tools and a sample application.
+Run the installation script enter the following command:
 
 ```shell
 ./install.sh
 ```
 
 The installation script will create and test a multi-node cluster running in Docker containers.
-
-### Flux Bootstrap Option
-
-Using the `flux bootstrap` command you can install Flux on a Kubernetes cluster and configure it to manage itself from a Git repository.
-
-This approach is useful if you have forked this repo you may choose to use the Flux CD [Bootstrap](https://fluxcd.io/docs/installation/#bootstrap) approach of synchronizing your Git repo and the running cluster.
-
-To do so follow the instructions below:
-
-1. Define environment variables to access GitHub:
-
-    ```shell
-    export GITHUB_TOKEN=<your-token>
-    export GITHUB_USER=<your-username>
-    ```
-
-2. Run the bootstrap script:
-
-    ```shell
-    ./bootstrap.sh
-    ```
 
 ## Flux GitOps Operations
 
