@@ -4,9 +4,8 @@ kind: Kustomization
 commonAnnotations:
   linkerd.io/inject: enabled
 
-commonLabels:
-  tier: infrastructure
-
 resources:
   - gotk-components.yaml
   - gotk-sync.yaml
+
+namespace: flux-system

@@ -10,7 +10,7 @@ spec:
   prune: true
   sourceRef:
     kind: GitRepository
-    name: git-repo
+    name: flux-system
   healthChecks:
     - apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
       kind: Kustomization

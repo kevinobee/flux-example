@@ -18,4 +18,4 @@ spec:
     - name: observability
   sourceRef:
     kind: GitRepository
-    name: git-repo
+    name: flux-system

@@ -12,7 +12,7 @@ spec:
     - name: linkerd
   sourceRef:
     kind: GitRepository
-    name: git-repo
+    name: flux-system
   healthChecks:
     - apiVersion: helm.toolkit.fluxcd.io/v2beta1
       kind: HelmRelease

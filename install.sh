@@ -23,10 +23,11 @@ echo
 echo "Install Flux in cluster ..."
 flux check --pre
 flux install
+flux check
 
 echo
-echo "Install Root Kustomization (flux-system) ..."
-kubectl apply -k ./k8s/cluster/overlays/local -n flux-system
+echo "Install flux-system kustomization ..."
+kubectl apply -k ./k8s/cluster/flux-system -n flux-system
 
 echo
 echo "Reconcile flux-system ..."

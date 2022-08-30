@@ -6,12 +6,18 @@ metadata:
   name: flux-system
   namespace: flux-system
 spec:
-  interval: 1m0s
+  interval: 2m0s
   ref:
     branch: main
-  secretRef:
-    name: flux-system
-  url: ssh://git@github.com/kevinobee/flux-example
+  url: https://github.com/kevinobee/flux-example
+  ignore: |
+    # exclude all
+    /*
+    # include k8s dir
+    !/k8s
+    # exclude file extensions from k8s dir
+    /k8s/**/*.md
+    /k8s/**/*.txt
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta2
 kind: Kustomization
@@ -20,7 +26,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./k8s/cluster
+  path: ./k8s/cluster/base
   prune: true
   sourceRef:
     kind: GitRepository
