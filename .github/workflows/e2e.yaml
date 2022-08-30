@@ -34,7 +34,7 @@ jobs:
         run: |
           flux check --pre
 
-      - name: Install Flux in Kubernetes Kind
+      - name: Install Flux into Cluster
         run: |
           flux install
 
