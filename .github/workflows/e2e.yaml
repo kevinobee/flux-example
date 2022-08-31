@@ -36,21 +36,21 @@ jobs:
         run: |
           flux check --pre
 
-      - name: Install Flux into Cluster
+      - name: Install Flux
         run: |
-          flux install
-
-      - name: Post-Install Checks
-        run: |
-          flux check
+          kubectl apply -f ./k8s/cluster/flux-system/gotk-components.yaml
 
       - name: Apply flux-system kustomization
         run: |
-          kubectl apply -k ./k8s/cluster/flux-system -n flux-system
+          kubectl apply -k ./k8s/cluster/flux-system
 
       - name: Reconcile flux-system
         run: |
           flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
+
+      - name: Post-Install Checks
+        run: |
+          flux check
 
       - name: Wait for sync to complete
         run: |

@@ -22,7 +22,7 @@ docker network inspect -f '{{json .IPAM.Config}}' kind
 echo
 echo "Install Flux in cluster ..."
 flux check --pre
-flux install
+kubectl apply -f ./k8s/cluster/flux-system/gotk-components.yaml # equiv. to: flux install
 flux check
 
 echo
