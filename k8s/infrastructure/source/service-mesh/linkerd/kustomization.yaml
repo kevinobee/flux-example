@@ -5,6 +5,7 @@ commonLabels:
   tier: infrastructure
 
 resources:
+  - crds.yaml
   - linkerd.yaml
   - priority-class.yaml
 
