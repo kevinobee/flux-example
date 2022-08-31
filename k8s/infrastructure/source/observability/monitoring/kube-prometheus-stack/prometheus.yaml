@@ -28,10 +28,10 @@ spec:
       sidecar:
         datasources:
           defaultDatasourceEnabled: true
-      # additionalDataSources:
-      #   - name: Loki
-      #     type: loki
-      #     url: http://loki-loki-distributed-query-frontend.monitoring:3100
+      additionalDataSources:
+        - name: Loki
+          type: loki
+          url: http://loki-loki-distributed-query-frontend.monitoring:3100
 
     alertmanagerSpec:
       nodeSelector:
