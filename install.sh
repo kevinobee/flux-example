@@ -26,7 +26,7 @@ flux install
 flux check
 
 echo
-echo "Install flux-system kustomization ..."
+echo "Apply flux-system kustomization ..."
 kubectl apply -k ./k8s/cluster/flux-system -n flux-system
 
 echo

@@ -48,9 +48,9 @@ jobs:
         run: |
           flux check
 
-      - name: Install Root Kustomization (flux-system)
+      - name: Apply flux-system kustomization
         run: |
-          kubectl apply -k ./k8s/cluster/overlays/local -n flux-system
+          kubectl apply -k ./k8s/cluster/flux-system -n flux-system
 
       - name: Reconcile flux-system
         run: |
