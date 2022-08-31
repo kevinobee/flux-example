@@ -28,6 +28,7 @@ jobs:
 
       - name: Network Info
         run: |
+          docker network list
           docker network inspect -f '{{json .IPAM.Config}}' kind
 
       - name: Pre-Install Checks
@@ -41,3 +42,35 @@ jobs:
       - name: Post-Install Checks
         run: |
           flux check
+
+      - name: Apply flux-system kustomization
+        run: |
+          kubectl apply -k ./k8s/cluster/flux-system -n flux-system
+
+      - name: Reconcile flux-system
+        run: |
+          flux reconcile kustomization -n flux-system flux-system --with-source --timeout 10m
+
+      - name: Wait for sync to complete
+        run: |
+          ./scripts/wait-for-sync.sh
+
+      - name: Expose services
+        run: |
+          ./scripts/port-forward.sh
+
+      - name: Build the local manifests as they were built on the cluster
+        run: |
+          flux build kustomization flux-system --path ./k8s > ./.output/kustomize.yaml
+
+      - name: Upload YAML output
+        uses: actions/upload-artifact@v3
+        with:
+          name: kustomize
+          path: ./.output/kustomize.yaml
+
+      - name: Dump Flux state
+        if: failure()
+        run: |
+          ./scripts/dump-flux-state.sh
+
