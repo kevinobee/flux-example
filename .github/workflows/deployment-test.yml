@@ -69,7 +69,7 @@ jobs:
           flux build kustomization flux-system --path ./k8s > ./.output/kustomize.yaml
 
       - name: Upload YAML output
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: kustomize
           path: ./.output/kustomize.yaml
