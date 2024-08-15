@@ -90,7 +90,7 @@ jobs:
           K6_TOKEN: ${{ secrets.K6_TOKEN }}
 
       - name: Run k6 local smoke test
-        uses: grafana/k6-action@655099b3d4b0a2b748f84e9e0811616617f8bbc5
+        uses: grafana/k6-action@1e9c55046702f865e9a66c44c1004f47f4d01922
         with:
           filename: ./test/cluster-smoke-test.js
 
